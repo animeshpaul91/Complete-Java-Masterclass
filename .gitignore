@@ -3,3 +3,4 @@
 *.properties
 
 **/**/.idea
+*.jar
