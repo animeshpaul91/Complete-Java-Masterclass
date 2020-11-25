@@ -18,10 +18,9 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        Map<String, Integer> tempExit;
         locations.put(0, new Location(0, "You are sitting in front of a computer learning Java", null));
 
-        tempExit = new HashMap<String, Integer>();
+        Map<String, Integer> tempExit = new HashMap<String, Integer>();
         tempExit.put("W", 2);
         tempExit.put("E", 3);
         tempExit.put("S", 4);
