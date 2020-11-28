@@ -5,15 +5,9 @@ package com.timbuchalka;
  */
 public class StockItem implements Comparable<StockItem> {
     private final String name;
-    private double price;
-    private int quantityInStock = 0;
+    private final double price;
+    private int quantityInStock;
     private int reserved = 0;
-
-    public StockItem(String name, double price) {
-        this.name = name;
-        this.price = price;
-        this.quantityInStock = 0;  // or here (but you wouldn't normally do both).
-    }
 
     public StockItem(String name, double price, int quantityInStock) {
         this.name = name;
@@ -31,12 +25,6 @@ public class StockItem implements Comparable<StockItem> {
 
     public int availableQuantity() {
         return quantityInStock - reserved;
-    }
-
-    public void setPrice(double price) {
-        if(price > 0.0) {
-            this.price = price;
-        }
     }
 
     public void adjustStock(int quantity) {
@@ -62,14 +50,12 @@ public class StockItem implements Comparable<StockItem> {
         return 0;
     }
 
-    public int finaliseStock(int quantity) {
+    public void finaliseStock(int quantity) {
         if (quantity <= reserved) {
             quantityInStock -= quantity;
             reserved -= quantity;
-            return quantity;
         }
 
-        return 0;
     }
 
     @Override
