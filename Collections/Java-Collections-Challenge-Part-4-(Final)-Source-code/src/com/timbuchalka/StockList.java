@@ -14,7 +14,7 @@ public class StockList {
         this.list = new LinkedHashMap<>();
     }
 
-    public int addStock(StockItem item) {
+    public void addStock(StockItem item) {
         if(item != null) {
             // check if already have quantities of this item
             StockItem inStock = list.getOrDefault(item.getName(), item);
@@ -24,19 +24,17 @@ public class StockList {
             }
 
             list.put(item.getName(), item);
-            return item.availableQuantity();
+            item.availableQuantity();
         }
-        return 0;
     }
 
-    public int sellStock(String item, int quantity) {
+    public void sellStock(String item, int quantity) {
         StockItem inStock = list.get(item);
 
         if((inStock != null) && (quantity > 0)) {
-            return inStock.finaliseStock(quantity);
+            inStock.finaliseStock(quantity);
         }
-        return 0;
-//        StockItem inStock = list.getOrDefault(item, null);
+        //        StockItem inStock = list.getOrDefault(item, null);
 //
 //        if((inStock != null) && (inStock.availableQuantity() >= quantity) && (quantity >0)) {
 //            inStock.adjustStock(-quantity);
@@ -82,15 +80,15 @@ public class StockList {
 
     @Override
     public String toString() {
-        String s = "\nStock List\n";
+        StringBuilder s = new StringBuilder("\nStock List\n");
         double totalCost = 0.0;
         for (Map.Entry<String, StockItem> item : list.entrySet()) {
             StockItem stockItem = item.getValue();
 
             double itemValue = stockItem.getPrice() * stockItem.availableQuantity();
 
-            s = s + stockItem + ". There are " + stockItem.availableQuantity() + " in stock. Value of items: ";
-            s = s + String.format("%.2f",itemValue) + "\n";
+            s.append(stockItem).append(". There are ").append(stockItem.availableQuantity()).append(" in stock. Value of items: ");
+            s.append(String.format("%.2f", itemValue)).append("\n");
             totalCost += itemValue;
         }
 
