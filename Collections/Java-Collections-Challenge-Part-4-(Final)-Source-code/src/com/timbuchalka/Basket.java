@@ -52,10 +52,10 @@ public class Basket {
 
     @Override
     public String toString() {
-        String s = "\nShopping basket " + name + " contains " + list.size() + ((list.size() == 1) ? " item" : " items") + "\n";
+        StringBuilder s = new StringBuilder("\nShopping basket " + name + " contains " + list.size() + ((list.size() == 1) ? " item" : " items") + "\n");
         double totalCost = 0.0;
         for (Map.Entry<StockItem, Integer> item : list.entrySet()) {
-            s = s + item.getKey() + ". " + item.getValue() + " purchased\n";
+            s.append(item.getKey()).append(". ").append(item.getValue()).append(" purchased\n");
             totalCost += item.getKey().getPrice() * item.getValue();
         }
         return s + "Total cost " + totalCost;
