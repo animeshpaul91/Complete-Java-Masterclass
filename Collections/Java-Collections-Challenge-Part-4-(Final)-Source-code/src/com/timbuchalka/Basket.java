@@ -13,7 +13,7 @@ public class Basket {
 
     public Basket(String name) {
         this.name = name;
-        this.list = new TreeMap<>();
+         this.list = new TreeMap<>();
     }
 
     public int addToBasket(StockItem item, int quantity) {
