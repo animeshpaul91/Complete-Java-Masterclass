@@ -53,7 +53,7 @@ public class Main {
         System.out.println(sillyString);
     }
 
-    public final static String doStringStuff(UpperConcat uc, String s1, String s2) {
+    public static String doStringStuff(UpperConcat uc, String s1, String s2) {
         return uc.upperAndConcat(s1, s2);
     }
 }
