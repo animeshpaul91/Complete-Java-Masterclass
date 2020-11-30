@@ -26,7 +26,7 @@ public class Main {
         employees.add(jack);
         employees.add(snow);
 
-        Collections.sort(employees, (e1, e2) -> (e1.getName().compareTo(e2.getName())));
+        Collections.sort(employees, (e1, e2) -> e1.getName().compareTo(e2.getName()));
 
         for(Employee employee : employees) {
             System.out.println(employee.getName());
