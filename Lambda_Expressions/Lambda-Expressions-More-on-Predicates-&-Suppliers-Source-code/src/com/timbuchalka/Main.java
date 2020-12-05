@@ -26,7 +26,7 @@ public class Main {
         employees.add(charming);
 
         printEmployeesByAge(employees, "Employees over 30", employee -> employee.getAge() > 30);
-        printEmployeesByAge(employees, "\nEmployees 30 and under", employee ->employee.getAge() <= 30);
+        printEmployeesByAge(employees, "\nEmployees 30 and under", employee -> employee.getAge() <= 30);
         printEmployeesByAge(employees, "\nEmployees younger than 25", new Predicate<Employee>() {
             @Override
             public boolean test(Employee employee) {
@@ -46,7 +46,7 @@ public class Main {
 
         Random random = new Random();
         Supplier<Integer> randomSupplier = () -> random.nextInt(1000);
-        for(int i=0; i<10; i++) {
+        for (int i = 0; i < 10; i++) {
             System.out.println(randomSupplier.get());
         }
 
@@ -59,7 +59,7 @@ public class Main {
 
         System.out.println(ageText);
         System.out.println("==================");
-        for(Employee employee : employees) {
+        for (Employee employee : employees) {
             if (ageCondition.test(employee)) {
                 System.out.println(employee.getName());
             }
