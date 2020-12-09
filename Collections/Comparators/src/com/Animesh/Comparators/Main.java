@@ -45,7 +45,13 @@ public class Main {
 
         System.out.println("======================================================");
 
-        TreeMap<Account, String> map = new TreeMap<>((Account a1, Account a2) -> {
+        TreeMap<Account, String> map = new TreeMap<>((Account a1, Account a2) -> { //Sort by age. If age is equal then sort by name
+            if (a1.equals(a2))
+                return 0;
+            int age1 = a1.getAge();
+            int age2 = a2.getAge();
+            if (age1 < age2)
+                return -1;
             return a1.getName().compareTo(a2.getName());
         });
 
