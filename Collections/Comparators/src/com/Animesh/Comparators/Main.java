@@ -11,7 +11,7 @@ class MyComp implements Comparator<Account> {
         String lastName1 = a1.getName().substring(i);
         String lastName2 = a2.getName().substring(j);
         int c = lastName1.compareTo(lastName2);
-        return c != 0 ? c: a1.getName().compareTo(a2.getName());
+        return c != 0 ? c : a1.getName().compareTo(a2.getName());
     }
 
     @Override
@@ -23,7 +23,7 @@ class MyComp implements Comparator<Account> {
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
         Account animesh = new Account("Animesh Paul", 28, 10000.00);
         Account sandeep = new Account("Sandeep Borpatra Gohain", 28, 12000.00);
         Account swagat = new Account("Swagat Bhattacharya", 27, 15000.00);
@@ -62,7 +62,7 @@ public class Main {
         map.put(praveen, "Praveen Chhetri");
         map.put(rajeev, "Rajeev Chhetri");
 
-        for(Map.Entry<Account, String> item: map.entrySet()) {
+        for (Map.Entry<Account, String> item : map.entrySet()) {
             System.out.println(item.getKey());
         }
     }
