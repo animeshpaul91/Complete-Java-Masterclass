@@ -13,11 +13,6 @@ class MyComp implements Comparator<Account> {
         int c = lastName1.compareTo(lastName2);
         return c != 0 ? c : a1.getName().compareTo(a2.getName());
     }
-
-    @Override
-    public boolean equals(Object o) {
-        return super.equals(o);
-    }
 }
 
 public class Main {
@@ -65,5 +60,14 @@ public class Main {
         for (Map.Entry<Account, String> item : map.entrySet()) {
             System.out.println(item.getKey());
         }
+
+        List<Account> list = new ArrayList<>(set);
+        list.sort(new MyComp());
+        int index = Collections.binarySearch(list, praveen, new MyComp());
+
+        System.out.println("================================================");
+        for(Account account: list)
+            System.out.println(account);
+        System.out.println("The Index found is: " + index);
     }
 }
