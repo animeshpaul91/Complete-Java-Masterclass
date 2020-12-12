@@ -12,7 +12,7 @@ public class ArraysMethods {
         int [] copy = Arrays.copyOf(arr, arr.length);
         System.out.println(Arrays.toString(copy));
         System.out.println(Arrays.equals(arr, copy));
-        Arrays.fill(copy, 12);
+        Arrays.fill(copy, 2, 6, 12);
         System.out.println(Arrays.toString(copy));
         Arrays.sort(arr);
         System.out.println(Arrays.toString(arr));
