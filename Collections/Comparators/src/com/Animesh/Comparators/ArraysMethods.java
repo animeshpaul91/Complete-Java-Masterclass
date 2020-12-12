@@ -16,6 +16,5 @@ public class ArraysMethods {
         System.out.println(Arrays.toString(copy));
         Arrays.sort(arr);
         System.out.println(Arrays.toString(arr));
-        Comparator<Integer> myComp = (a, b) -> Integer.compare(b, a);
     }
 }
