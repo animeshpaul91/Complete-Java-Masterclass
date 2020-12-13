@@ -27,7 +27,7 @@ public class PointMain {
 
         list.sort(myComp);
 
-        for(OrderedPoint orderedPoint: list)
+        for (OrderedPoint orderedPoint : list)
             System.out.println(orderedPoint);
 
         int index = Collections.binarySearch(list, p4, myComp);

@@ -18,7 +18,7 @@ public class PairMain {
         list.add(p1);
 
         Collections.sort(list);
-        for(Pair pair: list)
+        for (Pair pair : list)
             System.out.println(pair);
 
         int index = Collections.binarySearch(list, p4);

@@ -66,7 +66,7 @@ public class Main {
         int index = Collections.binarySearch(list, praveen, new MyComp());
 
         System.out.println("================================================");
-        for(Account account: list)
+        for (Account account : list)
             System.out.println(account);
         System.out.println("The Index found is: " + index);
     }
