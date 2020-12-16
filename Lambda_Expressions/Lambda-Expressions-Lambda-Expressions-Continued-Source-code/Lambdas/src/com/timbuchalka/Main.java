@@ -35,7 +35,7 @@ public class Main {
         Collections.sort(employees, (employee1, employee2) ->
                 employee1.getName().compareTo(employee2.getName()));
 
-        for(Employee employee : employees) {
+        for (Employee employee : employees) {
             System.out.println(employee.getName());
         }
 
@@ -48,7 +48,7 @@ public class Main {
 //        employees.get(0).getName(), employees.get(1).getName());
 //        System.out.println(sillyString);
 
-        UpperConcat uc = (s1, s2) -> s1.toUpperCase() +  s2.toUpperCase();
+        UpperConcat uc = (s1, s2) -> s1.toUpperCase() + s2.toUpperCase();
         String sillyString = doStringStuff(uc, employees.get(0).getName(), employees.get(1).getName());
         System.out.println(sillyString);
     }
