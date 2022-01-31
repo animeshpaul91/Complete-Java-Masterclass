@@ -1,0 +1,7 @@
+template: Hello, %s!
+defaultName: Animesh
+
+logging:
+  level: INFO
+  loggers:
+    io.dropwizard: DEBUG
