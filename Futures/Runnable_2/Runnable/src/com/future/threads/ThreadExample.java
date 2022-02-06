@@ -1,21 +1,14 @@
 package com.future.threads;
 
-import java.time.Duration;
-import java.time.Instant;
-import java.util.concurrent.*;
-import java.util.function.Supplier;
-
-import static java.lang.Thread.sleep;
-
 public class ThreadExample {
-
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         Runnable runnable = new MyRunnable();
         Thread thread = new Thread(runnable);
         thread.start();
-        for (int i = 0; i<20;i++) {
+        for (int i = 0; i < 20; i++) {
             System.out.println("Main running");
         }
+        System.out.println("Main Thread Id: " + Thread.currentThread().getId());
     }
 }
 
