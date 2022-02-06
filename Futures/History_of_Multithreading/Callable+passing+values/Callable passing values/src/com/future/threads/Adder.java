@@ -1,29 +1,27 @@
 package com.future.threads;
 
-import java.time.Instant;
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
 
-import static java.lang.Thread.*;
+import static java.lang.Thread.sleep;
 
 
-public class Adder implements Callable <Integer> {
-    private int number1;
-    private int number2;
+public class Adder implements Callable<Integer> {
+    private final int number1;
+    private final int number2;
 
-    public Adder (Integer number1, Integer number2){
+    public Adder(int number1, int number2) {
         this.number1 = number1;
         this.number2 = number2;
     }
-
 
     @Override
     public Integer call() throws InterruptedException {
         sleep(500);
         int sum = 0;
-        for(number1 = number1; number1 <= number2; number1++) {
-            sum = sum + number1;
+        for (int num = number1; num <= number2; num++) {
+            sum += num;
         }
-        return  sum;
+        return sum;
     }
 
 }
