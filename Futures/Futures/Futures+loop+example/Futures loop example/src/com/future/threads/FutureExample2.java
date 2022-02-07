@@ -8,7 +8,6 @@ import java.util.concurrent.*;
 //Change number of threads
 
 public class FutureExample2 {
-
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         ExecutorService executor = Executors.newFixedThreadPool(4);
         Instant start = Instant.now();
