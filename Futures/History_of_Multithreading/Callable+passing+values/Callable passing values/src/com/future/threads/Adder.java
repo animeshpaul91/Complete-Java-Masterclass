@@ -23,5 +23,4 @@ public class Adder implements Callable<Integer> {
         }
         return sum;
     }
-
 }
