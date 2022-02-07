@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class PredicateStudentExample {
-    private static final Predicate<Student> p1 = (s) -> s.getGradeLevel() >= 3;
+    public static final Predicate<Student> p1 = (s) -> s.getGradeLevel() >= 3;
     private static final Predicate<Student> p2 = (s) -> s.getGpa() >= 3.9;
     private static final List<Student> studentList = StudentDataBase.getAllStudents();
 
