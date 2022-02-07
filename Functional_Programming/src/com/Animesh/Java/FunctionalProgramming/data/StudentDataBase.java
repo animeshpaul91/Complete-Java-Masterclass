@@ -1,4 +1,4 @@
-package com.Animesh.Java.FunctionalProgramming.FunctionalInterfaces.data;
+package com.Animesh.Java.FunctionalProgramming.data;
 
 import java.util.Arrays;
 import java.util.List;

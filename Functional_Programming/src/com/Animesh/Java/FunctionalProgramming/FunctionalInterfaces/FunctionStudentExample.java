@@ -1,8 +1,8 @@
 package com.Animesh.Java.FunctionalProgramming.FunctionalInterfaces;
 
 
-import com.Animesh.Java.FunctionalProgramming.FunctionalInterfaces.data.Student;
-import com.Animesh.Java.FunctionalProgramming.FunctionalInterfaces.data.StudentDataBase;
+import com.Animesh.Java.FunctionalProgramming.data.Student;
+import com.Animesh.Java.FunctionalProgramming.data.StudentDataBase;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,6 +1,5 @@
-package com.Animesh.Java.FunctionalProgramming.FunctionalInterfaces.data;
+package com.Animesh.Java.FunctionalProgramming.data;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Student {
