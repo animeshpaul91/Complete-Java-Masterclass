@@ -8,8 +8,8 @@ import java.util.function.Predicate;
 
 public class PredicateStudentExample {
     public static final Predicate<Student> p1 = (s) -> s.getGradeLevel() >= 3;
-    private static final Predicate<Student> p2 = (s) -> s.getGpa() >= 3.9;
-    private static final List<Student> studentList = StudentDataBase.getAllStudents();
+    public static final Predicate<Student> p2 = (s) -> s.getGpa() >= 3.9;
+    public static final List<Student> studentList = StudentDataBase.getAllStudents();
 
     private static void filterStudentsAnd() {
         System.out.println("Filter Students And: ");
