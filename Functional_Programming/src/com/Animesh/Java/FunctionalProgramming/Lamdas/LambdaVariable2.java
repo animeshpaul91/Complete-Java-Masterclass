@@ -11,6 +11,7 @@ public class LambdaVariable2 {
             value = 6;
             System.out.println(value); // reading and writing instance and static values are allowed within lambda
             // localValue++; // modifying local value is not allowed within lambda
+            // local variables inside lambda functions are treated as effectively final.
             System.out.println(localValue); // reading local value is allowed within lambda
         };
         // value = 6 // modifying local value outside lambda is allowed
