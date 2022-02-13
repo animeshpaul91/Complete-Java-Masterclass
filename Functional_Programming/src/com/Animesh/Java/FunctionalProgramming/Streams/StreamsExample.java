@@ -13,13 +13,13 @@ public class StreamsExample {
     public static void main(String[] args) {
 
         Predicate<Student> gradePredicate = student -> student.getGradeLevel() >= 3;
-        Predicate<Student> gpaPredicate = student -> student.getGradeLevel() >= 3.9;
+        Predicate<Student> gpaPredicate = student -> student.getGpa() >= 3.9;
 
 
         Map<String, List<String>> studentMap = StudentDataBase.getAllStudents().stream(). //.parallelStream dont forget.
-                filter(gpaPredicate) // Stream<Student>
-                .filter(gradePredicate)
-                .collect(Collectors.toMap(Student::getName, Student::getActivities));
+                filter(gradePredicate). // returns Stream<Student>
+                filter(gpaPredicate)  // returns Stream<Student>
+                .collect(Collectors.toMap(Student::getName, Student::getActivities)); // Terminal operator. This actually starts the pipeline.
 
         System.out.println("studentMap  : " + studentMap);
 
