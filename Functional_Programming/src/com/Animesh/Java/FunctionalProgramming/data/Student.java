@@ -36,6 +36,10 @@ public class Student {
         return name;
     }
 
+    public void printName() {
+        System.out.print(getName() + " ");
+    }
+
     public void setName(String name) {
         this.name = name;
     }
