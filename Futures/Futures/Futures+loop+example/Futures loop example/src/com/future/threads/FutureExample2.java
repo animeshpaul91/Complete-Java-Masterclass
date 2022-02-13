@@ -12,7 +12,7 @@ public class FutureExample2 {
         ExecutorService executor = Executors.newFixedThreadPool(4);
         Instant start = Instant.now();
 
-        for (int i = 0; i<=9; i++) {
+        for (int i = 0; i <= 9; i++) {
             OrderFetcher orderFetcher = new OrderFetcher();
             Future<Integer> future1 = executor.submit(orderFetcher);
 

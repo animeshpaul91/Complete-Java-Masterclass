@@ -2,15 +2,15 @@ package com.future.threads;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 //Timer
 //Change number of threads
 
 public class FutureExample2 {
-
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         ExecutorService executor = Executors.newFixedThreadPool(4);
         Instant start = Instant.now();
@@ -33,8 +33,5 @@ public class FutureExample2 {
         long timeElapsed = Duration.between(start, end).toMillis();
         System.out.println("Total time " + timeElapsed);
         executor.shutdown();
-
-
     }
-
 }
