@@ -30,16 +30,15 @@ public class StreamsExample {
                 .distinct() // removes duplicates
                 .collect(Collectors.toList()); //collects it to a list.
 
-//        List<String> namesList = StudentDataBase.getAllStudents().
-//                stream() // Stream<Student>
-//                .peek((student -> {
-//                    System.out.println(student);
-//                }))
-//                .map(Student::getName) //<Stream<List<Activites>>
-//                .peek(System.out::println)
-//                .distinct() // removes duplicates
-//                .collect(Collectors.toList()); //collects it to a list.
+//        System.out.println(studentActivities);
 
-        // System.out.println("namesList  : " + namesList);
+        List<String> namesList = StudentDataBase.getAllStudents().
+                stream() // Stream<Student>
+                .map(Student::getName) //<Stream<List<Activites>>
+                .peek(System.out::println)
+                .distinct() // removes duplicates
+                .collect(Collectors.toList()); //collects it to a list.
+
+         System.out.println("namesList  : " + namesList);
     }
 }
