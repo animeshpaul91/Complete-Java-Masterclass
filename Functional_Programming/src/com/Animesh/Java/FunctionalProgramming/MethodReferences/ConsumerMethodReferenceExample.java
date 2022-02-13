@@ -24,5 +24,4 @@ public class ConsumerMethodReferenceExample {
         // StudentDataBase.getAllStudents().forEach(c2);
         StudentDataBase.getAllStudents().forEach(c3);
     }
-
 }
