@@ -49,10 +49,12 @@ public class Student {
         this.gpa = gpa;
     }
 
-
-
     public List<String> getActivities() {
         return activities;
+    }
+
+    public void printListOfActivities() {
+        System.out.println(getActivities());
     }
 
     public void setActivities(List<String> activities) {
