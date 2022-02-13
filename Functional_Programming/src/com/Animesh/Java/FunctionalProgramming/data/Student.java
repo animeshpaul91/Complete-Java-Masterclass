@@ -7,9 +7,10 @@ public class Student {
     private int gradeLevel;
     private double gpa;
     private String gender;
-    List<String> activities;
+    private List<String> activities;
 
-    public Student() {}
+    public Student() {
+    }
 
     public Student(String name) {
         this.name = name;
@@ -77,6 +78,4 @@ public class Student {
                 ", activities=" + activities +
                 '}';
     }
-
-
 }
