@@ -55,6 +55,7 @@ public class SupplierFunctionAndConsumerExample2 {
                                                 .thenAccept(paymentAcceptor);
         sleep(500);
         cf1.complete("Payment Not Accepted");
+//        cf1.obtrudeValue("Payment Obtruded"); // this state will be added regardless of completion.
         // Manual Completion in case the completion of pipeline is conditional can be used to add a default completion state.
         System.out.println(cf1.get());
         sleep(1000);
