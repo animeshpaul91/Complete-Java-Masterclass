@@ -59,9 +59,10 @@ public class SupplierFunctionAndConsumerExample {
         for (int i = 0; i <= 9; i++) {
             CompletableFuture.supplyAsync(orderFetcher, executor)
                     .thenApply(inventoryChecker)
-                    .thenAccept(paymentAcceptor2);
+                    .thenAccept(paymentAcceptor2); // everything happens in a separate thread
         }
 
+        // main no longer needs to be blocked
         //System.out.println(cf1.join());
         sleep(1000);
         executor.shutdown();
