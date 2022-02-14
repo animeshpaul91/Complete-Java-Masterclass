@@ -36,14 +36,6 @@ public class SupplierFunctionAndConsumerExample4 {
                 return CompletableFuture.supplyAsync(() -> Boolean.FALSE);
         };
 
-        /*Function<Integer, Boolean > inventoryChecker = orderNumber -> {
-            sleep(200);
-            if (orderNumber % 2 == 0)
-                return Boolean.TRUE;
-            else
-                return Boolean.FALSE;
-        };*/
-
         Consumer<Boolean> paymentAcceptor = isInventoryPresent -> {
             if (isInventoryPresent) {
                 System.out.println("payment accepted");
