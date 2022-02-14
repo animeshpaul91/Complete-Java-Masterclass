@@ -66,6 +66,10 @@ public class SupplierFunctionAndConsumerExample {
         //System.out.println(cf1.join());
         sleep(1000);
         executor.shutdown();
+
+        /* Main Advantages of Completable Futures
+        1. Threads no longer have to return to main to report the completion of tasks.
+        2. Main thread no longer remains blocked. */
     }
 
     private static void sleep(int timeout) {
