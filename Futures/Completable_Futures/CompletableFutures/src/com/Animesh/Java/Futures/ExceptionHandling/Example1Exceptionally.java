@@ -14,7 +14,8 @@ public class Example1Exceptionally {
         };
 
         CompletableFuture<Integer> completableFuture = CompletableFuture
-                .supplyAsync(divider).exceptionally(exception -> { // exceptionally does not get called if an exception is not thrown (Normal Execution)
+                .supplyAsync(divider).exceptionally(exception -> {
+                    // exceptionally does not get called if an exception is not thrown (Normal Execution)
                     System.err.println("exception: " + exception);
                     // Swallow
                     return -1; // return a replacement value
