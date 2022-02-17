@@ -16,7 +16,7 @@ public class Example4Handle {
                     if (exception != null) {
                         System.out.println("exception block");
                         System.err.println(exception);
-                        return -1;
+                        return -1; // can return a value, so provides more flexibility
                     } else {
                         System.out.println("normal execution  block");
                         return input;
