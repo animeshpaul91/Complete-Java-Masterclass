@@ -26,6 +26,21 @@ public class StringHelperTest {
 		assertEquals("CD", helper.truncateAInFirst2Positions("ACD"));
 	}
 
+	@Test
+	public void testHumanName() {
+		assertEquals("NIMESH", helper.truncateAInFirst2Positions("ANIMESH"));
+	}
+
+	@Test
+	public void testStringWithoutA() {
+		assertEquals("CDEF", helper.truncateAInFirst2Positions("CDEF"));
+	}
+
+	@Test
+	public void testTruncateAInLastTwoPositions() {
+		assertEquals("CDEF", helper.truncateAInLast2Positions("CDEFAA"));
+	}
+
 	// ABCD => false, ABAB => true, AB => true, A => false
 	@Test
 	public void testAreFirstAndLastTwoCharactersTheSame_BasicNegativeScenario() {
@@ -38,17 +53,12 @@ public class StringHelperTest {
 	}
 
 	@Test
-	public void testHumanNames() {
-		assertEquals("NIMESH", helper.truncateAInFirst2Positions("ANIMESH"));
+	public void testAreFirstAndLastTwoCharactersTheSameInStringOfLength2() {
+		assertTrue(helper.areFirstAndLastTwoCharactersTheSame("AB"));
 	}
 
 	@Test
-	public void testStringWithoutA() {
-		assertEquals("CDEF", helper.truncateAInFirst2Positions("CDEF"));
-	}
-
-	@Test
-	public void testTruncateAInLastTwoPositions() {
-		assertEquals("CDEF", helper.truncateAInLast2Positions("CDEFAA"));
+	public void testAreFirstAndLastTwoCharactersTheSameInStringOfLength1() {
+		assertFalse(helper.areFirstAndLastTwoCharactersTheSame("A"));
 	}
 }
