@@ -6,14 +6,13 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class StringHelperTest {
-
 	// AACD => CD ACD => CD CDEF=>CDEF CDAA => CDAA
-
 	private static StringHelper helper;
-	
-	@Before
-	public void before(){
-		helper = new StringHelper();
+
+	@Before // runs before every test
+	public void setupBeforeTest(){
+		helper = new StringHelper(); // this gets invoked/setup before every test executes
+		// each test runs with a new instance of StringHelper
 	}
 
 	@Test

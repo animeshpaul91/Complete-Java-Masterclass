@@ -1,12 +1,6 @@
 package com.in28minutes.junit.helper;
 
-import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 public class QuickBeforeAfterTest {
 	
@@ -15,9 +9,9 @@ public class QuickBeforeAfterTest {
 		System.out.println("Before Class");
 	}
 	
-	@Before
-	public void setup(){
-		System.out.println("Before Test");
+	@Before // runs before every test
+	public void setup(){ // this gets invoked/setup before every test executes
+		System.out.println("Before Test"); // each test runs with a new instance of StringHelper
 	}
 
 	@Test
