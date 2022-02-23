@@ -1,16 +1,15 @@
 package com.bharath.product.dao;
 
-import static org.junit.Assert.*;
-
+import com.bharath.product.dto.Product;
 import org.junit.Test;
 
-import com.bharath.product.dto.Product;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class ProductDAOImplTest {
 
 	@Test
 	public void createShouldCreateAProduct() {
-
 		ProductDAO dao = new ProductDAOImpl();
 		Product product = new Product();
 		product.setId(1);
@@ -19,10 +18,7 @@ public class ProductDAOImplTest {
 		product.setPrice(800);
 		dao.create(product);
 		Product result = dao.read(1);
-
 		assertNotNull(result);
 		assertEquals("Ipad", result.getName());
-
 	}
-
 }
