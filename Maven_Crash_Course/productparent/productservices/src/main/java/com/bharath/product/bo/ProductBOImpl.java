@@ -6,16 +6,16 @@ import com.bharath.product.dto.Product;
 
 public class ProductBOImpl implements ProductBO {
 
-	private static ProductDAO dao = new ProductDAOImpl();
+    private static final ProductDAO dao = new ProductDAOImpl();
 
-	@Override
-	public void create(Product product) {
-		dao.create(product);
-	}
+    @Override
+    public void create(Product product) {
+        dao.create(product);
+    }
 
-	@Override
-	public Product findProduct(int id) {
-		return dao.read(id);
-	}
+    @Override
+    public Product findProduct(int id) {
+        return dao.read(id);
+    }
 
 }
