@@ -8,13 +8,13 @@
 	<servlet>
 		<servlet-name>CreateProductServlet</servlet-name>
 		<display-name>CreateProductServlet</display-name>
-		<description></description>
+		<description/>
 		<servlet-class>com.bharath.prodcut.servlets.CreateProductServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>DisplayProductDetailsServlet</servlet-name>
 		<display-name>DisplayProductDetailsServlet</display-name>
-		<description></description>
+		<description/>
 		<servlet-class>com.bharath.prodcut.servlets.DisplayProductDetailsServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
@@ -25,6 +25,4 @@
 		<servlet-name>DisplayProductDetailsServlet</servlet-name>
 		<url-pattern>/DisplayProductDetailsServlet</url-pattern>
 	</servlet-mapping>
-
-
 </web-app>
