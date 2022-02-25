@@ -9,8 +9,8 @@
 	<artifactId>productweb</artifactId>
 	<packaging>war</packaging>
 
-	<name>productweb Maven Webapp</name>
-	<url>http://maven.apache.org</url>
+	<name>Product Web Maven Webapp</name>
+	<url>https://maven.apache.org</url>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -39,5 +39,6 @@
 	</dependencies>
 	<build>
 		<finalName>productweb</finalName>
+		<!-- Override the name of the final WAR file -->
 	</build>
 </project>
