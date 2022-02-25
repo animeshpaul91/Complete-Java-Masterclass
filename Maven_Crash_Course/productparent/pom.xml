@@ -7,8 +7,9 @@
 	<artifactId>productparent</artifactId>
 	<version>1.0</version>
 	<packaging>pom</packaging>
+	<!-- Packaging for Parent Project needs to be pom -->
 
-	<name>productparent</name>
+	<name>Product Parent</name>
 	<url>https://maven.apache.org</url>
 
 	<properties>
@@ -16,13 +17,9 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.13.2</version>
-		</dependency>
-	</dependencies>
+	<dependencies/>
+
+	<!-- Need to specify the names of all child modules -->
 	<modules>
 		<module>productservices</module>
 		<module>productweb</module>
