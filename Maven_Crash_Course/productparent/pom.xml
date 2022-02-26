@@ -16,6 +16,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<junit.version>4.4</junit.version>
+		<maven.compiler.plugin.version>3.2</maven.compiler.plugin.version>
 	</properties>
 
 	<dependencies/>
@@ -31,6 +32,26 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<!-- This section sets the plugin versions globally throughout the project -->
+			<plugins>
+				<!-- Plugin to Configure Java Compiler Version -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven.compiler.plugin.version}</version>
+					<!-- This section sets the maven compiler plugin version globally throughout the project -->
+					<configuration>
+						<source>${maven.compiler.source}</source>
+						<target>${maven.compiler.target}</target>
+					</configuration>
+					<!-- This configuration version information also need not be re-declared in child pom -->
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 
 	<!-- Need to specify the names of all child modules -->
 	<modules>
