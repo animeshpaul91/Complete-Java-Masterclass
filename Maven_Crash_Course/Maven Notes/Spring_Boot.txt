@@ -1,0 +1,5 @@
+Features SpringBoot provides out of the Box:
+1. Auto Configuration
+2. Spring Boot Starters
+3. Embedded Servlet Container
+4. Spring Boot Actuators (mappings, health checks)
