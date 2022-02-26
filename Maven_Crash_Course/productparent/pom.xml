@@ -15,9 +15,22 @@
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<junit.version>4.4</junit.version>
 	</properties>
 
 	<dependencies/>
+
+	<dependencyManagement>
+		<!-- This section sets the dependency versions globally throughout the project -->
+		<dependencies>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<!-- This sets the version for junit to be 4.4 to be used throughout the project -->
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<!-- Need to specify the names of all child modules -->
 	<modules>
