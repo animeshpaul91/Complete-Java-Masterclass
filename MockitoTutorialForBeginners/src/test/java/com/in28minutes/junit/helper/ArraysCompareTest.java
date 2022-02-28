@@ -8,6 +8,7 @@ import static org.junit.Assert.assertArrayEquals;
 
 public class ArraysCompareTest {
 
+    // Assert on Arrays
     @Test
     public void testArraySort_RandomArray() { // testing two Arrays. This matches the contents and not the object in memory
         int[] numbers = {12, 3, 4, 1};
@@ -16,12 +17,14 @@ public class ArraysCompareTest {
         assertArrayEquals(expected, numbers);
     }
 
+    // Testing Exceptions
     @Test(expected = NullPointerException.class) // we're expecting a null-pointer exception, always
     public void testArraySort_NullArray() {
         int[] numbers = null;
         Arrays.sort(numbers);
     }
 
+    // Testing Performance
     @Test(timeout = 100)
     public void testSort_Performance() {
         int[] array = {12, 23, 4};
