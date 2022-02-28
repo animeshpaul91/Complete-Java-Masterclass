@@ -1,15 +1,15 @@
 package com.in28minutes.business;
 
+import com.in28minutes.data.api.TodoService;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import com.in28minutes.data.api.TodoService;
-
 public class TodoBusinessImpl {
 
-	private TodoService todoService;
+	private final TodoService todoService;
 
-	TodoBusinessImpl(TodoService todoService) {
+	public TodoBusinessImpl(TodoService todoService) {
 		this.todoService = todoService;
 	}
 

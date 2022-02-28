@@ -1,0 +1,3 @@
+Stubs are Good. But their major drawbacks are:
+1. They fail with dynamic conditioning as their implementations increase in size with more testing scenarios.
+2. They do not define services well.
