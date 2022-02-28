@@ -56,6 +56,7 @@ public class ListTest {
         assertEquals("in28Minutes", list.get(1));
     }
 
+    // Using BDD
     @Test
     public void bddAliases_UsingGivenWillReturn() {
         List<String> list = mock(List.class);
@@ -66,5 +67,18 @@ public class ListTest {
         //then
         assertThat("in28Minutes", is(list.get(0)));
         assertThat("in28Minutes", is(list.get(0)));
+    }
+
+    @Test
+    public void letsMockListSizeUsingBDD() {
+        // Given
+        List<Integer> list = mock(List.class);
+        when(list.size()).thenReturn(10);
+
+        // When
+        int size = list.size();
+
+        // Then
+        assertThat(size, is(10));
     }
 }
