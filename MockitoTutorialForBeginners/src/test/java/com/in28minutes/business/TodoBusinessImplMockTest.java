@@ -17,6 +17,8 @@ public class TodoBusinessImplMockTest {
     public void testUsingMockWithNonEmptyOutput() {
         TodoService todoServiceMock = mock(TodoService.class);
         List<String> allTodos = Arrays.asList("Learn Spring MVC", "Learn Spring", "Learn to Dance");
+
+        // dynamically stubbing a method
         when(todoServiceMock.retrieveTodos("Animesh")).thenReturn(allTodos);
 
         TodoBusinessImpl todoBusinessImpl = new TodoBusinessImpl(todoServiceMock);
