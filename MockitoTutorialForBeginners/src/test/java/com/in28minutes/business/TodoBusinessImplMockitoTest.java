@@ -47,27 +47,21 @@ public class TodoBusinessImplMockitoTest {
 
     @Test
     public void letsTestDeleteNow() {
-
+        // Given
         TodoService todoService = mock(TodoService.class);
-
-        List<String> allTodos = Arrays.asList("Learn Spring MVC",
-                "Learn Spring", "Learn to Dance");
-
-        when(todoService.retrieveTodos("Ranga")).thenReturn(allTodos);
-
+        List<String> allTodos = Arrays.asList("Learn Spring MVC", "Learn Spring", "Learn to Dance");
+        given(todoService.retrieveTodos("Ranga")).willReturn(allTodos);
         TodoBusinessImpl todoBusinessImpl = new TodoBusinessImpl(todoService);
-
+        // When
         todoBusinessImpl.deleteTodosNotRelatedToSpring("Ranga");
-
-        verify(todoService).deleteTodo("Learn to Dance");
-
-        verify(todoService, Mockito.never()).deleteTodo("Learn Spring MVC");
-
-        verify(todoService, Mockito.never()).deleteTodo("Learn Spring");
-
-        verify(todoService, Mockito.times(1)).deleteTodo("Learn to Dance");
-        // atLeastOnce, atLeast
-
+        // Then
+        verify(todoService).deleteTodo("Learn to Dance"); // verifying deleteTodo was called on todoService with arg - "Learn to Dance"
+        verify(todoService, never()).deleteTodo("Learn Spring MVC"); // verifying that this was never called
+        verify(todoService, never()).deleteTodo("Learn Spring");
+        verify(todoService, times(1)).deleteTodo("Learn to Dance"); // 1 is the number of times
+        verify(todoService, atLeastOnce()).deleteTodo("Learn to Dance");
+        verify(todoService, atLeast(1)).deleteTodo("Learn to Dance"); // same thing as line 62
+        // verifying calls are required when services(dependencies) do not return values and tests need to test "side effects".
     }
 
     @Test
