@@ -1,20 +1,14 @@
 package com.in28minutes.mockito;
 
-import static org.hamcrest.CoreMatchers.hasItems;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.arrayContainingInAnyOrder;
-import static org.hamcrest.Matchers.arrayWithSize;
-import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.isEmptyOrNullString;
-import static org.hamcrest.Matchers.isEmptyString;
-import static org.hamcrest.Matchers.lessThan;
-import static org.hamcrest.core.Every.everyItem;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Test;
+import static org.hamcrest.CoreMatchers.hasItems;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.core.Every.everyItem;
 
 public class HamcrestMatcherTest {
 
@@ -32,9 +26,9 @@ public class HamcrestMatcherTest {
 
 		// Array
 		Integer[] marks = { 1, 2, 3 };
-
 		assertThat(marks, arrayWithSize(3));
-		assertThat(marks, arrayContainingInAnyOrder(2, 3, 1));
-
+		assertThat(marks, arrayContaining(1, 2, 3)); // order matters and all items need to be present. Similar to assertArrayEquals
+		assertThat(marks, arrayContainingInAnyOrder(2, 3, 1)); // order does not matter
+		assertThat(marks, hasItemInArray(2)); // check item containment
 	}
 }
