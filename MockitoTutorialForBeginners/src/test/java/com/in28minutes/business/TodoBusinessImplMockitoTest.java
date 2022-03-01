@@ -34,13 +34,10 @@ public class TodoBusinessImplMockitoTest {
         TodoService todoService = mock(TodoService.class);
         TodoBusinessImpl todoBusinessImpl = new TodoBusinessImpl(todoService);
         List<String> allTodos = Arrays.asList("Learn Spring MVC", "Learn Spring", "Learn to Dance");
-
         // Given
         given(todoService.retrieveTodos("Ranga")).willReturn(allTodos);
-
         // When
         List<String> todos = todoBusinessImpl.retrieveTodosRelatedToSpring("Ranga");
-
         // Then
         assertThat(todos.size(), is(2));
     }
@@ -66,19 +63,13 @@ public class TodoBusinessImplMockitoTest {
 
     @Test
     public void captureArgument() {
-        ArgumentCaptor<String> argumentCaptor = ArgumentCaptor
-                .forClass(String.class);
-
+        ArgumentCaptor<String> argumentCaptor = ArgumentCaptor.forClass(String.class);
         TodoService todoService = mock(TodoService.class);
-
-        List<String> allTodos = Arrays.asList("Learn Spring MVC",
-                "Learn Spring", "Learn to Dance");
+        List<String> allTodos = Arrays.asList("Learn Spring MVC", "Learn Spring", "Learn to Dance");
         Mockito.when(todoService.retrieveTodos("Ranga")).thenReturn(allTodos);
-
         TodoBusinessImpl todoBusinessImpl = new TodoBusinessImpl(todoService);
         todoBusinessImpl.deleteTodosNotRelatedToSpring("Ranga");
         Mockito.verify(todoService).deleteTodo(argumentCaptor.capture());
-
         assertEquals("Learn to Dance", argumentCaptor.getValue());
     }
 }
