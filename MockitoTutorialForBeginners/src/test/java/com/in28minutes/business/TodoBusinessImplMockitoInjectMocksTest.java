@@ -16,7 +16,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-@RunWith(MockitoJUnitRunner.class) // this is necessary for Mockito DI
+@RunWith(MockitoJUnitRunner.class) // this is necessary for Mockito DI. There can be only 1 runner with a class
 public class TodoBusinessImplMockitoInjectMocksTest {
     @Mock
     private TodoService todoService; // this is the class whose mock Objects needs to be created
