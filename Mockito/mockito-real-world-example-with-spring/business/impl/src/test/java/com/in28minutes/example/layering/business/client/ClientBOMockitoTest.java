@@ -1,15 +1,13 @@
 package com.in28minutes.example.layering.business.client;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.anyInt;
-import static org.mockito.Mockito.stub;
-import static org.mockito.Mockito.verify;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
+import com.in28minutes.example.layering.business.api.client.ClientBO;
+import com.in28minutes.example.layering.business.impl.client.ClientBOImpl;
+import com.in28minutes.example.layering.data.api.client.ClientDO;
+import com.in28minutes.example.layering.data.api.client.ProductDO;
+import com.in28minutes.example.layering.model.api.client.*;
+import com.in28minutes.example.layering.model.impl.client.AmountImpl;
+import com.in28minutes.example.layering.model.impl.client.ClientImpl;
+import com.in28minutes.example.layering.model.impl.client.ProductImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -18,18 +16,15 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import com.in28minutes.example.layering.business.api.client.ClientBO;
-import com.in28minutes.example.layering.business.impl.client.ClientBOImpl;
-import com.in28minutes.example.layering.data.api.client.ClientDO;
-import com.in28minutes.example.layering.data.api.client.ProductDO;
-import com.in28minutes.example.layering.model.api.client.Amount;
-import com.in28minutes.example.layering.model.api.client.Client;
-import com.in28minutes.example.layering.model.api.client.Currency;
-import com.in28minutes.example.layering.model.api.client.Product;
-import com.in28minutes.example.layering.model.api.client.ProductType;
-import com.in28minutes.example.layering.model.impl.client.AmountImpl;
-import com.in28minutes.example.layering.model.impl.client.ClientImpl;
-import com.in28minutes.example.layering.model.impl.client.ProductImpl;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.anyInt;
+import static org.mockito.Mockito.stub;
+import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ClientBOMockitoTest {
@@ -41,7 +36,7 @@ public class ClientBOMockitoTest {
 	private ClientDO clientDO;
 
 	@InjectMocks
-	private ClientBO clientBO = new ClientBOImpl();
+	private ClientBO clientBO = new ClientBOImpl(); // both productDO and clientDO will be injected into clientBO
 
 	@Captor
 	ArgumentCaptor<Client> clientArgumentCaptured;
@@ -50,15 +45,11 @@ public class ClientBOMockitoTest {
 
 	@Test
 	public void testClientProductSum() {
-
-		List<Product> products = Arrays.asList(createProductWithAmount("5.0"),
-				createProductWithAmount("6.0"));
-
+		List<Product> products = Arrays.asList(createProductWithAmount("5.0"), createProductWithAmount("6.0"));
 		stub(productDO.getAllProducts(anyInt())).toReturn(products);
-
-		assertAmountEquals(
-				new AmountImpl(new BigDecimal("11.0"), Currency.EURO), clientBO
-						.getClientProductsSum(DUMMY_CLIENT_ID));
+		AmountImpl expectedAmount = new AmountImpl(new BigDecimal("11.0"), Currency.EURO);
+		Amount actualAmount = clientBO.getClientProductsSum(DUMMY_CLIENT_ID);
+		assertAmountEquals(expectedAmount, actualAmount);
 	}
 
 	private void assertAmountEquals(Amount expectedAmount, Amount actualAmount) {
