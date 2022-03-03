@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 public class PowerMockitoMockingStaticMethodTest {
 	/*
 		To Mock Static Methods:
-		1. Use Specific Runner (line # 17)
+		1. Use Specific Runner [@PrepareForTest] (line # 17)
 		2. Initialize Utility Class for Mocking (line # 39)
 		3. Mock Method
 	*/
