@@ -231,11 +231,14 @@ buildNumber.properties
 **/nbproject/private/
 **/nbproject/Makefile-*.mk
 **/nbproject/Package-*.bash
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
+**/build/
+**/nbbuild/
+**/dist/
+**/nbdist/
+**/.nb-gradle/
+**/.gradle/
+**/logs
+
 
 ### VisualStudioCode ###
 .vscode
@@ -252,3 +255,40 @@ nbdist/
 
 ### Docs in Completable Futures Course
 Futures/CompletableFuturesv2.0/docs
+Futures/CompletableFuturesv2.0/parallel-asynchronous-using-java/.github/workflows/gradle.yml
+Futures/CompletableFuturesv2.0/parallel-asynchronous-using-java/build.gradle
+Futures/CompletableFuturesv2.0/parallel-asynchronous-using-java/gradle/wrapper/gradle-wrapper.properties
+Futures/CompletableFuturesv2.0/parallel-asynchronous-using-java/gradlew
+Futures/CompletableFuturesv2.0/parallel-asynchronous-using-java/gradlew.bat
+Futures/CompletableFuturesv2.0/parallel-asynchronous-using-java/settings.gradle
+
+
+target/
+**/!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+**/.apt_generated
+**/.classpath
+**/.factorypath
+**/.project
+**/.settings
+**/.springBeans
+
+### IntelliJ IDEA ###
+**/.idea
+**/*.iws
+**/*.iml
+**/*.ipr
+
+
+### OSX template
+**/.DS_Store
+**/.AppleDouble
+**/.LSOverride
+
+# IntelliJ
+**/out/
+
+
+
+
