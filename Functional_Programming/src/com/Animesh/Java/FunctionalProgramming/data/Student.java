@@ -1,5 +1,6 @@
 package com.Animesh.Java.FunctionalProgramming.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Student {
@@ -7,13 +8,24 @@ public class Student {
     private int gradeLevel;
     private double gpa;
     private String gender;
-    private List<String> activities;
+    private List<String> activities = new ArrayList<>();
+    private int noteBooks;
 
-    public Student() {
+    public int getNoteBooks() {
+        return noteBooks;
     }
 
-    public Student(String name) {
+    public void setNoteBooks(int noteBooks) {
+        this.noteBooks = noteBooks;
+    }
+
+    public Student(String name, int gradeLevel, double gpa, String gender, List<String> activities, int noteBooks) {
         this.name = name;
+        this.gradeLevel = gradeLevel;
+        this.gpa = gpa;
+        this.gender = gender;
+        this.activities = activities;
+        this.noteBooks = noteBooks;
     }
 
     public Student(String name, int gradeLevel, double gpa, String gender, List<String> activities) {
@@ -22,6 +34,14 @@ public class Student {
         this.gpa = gpa;
         this.gender = gender;
         this.activities = activities;
+    }
+
+    public Student() {
+
+    }
+
+    public Student(String s) {
+        this.name = s;
     }
 
     public String getGender() {
@@ -34,10 +54,6 @@ public class Student {
 
     public String getName() {
         return name;
-    }
-
-    public void printName() {
-        System.out.print(getName() + " ");
     }
 
     public void setName(String name) {
@@ -60,16 +76,21 @@ public class Student {
         this.gpa = gpa;
     }
 
+    public void printListOfActivities() {
+        System.out.println(this.activities);
+    }
+
+
     public List<String> getActivities() {
         return activities;
     }
 
-    public void printListOfActivities() {
-        System.out.println(getActivities());
-    }
-
     public void setActivities(List<String> activities) {
         this.activities = activities;
+    }
+
+    public void printName() {
+        System.out.println(getName());
     }
 
     @Override
