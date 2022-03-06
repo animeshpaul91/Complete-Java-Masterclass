@@ -248,3 +248,7 @@ nbdist/
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+
+
+### Docs in Completable Futures Course
+Futures/CompletableFuturesv2.0/docs
