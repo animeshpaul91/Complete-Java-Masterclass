@@ -15,7 +15,6 @@ public class HelloWorldThreadExample {
     }
 
     public static void main(String[] args) throws InterruptedException {
-
         Thread helloThread = new Thread(()-> hello());
         Thread worldThread = new Thread(()-> world());
 
@@ -28,6 +27,5 @@ public class HelloWorldThreadExample {
         worldThread.join();
 
         System.out.println("Result is : " + result);
-
     }
 }
