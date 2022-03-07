@@ -3,6 +3,7 @@ package com.Animesh.Java.FunctionalProgramming.NumericStreams;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
+// Numeric Streams are used for handling streams of Primitive Types. This helps avoid overhead in autoboxing and unboxing.
 public class NumericStreamRangesExample {
     public static void main(String[] args) {
         IntStream intStream = IntStream.range(1, 10);
