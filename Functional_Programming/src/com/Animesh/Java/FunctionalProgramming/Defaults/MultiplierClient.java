@@ -1,5 +1,7 @@
 package com.Animesh.Java.FunctionalProgramming.Defaults;
 
+import com.Animesh.Java.FunctionalProgramming.Defaults.Interfaces.Multiplier;
+
 import java.util.Arrays;
 import java.util.List;
 

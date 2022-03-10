@@ -1,5 +1,8 @@
 package com.Animesh.Java.FunctionalProgramming.Defaults;
 
+import com.Animesh.Java.FunctionalProgramming.Defaults.Interfaces.Interface1;
+import com.Animesh.Java.FunctionalProgramming.Defaults.Interfaces.Interface4;
+
 public class Client14 implements Interface1, Interface4 {
 
     /* You need to override the method in a class if the class implements two interfaces having methods of the same name and signature, provided

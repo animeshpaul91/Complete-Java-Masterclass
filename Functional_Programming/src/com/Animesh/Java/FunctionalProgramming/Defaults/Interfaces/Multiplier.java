@@ -1,4 +1,4 @@
-package com.Animesh.Java.FunctionalProgramming.Defaults;
+package com.Animesh.Java.FunctionalProgramming.Defaults.Interfaces;
 
 import java.util.List;
 

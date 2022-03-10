@@ -1,5 +1,9 @@
 package com.Animesh.Java.FunctionalProgramming.Defaults;
 
+import com.Animesh.Java.FunctionalProgramming.Defaults.Interfaces.Interface1;
+import com.Animesh.Java.FunctionalProgramming.Defaults.Interfaces.Interface2;
+import com.Animesh.Java.FunctionalProgramming.Defaults.Interfaces.Interface3;
+
 public class Client123 implements Interface1, Interface2, Interface3 {
     /*
         Order is:

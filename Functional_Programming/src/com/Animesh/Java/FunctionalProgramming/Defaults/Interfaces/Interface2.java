@@ -1,4 +1,4 @@
-package com.Animesh.Java.FunctionalProgramming.Defaults;
+package com.Animesh.Java.FunctionalProgramming.Defaults.Interfaces;
 
 /**
  * Created by z001qgd on 8/2/18.

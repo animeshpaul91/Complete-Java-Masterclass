@@ -1,5 +1,7 @@
 package com.Animesh.Java.FunctionalProgramming.Defaults;
 
+import com.Animesh.Java.FunctionalProgramming.Defaults.Interfaces.Multiplier;
+
 import java.util.List;
 
 public class MultiplierImpl implements Multiplier {
