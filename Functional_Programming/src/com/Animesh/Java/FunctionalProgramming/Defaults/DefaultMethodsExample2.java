@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class DefaultMethodExample2 {
+public class DefaultMethodsExample2 {
     private static final Comparator<Student> nameComparator = Comparator.comparing(Student::getName);
     private static final Comparator<Student> gpaComparator = Comparator.comparing(Student::getGpa);
     private static final Comparator<Student> genderComparator = Comparator.comparing(Student::getGender);
@@ -30,9 +30,10 @@ public class DefaultMethodExample2 {
 
     public static void sortByGender() {
         List<Student> studentList = StudentDataBase.getAllStudents();
-        Comparator<Student> nullLast = Comparator.nullsFirst(genderComparator);
+        Comparator<Student> nullLast = Comparator.nullsFirst(genderComparator); // this will handle nulls in the studentList collection
         studentList.sort(nullLast);
         System.out.println("After Sort By Gender : ");
+        // nulls will be placed at the beginning in the sorted collection
         studentList.forEach(studentConsumer);
     }
 
