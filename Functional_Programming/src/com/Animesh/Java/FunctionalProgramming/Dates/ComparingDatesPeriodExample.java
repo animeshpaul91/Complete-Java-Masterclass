@@ -6,8 +6,8 @@ import java.time.Period;
 public class ComparingDatesPeriodExample {
 
     public static void main(String[] args) {
-        LocalDate  localDate = LocalDate.of(2018,1,1);
-        LocalDate  localDate1 = LocalDate.of(2018,12,31);
+        LocalDate localDate = LocalDate.of(2018, 1, 1);
+        LocalDate localDate1 = LocalDate.of(2018, 12, 31);
 
         /**
          * until - Period
@@ -24,8 +24,8 @@ public class ComparingDatesPeriodExample {
         System.out.println("getDays : " + period2.getDays());
 
         Period period3 = Period.between(localDate, localDate1);
-        System.out.println("getDays : " +period3.getDays());
-        System.out.println("getMonths : " +period3.getMonths());
-        System.out.println("getYears : " +period3.getYears());
+        System.out.println("getDays : " + period3.getDays());
+        System.out.println("getMonths : " + period3.getMonths());
+        System.out.println("getYears : " + period3.getYears());
     }
 }
