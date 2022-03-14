@@ -7,8 +7,8 @@ import static com.learnjava.util.CommonUtil.stopWatch;
 import static com.learnjava.util.LoggerUtil.log;
 
 public class ProductService {
-    private ProductInfoService productInfoService;
-    private ReviewService reviewService;
+    private final ProductInfoService productInfoService;
+    private final ReviewService reviewService;
 
     public ProductService(ProductInfoService productInfoService, ReviewService reviewService) {
         this.productInfoService = productInfoService;
@@ -27,13 +27,11 @@ public class ProductService {
     }
 
     public static void main(String[] args) {
-
         ProductInfoService productInfoService = new ProductInfoService();
         ReviewService reviewService = new ReviewService();
         ProductService productService = new ProductService(productInfoService, reviewService);
         String productId = "ABC123";
         Product product = productService.retrieveProductDetails(productId);
         log("Product is " + product);
-
     }
 }

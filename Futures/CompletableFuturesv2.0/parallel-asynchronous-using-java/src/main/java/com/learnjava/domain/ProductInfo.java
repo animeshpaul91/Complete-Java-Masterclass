@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Data // generates getters, setters, toString() methods for this class
+@NoArgsConstructor // generates constructor with no args
+@AllArgsConstructor // generates constructor with all args
 @Builder
 public class ProductInfo {
     private String productId;
