@@ -4,6 +4,7 @@ import com.learnjava.util.DataSet;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static com.learnjava.util.CommonUtil.*;
 import static com.learnjava.util.LoggerUtil.log;
@@ -15,9 +16,10 @@ public class ParallelStreamExample {
         return name.length() + " - " + name;
     }
 
-    public List<String> stringTransform(List<String> namesList) {
-        return namesList.stream()
-                .parallel()
+    public List<String> stringTransform(List<String> namesList, boolean toggle) {
+        Stream<String> namesStream = namesList.stream();
+        if (toggle) namesStream = namesStream.parallel();
+        return namesStream
                 .map(this::addNameLengthTransform)
                 .collect(Collectors.toList());
     }
@@ -26,7 +28,7 @@ public class ParallelStreamExample {
         List<String> namesList = DataSet.namesList();
         ParallelStreamExample parallelStreamExample = new ParallelStreamExample();
         startTimer();
-        List<String> result = parallelStreamExample.stringTransform(namesList);
+        List<String> result = parallelStreamExample.stringTransform(namesList, true);
         timeTaken();
         log("Result: " + result);
     }
