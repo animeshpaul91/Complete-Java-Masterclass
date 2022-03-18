@@ -11,7 +11,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ParallelStreamExampleTest {
-    ParallelStreamExample parallelStreamExample = new ParallelStreamExample();
+    ParallelStreamExample parallelStreamExample;
+
+    public ParallelStreamExampleTest() {
+        this.parallelStreamExample = new ParallelStreamExample();
+    }
 
     @ParameterizedTest
     @ValueSource(booleans = {false, true})
