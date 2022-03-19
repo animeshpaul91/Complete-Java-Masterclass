@@ -48,4 +48,16 @@ class CheckoutServiceTest {
         CheckoutResponse checkoutResponse = checkoutService.checkout(cart);
         assertEquals(CheckoutStatus.FAILURE, checkoutResponse.getCheckoutStatus());
     }
+
+    @Test
+    void modifyParallelism() {
+        // Given
+        // -Djava.util.concurrent.ForkJoinPool.common.parallelism=100
+        System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism", "100");
+
+        Cart cart = DataSet.createCart(100);
+        // when
+        CheckoutResponse checkoutResponse = checkoutService.checkout(cart);
+        assertEquals(CheckoutStatus.FAILURE, checkoutResponse.getCheckoutStatus());
+    }
 }
