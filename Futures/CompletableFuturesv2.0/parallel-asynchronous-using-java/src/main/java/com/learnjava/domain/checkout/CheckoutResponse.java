@@ -9,9 +9,9 @@ import java.util.List;
 @Data
 public class CheckoutResponse {
 
-    CheckoutStatus checkoutStatus;
-    List<CartItem> errorList = new ArrayList<>();
-    double finalRate;
+    private CheckoutStatus checkoutStatus;
+    private List<CartItem> errorList = new ArrayList<>();
+    private double finalRate;
 
     public CheckoutResponse(CheckoutStatus checkoutStatus) {
         this.checkoutStatus = checkoutStatus;
