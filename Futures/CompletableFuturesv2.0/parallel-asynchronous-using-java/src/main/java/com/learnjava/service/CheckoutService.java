@@ -16,7 +16,7 @@ public class CheckoutService {
 
     public CheckoutResponse checkout(Cart cart) {
         startTimer();
-        List<CartItem> priceValidationList = cart.getCartItemList().stream()
+        List<CartItem> priceValidationList = cart.getCartItemList().parallelStream()
                 .peek(cartItem -> {
                     boolean isCartItemInvalid = priceValidatorService.isCartItemInvalid(cartItem);
                     cartItem.setExpired(isCartItemInvalid);
