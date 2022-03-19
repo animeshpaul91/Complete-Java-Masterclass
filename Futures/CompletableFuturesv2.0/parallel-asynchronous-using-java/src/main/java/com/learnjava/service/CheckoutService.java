@@ -8,8 +8,7 @@ import com.learnjava.domain.checkout.CheckoutStatus;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.learnjava.util.CommonUtil.startTimer;
-import static com.learnjava.util.CommonUtil.timeTaken;
+import static com.learnjava.util.CommonUtil.*;
 
 public class CheckoutService {
     private static final PriceValidatorService priceValidatorService = new PriceValidatorService();
@@ -24,6 +23,7 @@ public class CheckoutService {
                 .collect(Collectors.toList());
 
         timeTaken();
+        stopWatchReset();
         return (priceValidationList.size() > 0) ? new CheckoutResponse(CheckoutStatus.FAILURE, priceValidationList) : new CheckoutResponse(CheckoutStatus.SUCCESS);
     }
 }

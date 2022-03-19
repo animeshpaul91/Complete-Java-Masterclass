@@ -6,7 +6,6 @@ import com.learnjava.domain.checkout.CheckoutStatus;
 import com.learnjava.util.DataSet;
 import org.junit.jupiter.api.Test;
 
-import static com.learnjava.util.CommonUtil.stopWatchReset;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CheckoutServiceTest {
@@ -26,7 +25,6 @@ class CheckoutServiceTest {
         // when
         CheckoutResponse checkoutResponse = checkoutService.checkout(cart);
         assertEquals(CheckoutStatus.SUCCESS, checkoutResponse.getCheckoutStatus());
-        stopWatchReset();
     }
 
     @Test
@@ -36,6 +34,5 @@ class CheckoutServiceTest {
         // when
         CheckoutResponse checkoutResponse = checkoutService.checkout(cart);
         assertEquals(CheckoutStatus.FAILURE, checkoutResponse.getCheckoutStatus());
-        stopWatchReset();
     }
 }
