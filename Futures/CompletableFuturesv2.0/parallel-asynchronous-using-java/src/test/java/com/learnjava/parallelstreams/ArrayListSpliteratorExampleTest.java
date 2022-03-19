@@ -9,7 +9,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ArrayListSpliteratorExampleTest {
-    private static final ArrayListSpliteratorExample arrayListSpliteratorExample = new ArrayListSpliteratorExample();
+    private static final ListSpliteratorExample arrayListSpliteratorExample = new ListSpliteratorExample();
 
     @RepeatedTest(5)
     public void testArrayListSpliteratorSequentialStream() {

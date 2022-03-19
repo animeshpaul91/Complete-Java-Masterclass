@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 import static com.learnjava.util.CommonUtil.*;
 
-public class ArrayListSpliteratorExample {
+public class ListSpliteratorExample {
     public List<Integer> multiplyEachValue(List<Integer> inputList, int multiplier, boolean isParallel) {
         startTimer();
         Stream<Integer> stream = inputList.stream();
