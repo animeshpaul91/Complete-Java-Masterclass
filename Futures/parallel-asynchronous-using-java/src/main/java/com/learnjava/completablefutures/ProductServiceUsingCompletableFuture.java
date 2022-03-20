@@ -20,7 +20,7 @@ public class ProductServiceUsingCompletableFuture {
         this.reviewService = reviewService;
     }
 
-    public Product retrieveProductDetails(String productId) {
+    public Product retrieveProductDetailsClient(String productId) {
         stopWatch.start();
 
         CompletableFuture<ProductInfo> cfProductInfo = CompletableFuture.supplyAsync(() -> productInfoService.retrieveProductInfo(productId));
@@ -36,12 +36,18 @@ public class ProductServiceUsingCompletableFuture {
         return product;
     }
 
+    public CompletableFuture<Product> retrieveProductDetailsServer(String productId) {
+        CompletableFuture<ProductInfo> cfProductInfo = CompletableFuture.supplyAsync(() -> productInfoService.retrieveProductInfo(productId));
+        CompletableFuture<Review> cfReview = CompletableFuture.supplyAsync(() -> reviewService.retrieveReviews(productId));
+        return cfProductInfo.thenCombine(cfReview, (productInfo, review) -> new Product(productId, productInfo, review));
+    }
+
     public static void main(String[] args) {
         ProductInfoService productInfoService = new ProductInfoService();
         ReviewService reviewService = new ReviewService();
         ProductServiceUsingCompletableFuture productService = new ProductServiceUsingCompletableFuture(productInfoService, reviewService);
         String productId = "ABC123";
-        Product product = productService.retrieveProductDetails(productId);
+        Product product = productService.retrieveProductDetailsClient(productId);
         log("Product is " + product);
     }
 }

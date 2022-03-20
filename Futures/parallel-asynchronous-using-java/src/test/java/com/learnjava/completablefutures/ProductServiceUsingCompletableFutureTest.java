@@ -5,8 +5,7 @@ import com.learnjava.service.ProductInfoService;
 import com.learnjava.service.ReviewService;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ProductServiceUsingCompletableFutureTest {
     private final ProductServiceUsingCompletableFuture productService;
@@ -18,16 +17,27 @@ class ProductServiceUsingCompletableFutureTest {
     }
 
     @Test
-    void retrieveProductDetails() {
+    void testRetrieveProductDetailsClient() {
         // Given
         String productId = "ABC123";
 
         // When
-        Product product = productService.retrieveProductDetails(productId);
+        Product product = productService.retrieveProductDetailsClient(productId);
 
         // Then
         assertNotNull(product);
         assertTrue(product.getProductInfo().getProductOptions().size() > 0);
         assertNotNull(product.getReview());
+    }
+
+    @Test
+    void testRetrieveProductDetailsServer() {
+        String productId = "ABC123";
+        productService.retrieveProductDetailsServer(productId)
+                .thenAccept(product -> {
+                    assertNotNull(product);
+                    assertTrue(product.getProductInfo().getProductOptions().size() > 0);
+                    assertNotNull(product.getReview());
+                }).join();
     }
 }
