@@ -30,6 +30,7 @@ public class ProductServiceUsingCompletableFuture {
                 .join(); // clock to get the final Product
 
         stopWatch.stop();
+        stopWatch.reset();
         log("Total Time Taken : " + stopWatch.getTime());
 
         return product;
