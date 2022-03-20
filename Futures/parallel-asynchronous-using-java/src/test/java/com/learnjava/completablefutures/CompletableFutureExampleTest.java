@@ -20,7 +20,7 @@ public class CompletableFutureExampleTest {
         cfh.thenAccept(string -> { // without join, the main thread won't even go inside the lambda block
             log("Thread still executes this block of code");
             assertEquals(string.toUpperCase(), string);
-            assertEquals("HELLO WORLD", string);
+            assertEquals("HELLO", string);
         }).join();
     }
 
@@ -29,7 +29,7 @@ public class CompletableFutureExampleTest {
         CompletableFuture<String> cfh = completableFutureExample.helloWorldWithSize();
         cfh.thenAccept(string -> { // without join, the main thread won't even go inside the lambda block
             log("Thread still executes this block of code");
-            assertEquals("11 - HELLO WORLD", string);
+            assertEquals("5 - HELLO", string);
         }).join();
     }
 
@@ -37,5 +37,17 @@ public class CompletableFutureExampleTest {
     void thenCombineExample() {
         String helloWorld = completableFutureExample.thenCombineExample();
         assertEquals("HELLO WORLD!", helloWorld);
+    }
+
+    @Test
+    void thenCombineExampleWithThreeAsyncCalls() {
+        String helloWorldThreeAsyncCalls = completableFutureExample.thenCombineExampleWithThreeAsyncCalls();
+        assertEquals("HELLO WORLD! HI COMPLETABLE FUTURE!", helloWorldThreeAsyncCalls);
+    }
+
+    @Test
+    void thenCombineExampleWithFourAsyncCalls() {
+        String helloWorldFourAsyncCalls = completableFutureExample.thenCombineExampleWithFourAsyncCalls();
+        assertEquals("HELLO WORLD! HI COMPLETABLE FUTURE! THIS COURSE IS GREAT!", helloWorldFourAsyncCalls);
     }
 }

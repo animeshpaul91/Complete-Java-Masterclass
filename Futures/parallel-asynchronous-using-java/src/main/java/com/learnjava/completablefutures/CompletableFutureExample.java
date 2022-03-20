@@ -32,7 +32,51 @@ public class CompletableFutureExample {
         startTimer();
         CompletableFuture<String> helloCF = CompletableFuture.supplyAsync(helloSupplier);
         CompletableFuture<String> worldCF = CompletableFuture.supplyAsync(worldSupplier);
+
         String helloWorld = helloCF.thenCombine(worldCF, (helloString, worldString) -> helloString + worldString)
+                .thenApply(String::toUpperCase)
+                .join();
+
+        timeTaken();
+        stopWatchReset();
+        return helloWorld;
+    }
+
+    public String thenCombineExampleWithThreeAsyncCalls() {
+        startTimer();
+        CompletableFuture<String> helloCF = CompletableFuture.supplyAsync(helloSupplier);
+        CompletableFuture<String> worldCF = CompletableFuture.supplyAsync(worldSupplier);
+        CompletableFuture<String> hiCF = CompletableFuture.supplyAsync(() -> {
+            delay(1000);
+            return " Hi Completable Future!";
+        });
+
+        String helloWorld = helloCF.thenCombine(worldCF, (helloString, worldString) -> helloString + worldString)
+                .thenCombine(hiCF, (previous, current) -> previous + current)
+                .thenApply(String::toUpperCase)
+                .join();
+
+        timeTaken();
+        stopWatchReset();
+        return helloWorld;
+    }
+
+    public String thenCombineExampleWithFourAsyncCalls() {
+        startTimer();
+        CompletableFuture<String> helloCF = CompletableFuture.supplyAsync(helloSupplier);
+        CompletableFuture<String> worldCF = CompletableFuture.supplyAsync(worldSupplier);
+        CompletableFuture<String> hiCF = CompletableFuture.supplyAsync(() -> {
+            delay(1000);
+            return " Hi Completable Future!";
+        });
+        CompletableFuture<String> udemyCF = CompletableFuture.supplyAsync(() -> {
+            delay(1000);
+            return " This course is great!";
+        });
+
+        String helloWorld = helloCF.thenCombine(worldCF, (helloString, worldString) -> helloString + worldString)
+                .thenCombine(hiCF, (previous, current) -> previous + current)
+                .thenCombine(udemyCF, (previous, current) -> previous + current)
                 .thenApply(String::toUpperCase)
                 .join();
 
