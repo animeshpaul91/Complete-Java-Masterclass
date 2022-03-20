@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.CompletableFuture;
 
+import static com.learnjava.util.CommonUtil.*;
 import static com.learnjava.util.LoggerUtil.log;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -49,5 +50,14 @@ public class CompletableFutureExampleTest {
     void thenCombineExampleWithFourAsyncCalls() {
         String helloWorldFourAsyncCalls = completableFutureExample.thenCombineExampleWithFourAsyncCalls();
         assertEquals("HELLO WORLD! HI COMPLETABLE FUTURE! THIS COURSE IS GREAT!", helloWorldFourAsyncCalls);
+    }
+
+    @Test
+    void helloWorldThenCompose() {
+        startTimer();
+        CompletableFuture<String> cfh = completableFutureExample.helloWorldThenCompose();
+        cfh.thenAccept(helloWorldString -> assertEquals("HELLO WORLD!", helloWorldString)).join();
+        timeTaken();
+        stopWatchReset();
     }
 }

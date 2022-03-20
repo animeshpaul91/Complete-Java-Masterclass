@@ -6,14 +6,16 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 
 import static com.learnjava.util.CommonUtil.*;
+import static com.learnjava.util.LoggerUtil.log;
 
 public class CompletableFutureExample {
 
+    private final HelloWorldService helloWorldService;
     private final Supplier<String> helloSupplier;
     private final Supplier<String> worldSupplier;
 
     public CompletableFutureExample() {
-        HelloWorldService helloWorldService = new HelloWorldService();
+        this.helloWorldService = new HelloWorldService();
         this.helloSupplier = helloWorldService::hello;
         this.worldSupplier = helloWorldService::world;
     }
@@ -83,5 +85,13 @@ public class CompletableFutureExample {
         timeTaken();
         stopWatchReset();
         return helloWorld;
+    }
+
+    public CompletableFuture<String> helloWorldThenCompose() {
+        log("inside helloWorldThenCompose method");
+        return CompletableFuture.supplyAsync(helloSupplier)
+                .thenCompose(helloWorldService::worldFuture)
+                // thenCompose is a dependent task. It waits for the hello task to complete and because of this the same thread that executes the hello task also executes the world task
+                .thenApply(String::toUpperCase); // thenApply is also a dependent task. thenCombine is not
     }
 }
