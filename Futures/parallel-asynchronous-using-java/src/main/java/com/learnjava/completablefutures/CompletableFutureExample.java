@@ -18,4 +18,9 @@ public class CompletableFutureExample {
         return CompletableFuture.supplyAsync(hwsSupplier) // This will spawn a new Thread from ForkJoin Pool and main thread immediately returns
                 .thenApply(String::toUpperCase);
     }
+
+    public CompletableFuture<String> helloWorldWithSize() {
+        return CompletableFuture.supplyAsync(hwsSupplier) // This will spawn a new Thread from ForkJoin Pool and main thread immediately returns
+                .thenApply(string -> string.length() + " - " + string.toUpperCase());
+    }
 }

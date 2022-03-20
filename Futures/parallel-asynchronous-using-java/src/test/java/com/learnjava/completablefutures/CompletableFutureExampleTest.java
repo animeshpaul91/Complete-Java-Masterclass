@@ -23,4 +23,13 @@ public class CompletableFutureExampleTest {
             assertEquals("HELLO WORLD", string);
         }).join();
     }
+
+    @Test
+    public void testHelloWorldWithSizeCF() {
+        CompletableFuture<String> cfh = completableFutureExample.helloWorldWithSize();
+        cfh.thenAccept(string -> { // without join, the main thread won't even go inside the lambda block
+            log("Thread still executes this block of code");
+            assertEquals("11 - HELLO WORLD", string);
+        }).join();
+    }
 }
