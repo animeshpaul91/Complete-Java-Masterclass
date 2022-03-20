@@ -5,22 +5,39 @@ import com.learnjava.service.HelloWorldService;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 
+import static com.learnjava.util.CommonUtil.*;
+
 public class CompletableFutureExample {
 
-    private final Supplier<String> hwsSupplier;
+    private final Supplier<String> helloSupplier;
+    private final Supplier<String> worldSupplier;
 
     public CompletableFutureExample() {
         HelloWorldService helloWorldService = new HelloWorldService();
-        this.hwsSupplier = helloWorldService::helloWorld;
+        this.helloSupplier = helloWorldService::hello;
+        this.worldSupplier = helloWorldService::world;
     }
 
     public CompletableFuture<String> helloWorld() {
-        return CompletableFuture.supplyAsync(hwsSupplier) // This will spawn a new Thread from ForkJoin Pool and main thread immediately returns
+        return CompletableFuture.supplyAsync(helloSupplier) // This will spawn a new Thread from ForkJoin Pool and main thread immediately returns
                 .thenApply(String::toUpperCase);
     }
 
     public CompletableFuture<String> helloWorldWithSize() {
-        return CompletableFuture.supplyAsync(hwsSupplier) // This will spawn a new Thread from ForkJoin Pool and main thread immediately returns
+        return CompletableFuture.supplyAsync(helloSupplier) // This will spawn a new Thread from ForkJoin Pool and main thread immediately returns
                 .thenApply(string -> string.length() + " - " + string.toUpperCase());
+    }
+
+    public String thenCombineExample() {
+        startTimer();
+        CompletableFuture<String> helloCF = CompletableFuture.supplyAsync(helloSupplier);
+        CompletableFuture<String> worldCF = CompletableFuture.supplyAsync(worldSupplier);
+        String helloWorld = helloCF.thenCombine(worldCF, (helloString, worldString) -> helloString + worldString)
+                .thenApply(String::toUpperCase)
+                .join();
+
+        timeTaken();
+        stopWatchReset();
+        return helloWorld;
     }
 }

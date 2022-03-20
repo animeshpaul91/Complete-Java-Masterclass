@@ -32,4 +32,10 @@ public class CompletableFutureExampleTest {
             assertEquals("11 - HELLO WORLD", string);
         }).join();
     }
+
+    @Test
+    void thenCombineExample() {
+        String helloWorld = completableFutureExample.thenCombineExample();
+        assertEquals("HELLO WORLD!", helloWorld);
+    }
 }
