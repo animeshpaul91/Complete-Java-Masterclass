@@ -60,8 +60,57 @@ public class ProductServiceUsingCompletableFuture {
     private List<ProductOption> updateInventory(ProductInfo productInfo) {
         return productInfo.getProductOptions().stream()
                 .peek(productOption -> {
-                    Inventory inventory = inventoryService.addInventory(productOption); // adds additional 0.5 secs to execution time
+                    Inventory inventory = inventoryService.retrieveInventory(productOption); // adds additional 0.5 secs to execution time
                     productOption.setInventory(inventory);
                 }).collect(Collectors.toList());
+    }
+
+    public Product retrieveProductDetailsClientWithInventoryCF(String productId) {
+        CompletableFuture<ProductInfo> cfProductInfo = CompletableFuture.supplyAsync(() -> productInfoService.retrieveProductInfo(productId))
+                .thenApply(productInfo -> { // transformation to populate inventory to Product Info.
+                    productInfo.setProductOptions(updateInventoryCF(productInfo));
+                    return productInfo;
+                });
+
+        CompletableFuture<Review> cfReview = CompletableFuture.supplyAsync(() -> reviewService.retrieveReviews(productId));
+        return cfProductInfo.thenCombine(cfReview, (productInfo, review) -> new Product(productId, productInfo, review))
+                .join();
+    }
+
+    private List<ProductOption> updateInventoryCF(ProductInfo productInfo) {
+        List<CompletableFuture<ProductOption>> productOptionList = productInfo.getProductOptions()
+                .stream()
+                .map(productOption -> inventoryService.retrieveInventoryCF(productOption)
+                        .thenApply(inventory -> {
+                            productOption.setInventory(inventory);
+                            return productOption;
+                        }))
+                .collect(Collectors.toList());
+        return productOptionList.stream().map(CompletableFuture::join).collect(Collectors.toList());
+    }
+
+    public Product retrieveProductDetailsClientWithInventoryCFInstructor(String productId) {
+        CompletableFuture<ProductInfo> cfProductInfo = CompletableFuture.supplyAsync(() -> productInfoService.retrieveProductInfo(productId))
+                .thenApply(productInfo -> { // transformation to populate inventory to Product Info.
+                    productInfo.setProductOptions(updateInventoryCFInstructor(productInfo));
+                    return productInfo;
+                });
+
+        CompletableFuture<Review> cfReview = CompletableFuture.supplyAsync(() -> reviewService.retrieveReviews(productId));
+        return cfProductInfo.thenCombine(cfReview, (productInfo, review) -> new Product(productId, productInfo, review))
+                .join();
+    }
+
+    private List<ProductOption> updateInventoryCFInstructor(ProductInfo productInfo) {
+        List<CompletableFuture<ProductOption>> productOptionList = productInfo.getProductOptions()
+                .stream()
+                .map(productOption -> CompletableFuture.supplyAsync(() -> inventoryService.retrieveInventory(productOption))
+                        .thenApply(inventory -> {
+                            productOption.setInventory(inventory);
+                            return productOption;
+                        }))
+                .collect(Collectors.toList());
+
+        return productOptionList.stream().map(CompletableFuture::join).collect(Collectors.toList());
     }
 }

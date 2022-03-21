@@ -56,4 +56,30 @@ class ProductServiceUsingCompletableFutureTest {
         assertNotNull(product.getReview());
         product.getProductInfo().getProductOptions().forEach(productOption -> assertNotNull(productOption.getInventory()));
     }
+
+    @Test
+    void testRetrieveProductDetailsClientWithInventoryCF() {
+        String productId = "ABC123";
+        startTimer();
+        Product product = productService.retrieveProductDetailsClientWithInventoryCF(productId);
+        timeTaken();
+        stopWatchReset();
+        assertNotNull(product);
+        assertTrue(product.getProductInfo().getProductOptions().size() > 0);
+        assertNotNull(product.getReview());
+        product.getProductInfo().getProductOptions().forEach(productOption -> assertNotNull(productOption.getInventory()));
+    }
+
+    @Test
+    void testRetrieveProductDetailsClientWithInventoryCFInstructor() {
+        String productId = "ABC123";
+        startTimer();
+        Product product = productService.retrieveProductDetailsClientWithInventoryCFInstructor(productId);
+        timeTaken();
+        stopWatchReset();
+        assertNotNull(product);
+        assertTrue(product.getProductInfo().getProductOptions().size() > 0);
+        assertNotNull(product.getReview());
+        product.getProductInfo().getProductOptions().forEach(productOption -> assertNotNull(productOption.getInventory()));
+    }
 }
