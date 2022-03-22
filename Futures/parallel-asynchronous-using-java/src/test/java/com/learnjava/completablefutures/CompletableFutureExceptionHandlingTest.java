@@ -6,14 +6,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.mockito.junit.jupiter.MockitoSettings;
-import org.mockito.quality.Strictness;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-@MockitoSettings(strictness = Strictness.LENIENT)
 class CompletableFutureExceptionHandlingTest {
 
     @Mock
@@ -23,7 +20,7 @@ class CompletableFutureExceptionHandlingTest {
     private CompletableFutureExceptionHandling cfEH;
 
     @Test
-    void thenCombineExampleWithThreeAsyncCallsHandleException() {
+    void thenCombineExampleWithThreeAsyncCallsHandleExceptionOnHello() {
         // Given
         when(helloWorldService.hello()).thenThrow(new RuntimeException("Exception Occurred"));
         when(helloWorldService.world()).thenCallRealMethod(); // Cool Stuff!
@@ -33,5 +30,18 @@ class CompletableFutureExceptionHandlingTest {
 
         // Then
         assertEquals(" WORLD! HI COMPLETABLE FUTURE!", result);
+    }
+
+    @Test
+    void thenCombineExampleWithThreeAsyncCallsHandleExceptionOnWorld() {
+        // Given
+        when(helloWorldService.hello()).thenThrow(new RuntimeException("Exception Occurred"));
+        when(helloWorldService.world()).thenThrow(new RuntimeException("Exception Occurred"));
+
+        // When
+        String result = cfEH.thenCombineExampleWithThreeAsyncCallsHandleException();
+
+        // Then
+        assertEquals(" HI COMPLETABLE FUTURE!", result);
     }
 }
