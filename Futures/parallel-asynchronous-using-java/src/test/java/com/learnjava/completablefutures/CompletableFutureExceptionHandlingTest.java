@@ -26,7 +26,7 @@ class CompletableFutureExceptionHandlingTest {
         when(helloWorldService.world()).thenCallRealMethod(); // Cool Stuff!
 
         // When
-        String result = cfEH.thenCombineExampleWithThreeAsyncCallsHandleException();
+        String result = cfEH.thenCombineExampleWithThreeAsyncCallsHandleExceptionUsingHandle();
 
         // Then
         assertEquals(" WORLD! HI COMPLETABLE FUTURE!", result);
@@ -39,9 +39,74 @@ class CompletableFutureExceptionHandlingTest {
         when(helloWorldService.world()).thenThrow(new RuntimeException("Exception Occurred"));
 
         // When
-        String result = cfEH.thenCombineExampleWithThreeAsyncCallsHandleException();
+        String result = cfEH.thenCombineExampleWithThreeAsyncCallsHandleExceptionUsingHandle();
 
         // Then
         assertEquals(" HI COMPLETABLE FUTURE!", result);
+    }
+
+    @Test
+    void thenCombineExampleWithThreeAsyncCallsHandleExceptionOnHappyPath() {
+        // Given
+        when(helloWorldService.hello()).thenCallRealMethod();
+        when(helloWorldService.world()).thenCallRealMethod();
+
+        // When
+        String result = cfEH.thenCombineExampleWithThreeAsyncCallsHandleExceptionUsingHandle();
+
+        // Then
+        assertEquals("HELLO WORLD! HI COMPLETABLE FUTURE!", result);
+    }
+
+    @Test
+    void thenCombineExampleWithThreeAsyncCallsHandleExceptionUsingExceptionallyHappyPath() {
+        // Given
+        when(helloWorldService.hello()).thenCallRealMethod();
+        when(helloWorldService.world()).thenCallRealMethod();
+
+        // When
+        String result = cfEH.thenCombineExampleWithThreeAsyncCallsHandleExceptionUsingExceptionally();
+
+        // Then
+        assertEquals("HELLO WORLD! HI COMPLETABLE FUTURE!", result);
+    }
+
+    @Test
+    void thenCombineExampleWithThreeAsyncCallsHandleExceptionUsingExceptionallyOnBoth() {
+        // Given
+        when(helloWorldService.hello()).thenThrow(new RuntimeException("Exception Occurred"));
+        when(helloWorldService.world()).thenThrow(new RuntimeException("Exception Occurred"));
+
+        // When
+        String result = cfEH.thenCombineExampleWithThreeAsyncCallsHandleExceptionUsingExceptionally();
+
+        // Then
+        assertEquals("", result);
+    }
+
+    @Test
+    void thenCombineExampleWithThreeAsyncCallsHandleExceptionUsingExceptionallyOnHello() {
+        // Given
+        when(helloWorldService.hello()).thenThrow(new RuntimeException("Exception Occurred"));
+        when(helloWorldService.world()).thenCallRealMethod();
+
+        // When
+        String result = cfEH.thenCombineExampleWithThreeAsyncCallsHandleExceptionUsingExceptionally();
+
+        // Then
+        assertEquals("", result);
+    }
+
+    @Test
+    void thenCombineExampleWithThreeAsyncCallsHandleExceptionUsingExceptionallyOnWorld() {
+        // Given
+        when(helloWorldService.hello()).thenCallRealMethod();
+        when(helloWorldService.world()).thenThrow(new RuntimeException("Exception Occurred"));
+
+        // When
+        String result = cfEH.thenCombineExampleWithThreeAsyncCallsHandleExceptionUsingExceptionally();
+
+        // Then
+        assertEquals("", result);
     }
 }
