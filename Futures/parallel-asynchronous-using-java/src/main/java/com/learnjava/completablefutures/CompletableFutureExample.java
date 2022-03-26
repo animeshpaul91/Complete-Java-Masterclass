@@ -63,6 +63,34 @@ public class CompletableFutureExample {
         return helloWorld;
     }
 
+    public String thenCombineExampleWithThreeAsyncCallsLog() {
+        startTimer();
+        CompletableFuture<String> helloCF = CompletableFuture.supplyAsync(helloSupplier);
+        CompletableFuture<String> worldCF = CompletableFuture.supplyAsync(worldSupplier);
+        CompletableFuture<String> hiCF = CompletableFuture.supplyAsync(() -> {
+            delay(1000);
+            return " Hi Completable Future!";
+        });
+
+        String helloWorld = helloCF.thenCombine(worldCF, (helloString, worldString) -> {
+                    log("Inside helloCF thenCombine");
+                    return helloString + worldString;
+                })
+                .thenCombine(hiCF, (previous, current) -> {
+                    log("Inside hiCF thenCombine");
+                    return previous + current;
+                })
+                .thenApply(string -> {
+                    log("Inside thenApply");
+                    return string.toUpperCase();
+                })
+                .join();
+
+        timeTaken();
+        stopWatchReset();
+        return helloWorld;
+    }
+
     public String thenCombineExampleWithFourAsyncCalls() {
         startTimer();
         CompletableFuture<String> helloCF = CompletableFuture.supplyAsync(helloSupplier);
