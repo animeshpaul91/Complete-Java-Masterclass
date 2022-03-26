@@ -59,6 +59,18 @@ public class CompletableFutureExampleTest {
     }
 
     @Test
+    void thenCombineExampleWithThreeAsyncCallsLogAsync() {
+        String helloWorldThreeAsyncCalls = completableFutureExample.thenCombineExampleWithThreeAsyncCallsLogAsync();
+        assertEquals("HELLO WORLD! HI COMPLETABLE FUTURE!", helloWorldThreeAsyncCalls);
+    }
+
+    @Test
+    void thenCombineExampleWithThreeAsyncCallsLogAsyncCustomThreadPool() {
+        String helloWorldThreeAsyncCalls = completableFutureExample.thenCombineExampleWithThreeAsyncCallsLogAsyncCustomThreadPool();
+        assertEquals("HELLO WORLD! HI COMPLETABLE FUTURE!", helloWorldThreeAsyncCalls);
+    }
+
+    @Test
     void thenCombineExampleWithFourAsyncCalls() {
         String helloWorldFourAsyncCalls = completableFutureExample.thenCombineExampleWithFourAsyncCalls();
         assertEquals("HELLO WORLD! HI COMPLETABLE FUTURE! THIS COURSE IS GREAT!", helloWorldFourAsyncCalls);

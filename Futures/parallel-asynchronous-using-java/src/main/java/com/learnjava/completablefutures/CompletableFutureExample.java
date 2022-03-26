@@ -123,6 +123,65 @@ public class CompletableFutureExample {
         return helloWorld;
     }
 
+    public String thenCombineExampleWithThreeAsyncCallsLogAsync() {
+        // does not guarantee every task will run in a new Thread. New Thread will only be picked if all currently working threads are blocked.
+        startTimer();
+        CompletableFuture<String> helloCF = CompletableFuture.supplyAsync(helloSupplier);
+        CompletableFuture<String> worldCF = CompletableFuture.supplyAsync(worldSupplier);
+        CompletableFuture<String> hiCF = CompletableFuture.supplyAsync(() -> {
+            delay(1000);
+            return " Hi Completable Future!";
+        });
+
+        String helloWorld = helloCF.thenCombineAsync(worldCF, (helloString, worldString) -> {
+                    log("Inside helloCF thenCombine");
+                    return helloString + worldString;
+                })
+                .thenCombineAsync(hiCF, (previous, current) -> {
+                    log("Inside hiCF thenCombine");
+                    return previous + current;
+                })
+                .thenApplyAsync(string -> {
+                    log("Inside thenApply");
+                    return string.toUpperCase();
+                })
+                .join();
+
+        timeTaken();
+        stopWatchReset();
+        return helloWorld;
+    }
+
+    public String thenCombineExampleWithThreeAsyncCallsLogAsyncCustomThreadPool() {
+        startTimer();
+
+        ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+        CompletableFuture<String> helloCF = CompletableFuture.supplyAsync(helloSupplier, executorService);
+        CompletableFuture<String> worldCF = CompletableFuture.supplyAsync(worldSupplier, executorService);
+        CompletableFuture<String> hiCF = CompletableFuture.supplyAsync(() -> {
+            delay(1000);
+            return " Hi Completable Future!";
+        }, executorService);
+
+        String helloWorld = helloCF.thenCombineAsync(worldCF, (helloString, worldString) -> {
+                    log("Inside helloCF thenCombine");
+                    return helloString + worldString;
+                }, executorService)
+                .thenCombineAsync(hiCF, (previous, current) -> {
+                    log("Inside hiCF thenCombine");
+                    return previous + current;
+                }, executorService)
+                .thenApplyAsync(string -> {
+                    log("Inside thenApply");
+                    return string.toUpperCase();
+                }, executorService)
+                .join();
+
+        timeTaken();
+        stopWatchReset();
+        return helloWorld;
+    }
+
     public String thenCombineExampleWithFourAsyncCalls() {
         startTimer();
         CompletableFuture<String> helloCF = CompletableFuture.supplyAsync(helloSupplier);
