@@ -82,7 +82,10 @@ public class ProductServiceUsingCompletableFuture {
                 });
 
         return cfProductInfo.thenCombine(cfReview, (productInfo, review) -> new Product(productId, productInfo, review))
-                .whenComplete((product, exception) -> log("Inside whenComplete: " + product + " and exception raised is: " + exception.getMessage()))
+                .whenComplete((product, exception) -> {
+                    if (exception != null)
+                        log("Inside whenComplete: " + product + " and exception raised is: " + exception.getMessage());
+                })
                 // there's no dummy product that can be created if the productInfoService fails to retrieve the product, simply log the exception
                 .join();
     }
@@ -91,6 +94,10 @@ public class ProductServiceUsingCompletableFuture {
         List<CompletableFuture<ProductOption>> productOptionList = productInfo.getProductOptions()
                 .stream()
                 .map(productOption -> inventoryService.retrieveInventoryCF(productOption)
+                        .exceptionally(exception -> {
+                            log("Exception Raised while retrieving Inventory: " + exception.getMessage());
+                            return Inventory.builder().count(1).build();
+                        })
                         .thenApply(inventory -> {
                             productOption.setInventory(inventory);
                             return productOption;

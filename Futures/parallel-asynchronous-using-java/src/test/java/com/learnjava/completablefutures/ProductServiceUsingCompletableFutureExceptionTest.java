@@ -11,6 +11,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.concurrent.CompletableFuture;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -57,5 +59,24 @@ class ProductServiceUsingCompletableFutureExceptionTest {
 
         // Then
         Assertions.assertThrows(RuntimeException.class, () -> productServiceUsingCompletableFuture.retrieveProductDetailsClientWithInventoryCF(productId));
+    }
+
+    @Test
+    public void retrieveProductDetailsClientWithInventoryServiceErrorExceptionally() {
+        // Given
+        String productId = "ABC123";
+        when(productInfoService.retrieveProductInfo(productId)).thenCallRealMethod();
+        when(reviewService.retrieveReviews(productId)).thenCallRealMethod();
+        when(inventoryService.retrieveInventoryCF(any())).thenReturn(CompletableFuture.failedFuture(new RuntimeException("Exception Occurred")));
+
+        // When
+        Product product = productServiceUsingCompletableFuture.retrieveProductDetailsClientWithInventoryCF(productId);
+
+        // Then
+        assertNotNull(product);
+        assertTrue(product.getProductInfo().getProductOptions().size() > 0);
+        assertNotNull(product.getReview());
+        product.getProductInfo().getProductOptions().forEach(productOption -> assertNotNull(productOption.getInventory()));
+        product.getProductInfo().getProductOptions().forEach(productOption -> assertEquals(1, productOption.getInventory().getCount()));
     }
 }
