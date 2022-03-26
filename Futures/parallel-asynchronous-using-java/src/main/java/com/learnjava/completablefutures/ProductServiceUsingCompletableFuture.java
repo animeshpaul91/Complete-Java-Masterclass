@@ -73,7 +73,7 @@ public class ProductServiceUsingCompletableFuture {
                 });
 
         CompletableFuture<Review> cfReview = CompletableFuture.supplyAsync(() -> reviewService.retrieveReviews(productId))
-                .exceptionally(exception -> {
+                .exceptionally(exception -> { // exception will be handled and a dummy review will be returned
                     log("Handled the exception in reviewService: " + exception.getMessage());
                     return Review.builder()
                             .noOfReviews(0)
@@ -82,6 +82,8 @@ public class ProductServiceUsingCompletableFuture {
                 });
 
         return cfProductInfo.thenCombine(cfReview, (productInfo, review) -> new Product(productId, productInfo, review))
+                .whenComplete((product, exception) -> log("Inside whenComplete: " + product + " and exception raised is: " + exception.getMessage()))
+                // there's no dummy product that can be created if the productInfoService fails to retrieve the product, simply log the exception
                 .join();
     }
 

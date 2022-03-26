@@ -4,6 +4,7 @@ import com.learnjava.domain.Product;
 import com.learnjava.service.InventoryService;
 import com.learnjava.service.ProductInfoService;
 import com.learnjava.service.ReviewService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -45,5 +46,16 @@ class ProductServiceUsingCompletableFutureExceptionTest {
         assertEquals(0, product.getReview().getNoOfReviews());
         assertEquals(0.0, product.getReview().getOverallRating());
         product.getProductInfo().getProductOptions().forEach(productOption -> assertNotNull(productOption.getInventory()));
+    }
+
+    @Test
+    public void retrieveProductDetailsClientWithInventoryCFProductInfoServiceErrorWhenComplete() {
+        // Given
+        String productId = "ABC123";
+        when(productInfoService.retrieveProductInfo(productId)).thenThrow(new RuntimeException("Exception Occurred"));
+        when(reviewService.retrieveReviews(productId)).thenCallRealMethod();
+
+        // Then
+        Assertions.assertThrows(RuntimeException.class, () -> productServiceUsingCompletableFuture.retrieveProductDetailsClientWithInventoryCF(productId));
     }
 }
