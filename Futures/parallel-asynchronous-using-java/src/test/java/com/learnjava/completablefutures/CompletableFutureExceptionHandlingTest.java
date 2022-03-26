@@ -109,4 +109,26 @@ class CompletableFutureExceptionHandlingTest {
         // Then
         assertEquals("", result);
     }
+
+    @Test
+    void thenCombineExampleWithThreeAsyncCallsHandleExceptionUsingWhenCompleteSuccess() {
+        // Given
+        when(helloWorldService.hello()).thenCallRealMethod();
+        when(helloWorldService.world()).thenCallRealMethod();
+
+        // When
+        String result = cfEH.thenCombineExampleWithThreeAsyncCallsHandleExceptionUsingWhenComplete();
+        assertEquals("HELLO WORLD! HI COMPLETABLE FUTURE!", result);
+    }
+
+    @Test
+    void thenCombineExampleWithThreeAsyncCallsHandleExceptionUsingWhenCompleteFailure() {
+        // Given
+        when(helloWorldService.hello()).thenThrow(new RuntimeException("Exception Occurred"));
+        when(helloWorldService.world()).thenThrow(new RuntimeException("Exception Occurred"));
+
+        // When
+        String result = cfEH.thenCombineExampleWithThreeAsyncCallsHandleExceptionUsingWhenComplete();
+        assertEquals(" HI COMPLETABLE FUTURE!", result);
+    }
 }
