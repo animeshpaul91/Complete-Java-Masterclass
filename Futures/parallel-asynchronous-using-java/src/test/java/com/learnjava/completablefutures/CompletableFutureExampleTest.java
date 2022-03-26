@@ -53,6 +53,12 @@ public class CompletableFutureExampleTest {
     }
 
     @Test
+    void thenCombineExampleWithThreeAsyncCallsLogCustomThreadPool() {
+        String helloWorldThreeAsyncCalls = completableFutureExample.thenCombineExampleWithThreeAsyncCallsLogCustomThreadPool();
+        assertEquals("HELLO WORLD! HI COMPLETABLE FUTURE!", helloWorldThreeAsyncCalls);
+    }
+
+    @Test
     void thenCombineExampleWithFourAsyncCalls() {
         String helloWorldFourAsyncCalls = completableFutureExample.thenCombineExampleWithFourAsyncCalls();
         assertEquals("HELLO WORLD! HI COMPLETABLE FUTURE! THIS COURSE IS GREAT!", helloWorldFourAsyncCalls);

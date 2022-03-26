@@ -3,6 +3,8 @@ package com.learnjava.completablefutures;
 import com.learnjava.service.HelloWorldService;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.function.Supplier;
 
 import static com.learnjava.util.CommonUtil.*;
@@ -71,6 +73,36 @@ public class CompletableFutureExample {
             delay(1000);
             return " Hi Completable Future!";
         });
+
+        String helloWorld = helloCF.thenCombine(worldCF, (helloString, worldString) -> {
+                    log("Inside helloCF thenCombine");
+                    return helloString + worldString;
+                })
+                .thenCombine(hiCF, (previous, current) -> {
+                    log("Inside hiCF thenCombine");
+                    return previous + current;
+                })
+                .thenApply(string -> {
+                    log("Inside thenApply");
+                    return string.toUpperCase();
+                })
+                .join();
+
+        timeTaken();
+        stopWatchReset();
+        return helloWorld;
+    }
+
+    public String thenCombineExampleWithThreeAsyncCallsLogCustomThreadPool() {
+        startTimer();
+
+        ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+        CompletableFuture<String> helloCF = CompletableFuture.supplyAsync(helloSupplier, executorService);
+        CompletableFuture<String> worldCF = CompletableFuture.supplyAsync(worldSupplier, executorService);
+        CompletableFuture<String> hiCF = CompletableFuture.supplyAsync(() -> {
+            delay(1000);
+            return " Hi Completable Future!";
+        }, executorService);
 
         String helloWorld = helloCF.thenCombine(worldCF, (helloString, worldString) -> {
                     log("Inside helloCF thenCombine");
