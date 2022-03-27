@@ -68,4 +68,16 @@ class MovieClientTest {
         assertEquals(7, movies.size());
         stopWatchReset();
     }
+
+    @RepeatedTest(10)
+    public void testRetrieveMoviesUsingCFAllOf() {
+        var movieInfoIds = List.of("1", "2", "3", "4", "5", "6", "7");
+        startTimer();
+        var movies = moviesClient.retrieveMoviesCFAllOf(movieInfoIds);
+        timeTaken();
+        System.out.println("Movie: " + movies);
+        assertNotNull(movies);
+        assertEquals(7, movies.size());
+        stopWatchReset();
+    }
 }

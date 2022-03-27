@@ -73,4 +73,18 @@ public class MoviesClient {
 
         return movieFutures.stream().map(CompletableFuture::join).collect(Collectors.toList());
     }
+
+    public List<Movie> retrieveMoviesCFAllOf(List<String> movieInfoIds) {
+        var movieFutures = movieInfoIds.stream()
+                .map(this::retrieveMovieCF)
+                .collect(Collectors.toList());
+
+        var movieFuturesArray = movieFutures.toArray(new CompletableFuture[movieInfoIds.size()]);
+        var cfAllOf = CompletableFuture.allOf(movieFuturesArray); // will only return if all CF tasks finish
+        return cfAllOf.thenApply(ignore -> movieFutures
+                        .stream()
+                        .map(CompletableFuture::join) // this is not wait due to line 83. This is just to get the value of the future immediately
+                        .collect(Collectors.toList()))
+                .join();
+    }
 }
