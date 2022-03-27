@@ -84,4 +84,10 @@ public class CompletableFutureExampleTest {
         timeTaken();
         stopWatchReset();
     }
+
+    @Test
+    void testAnyOf() {
+        String helloWorld = completableFutureExample.anyOf();
+        assertEquals("hello world", helloWorld);
+    }
 }

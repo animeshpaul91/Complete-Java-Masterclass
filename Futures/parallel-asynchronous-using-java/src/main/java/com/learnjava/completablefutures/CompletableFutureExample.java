@@ -2,6 +2,7 @@ package com.learnjava.completablefutures;
 
 import com.learnjava.service.HelloWorldService;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -212,5 +213,34 @@ public class CompletableFutureExample {
                 .thenCompose(helloWorldService::worldFuture)
                 // thenCompose is a dependent task. It waits for the hello task to complete and because of this the same thread that executes the hello task also executes the world task
                 .thenApply(String::toUpperCase); // thenApply is also a dependent task. thenCombine is not
+    }
+
+    public String anyOf() {
+        CompletableFuture<String> dbCF = CompletableFuture.supplyAsync(() -> {
+            delay(1000);
+            log("Response from DB");
+            return "hello world";
+        });
+
+        CompletableFuture<String> restCallCF = CompletableFuture.supplyAsync(() -> {
+            delay(2000);
+            log("Response from REST Call");
+            return "hello world";
+        });
+
+        CompletableFuture<String> soapCallCF = CompletableFuture.supplyAsync(() -> {
+            delay(3000);
+            log("Response from SOAP Call");
+            return "hello world";
+        });
+
+        List<CompletableFuture<String>> cfList = List.of(dbCF, restCallCF, soapCallCF);
+        var cfArray = cfList.toArray(new CompletableFuture[cfList.size()]);
+        CompletableFuture<Object> cfAnyOf = CompletableFuture.anyOf(cfArray);
+
+        return (String) cfAnyOf.thenApply(string -> {
+            if (string instanceof String) return string; // if condition because cfAnyOf is a CF of type Object
+            return null;
+        }).join();
     }
 }
