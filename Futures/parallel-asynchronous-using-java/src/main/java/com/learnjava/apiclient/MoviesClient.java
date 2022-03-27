@@ -8,6 +8,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 public class MoviesClient {
 
@@ -57,5 +58,19 @@ public class MoviesClient {
                 .bodyToFlux(Review.class)// used for collections
                 .collectList()
                 .block();
+    }
+
+    public List<Movie> retrieveMovies(List<String> movieInfoIds) {
+        return movieInfoIds.stream()
+                .map(this::retrieveMovie)
+                .collect(Collectors.toList());
+    }
+
+    public List<Movie> retrieveMoviesCF(List<String> movieInfoIds) {
+        var movieFutures = movieInfoIds.stream()
+                .map(this::retrieveMovieCF)
+                .collect(Collectors.toList());
+
+        return movieFutures.stream().map(CompletableFuture::join).collect(Collectors.toList());
     }
 }

@@ -3,6 +3,8 @@ package com.learnjava.apiclient;
 import org.junit.jupiter.api.RepeatedTest;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.util.List;
+
 import static com.learnjava.util.CommonUtil.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -40,6 +42,30 @@ class MovieClientTest {
         assertNotNull(movie);
         assertEquals("Batman Begins", movie.getMovieInfo().getName());
         assertEquals(1, movie.getReviewList().size());
+        stopWatchReset();
+    }
+
+    @RepeatedTest(10)
+    public void testRetrieveMovies() {
+        var movieInfoIds = List.of("1", "2", "3", "4", "5", "6", "7");
+        startTimer();
+        var movies = moviesClient.retrieveMovies(movieInfoIds);
+        timeTaken();
+        System.out.println("Movie: " + movies);
+        assertNotNull(movies);
+        assertEquals(7, movies.size());
+        stopWatchReset();
+    }
+
+    @RepeatedTest(10)
+    public void testRetrieveMoviesUsingCF() {
+        var movieInfoIds = List.of("1", "2", "3", "4", "5", "6", "7");
+        startTimer();
+        var movies = moviesClient.retrieveMoviesCF(movieInfoIds);
+        timeTaken();
+        System.out.println("Movie: " + movies);
+        assertNotNull(movies);
+        assertEquals(7, movies.size());
         stopWatchReset();
     }
 }
