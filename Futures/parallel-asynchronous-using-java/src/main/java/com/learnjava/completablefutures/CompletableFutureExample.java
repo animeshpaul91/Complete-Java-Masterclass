@@ -235,7 +235,7 @@ public class CompletableFutureExample {
         });
 
         List<CompletableFuture<String>> cfList = List.of(dbCF, restCallCF, soapCallCF);
-        var cfArray = cfList.toArray(new CompletableFuture[cfList.size()]);
+        var cfArray = cfList.toArray(new CompletableFuture[0]);
         CompletableFuture<Object> cfAnyOf = CompletableFuture.anyOf(cfArray);
 
         return (String) cfAnyOf.thenApply(object -> {
