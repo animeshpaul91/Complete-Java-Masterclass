@@ -18,7 +18,7 @@ class MovieClientTest {
 
     @Test
     public void testRetrieveMovie() {
-        var movieInfoId = 1L;
+        String movieInfoId = "1";
         var movie = moviesClient.retrieveMovie(movieInfoId);
         System.out.println("Movie: " + movie);
         assertNotNull(movie);

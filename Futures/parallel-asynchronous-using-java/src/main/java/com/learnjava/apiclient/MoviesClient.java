@@ -16,7 +16,7 @@ public class MoviesClient {
         this.webClient = webClient;
     }
 
-    public Movie retrieveMovie(Long movieInfoId) {
+    public Movie retrieveMovie(String movieInfoId) {
         // Need MovieInfo
         var movieInfo = invokeMovieInfoService(movieInfoId);
         // Need Review Data
@@ -24,7 +24,7 @@ public class MoviesClient {
         return new Movie(movieInfo, reviews);
     }
 
-    private MovieInfo invokeMovieInfoService(Long movieInfoId) {
+    private MovieInfo invokeMovieInfoService(String movieInfoId) {
         var moviesInfoUrlPath = "/v1/movie_infos/{movieInfoId}";
 
         return webClient
@@ -35,7 +35,7 @@ public class MoviesClient {
                 .block();
     }
 
-    private List<Review> invokeReviewsService(Long movieInfoId) {
+    private List<Review> invokeReviewsService(String movieInfoId) {
         var reviewUri = UriComponentsBuilder.fromUriString("/v1/reviews")
                 .queryParam("movieInfoId", movieInfoId)
                 .buildAndExpand()
