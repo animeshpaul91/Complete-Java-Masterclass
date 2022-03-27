@@ -8,11 +8,11 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
-public class MovieClient {
+public class MoviesClient {
 
     private final WebClient webClient;
 
-    public MovieClient(WebClient webClient) {
+    public MoviesClient(WebClient webClient) {
         this.webClient = webClient;
     }
 
@@ -25,7 +25,7 @@ public class MovieClient {
     }
 
     private MovieInfo invokeMovieInfoService(Long movieInfoId) {
-        var moviesInfoUrlPath = "v1/movie_infos/{movieInfoId}";
+        var moviesInfoUrlPath = "/v1/movie_infos/{movieInfoId}";
 
         return webClient
                 .get()
