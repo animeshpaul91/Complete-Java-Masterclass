@@ -238,8 +238,8 @@ public class CompletableFutureExample {
         var cfArray = cfList.toArray(new CompletableFuture[cfList.size()]);
         CompletableFuture<Object> cfAnyOf = CompletableFuture.anyOf(cfArray);
 
-        return (String) cfAnyOf.thenApply(string -> {
-            if (string instanceof String) return string; // if condition because cfAnyOf is a CF of type Object
+        return (String) cfAnyOf.thenApply(object -> {
+            if (object instanceof String) return object; // if condition because cfAnyOf is a CF of type Object
             return null;
         }).join();
     }
