@@ -29,4 +29,14 @@ public class TopicController {
     public void addTopic(@RequestBody Topic topic) { // also done by jackson
         topicService.addTopic(topic);
     }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/topics/{id}")
+    public void updateTopic(@RequestBody Topic topic, @PathVariable String id) { // also done by jackson
+        topicService.updateTopic(id, topic);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/topics/{id}")
+    public void deleteTopic(@PathVariable String id) {
+        topicService.deleteTopic(id);
+    }
 }
