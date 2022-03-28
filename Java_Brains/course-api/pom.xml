@@ -16,6 +16,9 @@
     <parent>
         <!-- Set this project to be a child of spring-boot-starter-parent -->
         <!-- SpringBoot has made all the default opinionated set of maven configuration and our project inherits all of it -->
+        <!-- Tells SpringBoot what versions of JARs to download. Parent has all versions set in <dependencyManagement> -->
+        <!-- These combinations of versions that work well with each other are called Bill of Materials (BOM) -->
+        <!-- spring-boot-starter-parent is a BOM -->
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.4.2.RELEASE</version>
