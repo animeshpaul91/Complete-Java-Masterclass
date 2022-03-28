@@ -2,6 +2,7 @@ package io.javabrains.springbootstarter.topic;
 
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,14 +12,25 @@ public class TopicService {
     private final List<Topic> topics;
 
     public TopicService() {
-        this.topics = Arrays.asList(
+        this.topics = new ArrayList<>(Arrays.asList(
                 new Topic("Spring", "Spring Framework", "Spring Framework Description"),
                 new Topic("Java", "Core Java", "Core Java Description"),
                 new Topic("Javascript", "Javascript", "Javascript Description")
-        );
+        ));
     }
 
     public List<Topic> getAllTopics() {
         return topics;
+    }
+
+    public Topic getTopic(String id) {
+        return topics.stream()
+                .filter(topic -> topic.getId().equals(id))
+                .findFirst()
+                .get();
+    }
+
+    public void addTopic(Topic topic) {
+        topics.add(topic);
     }
 }
