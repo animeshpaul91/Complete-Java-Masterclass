@@ -1,50 +1,43 @@
 package io.javabrains.springboot.topic;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Service // marks this class a Spring Service
 public class TopicService {
 
-    private final List<Topic> topics;
+    private final TopicRepository topicRepository;
 
-    public TopicService() {
-        this.topics = new ArrayList<>(Arrays.asList(
-                new Topic("Spring", "Spring Framework", "Spring Framework Description"),
-                new Topic("Java", "Core Java", "Core Java Description"),
-                new Topic("Javascript", "Javascript", "Javascript Description")
-        ));
+    @Autowired
+    public TopicService(TopicRepository topicRepository) {
+        this.topicRepository = topicRepository;
     }
 
     public List<Topic> getAllTopics() {
+        List<Topic> topics = new ArrayList<>();
+        topicRepository.findAll()
+                .forEach(topics::add);
         return topics;
     }
 
     public Topic getTopic(String id) {
-        return topics.stream()
-                .filter(topic -> topic.getId().equals(id))
-                .findFirst()
-                .get();
+        Optional<Topic> topicOpt = topicRepository.findById(id);
+        return topicOpt.orElse(null);
     }
 
     public void addTopic(Topic topic) {
-        topics.add(topic);
+        topicRepository.save(topic);
     }
 
     public void updateTopic(String id, Topic newTopic) {
-        for (int i = 0; i < topics.size(); i++) {
-            Topic existingTopic = topics.get(i);
-            if (existingTopic.getId().equals(id)) {
-                topics.set(i, newTopic);
-                return;
-            }
-        }
+        topicRepository.save(newTopic); // insert or update because it knows Primary Key
     }
 
     public void deleteTopic(String id) {
-        topics.removeIf(topic -> topic.getId().equals(id));
+        topicRepository.deleteById(id);
     }
 }
