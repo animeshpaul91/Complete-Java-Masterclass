@@ -38,6 +38,7 @@ class MathUtilsTest { // unit manages the lifecycle of the class
 
     @Nested
     @DisplayName("Add Method")
+    @Tag("Math")
     class AddTest {
         // AddTest will fail if at least one tests within AddTest class fails
         @Test
@@ -65,6 +66,7 @@ class MathUtilsTest { // unit manages the lifecycle of the class
     @Test
     @DisplayName("Testing divide method")
     @EnabledOnOs(OS.LINUX)
+    @Tag("Math")
     public void testDivide() {
         // System.out.println(this);
         int first = 10, second = 0;
@@ -74,7 +76,8 @@ class MathUtilsTest { // unit manages the lifecycle of the class
 
     @RepeatedTest(3)
     @DisplayName("Testing compute circle area")
-    public void testComputeCircleArea(RepetitionInfo repetitionInfo) {
+    @Tag("Circle")
+    public void testComputeCircleArea(/* RepetitionInfo repetitionInfo */) {
         // System.out.println(repetitionInfo.getCurrentRepetition());
         double radius = 10;
         double expected = 314.1592653589793;
