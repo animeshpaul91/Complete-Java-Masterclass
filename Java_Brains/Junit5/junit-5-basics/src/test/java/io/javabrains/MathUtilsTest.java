@@ -10,6 +10,8 @@ import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 // @TestInstance(TestInstance.Lifecycle.PER_CLASS) // change default behavior to create a single instance of MathUtilTest for all test methods
 // @TestInstance(TestInstance.Lifecycle.PER_METHOD) // default behavior. Adding this is similar to not adding it
+
+@DisplayName("When running MathUtils")
 class MathUtilsTest { // unit manages the lifecycle of the class
 
     private MathUtils mathUtils;
@@ -34,14 +36,29 @@ class MathUtilsTest { // unit manages the lifecycle of the class
         // System.out.println("This runs after all");
     }
 
-    @Test
-    @DisplayName("Testing add method")
-    public void testAdd() { // junit creates a new instance of MathUtilsTest for every method run
-        // System.out.println(this);
-        int first = 10, second = 20;
-        int expected = first + second;
-        int actual = mathUtils.add(first, second);
-        assertEquals(expected, actual, "The add method should add two numbers");
+    @Nested
+    @DisplayName("Add Method")
+    class AddTest {
+        // AddTest will fail if at least one tests within AddTest class fails
+        @Test
+        @DisplayName("When adding two positive numbers")
+        public void testAddPositive() { // junit creates a new instance of MathUtilsTest for every method run
+            // System.out.println(this);
+            int first = 10, second = 20;
+            int expected = first + second;
+            int actual = mathUtils.add(first, second);
+            assertEquals(expected, actual, "should return the sum");
+        }
+
+        @Test
+        @DisplayName("When adding two negative numbers")
+        public void testAddNegative() { // junit creates a new instance of MathUtilsTest for every method run
+            // System.out.println(this);
+            int first = 10, second = -20;
+            int expected = first + second;
+            int actual = mathUtils.add(first, second);
+            assertEquals(expected, actual, "should return the sum");
+        }
     }
 
     @Test
