@@ -47,7 +47,8 @@ class MathUtilsTest { // unit manages the lifecycle of the class
             int first = 10, second = 20;
             int expected = first + second;
             int actual = mathUtils.add(first, second);
-            assertEquals(expected, actual, "should return the sum");
+            assertEquals(expected, actual, () -> "should return the sum: " + expected + " but actually returned: " + actual);
+            // Lazy Processing of string. String gets created via Supplier only if test fails.
         }
 
         @Test
