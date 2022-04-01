@@ -5,7 +5,6 @@ import org.junit.jupiter.api.condition.EnabledOnOs;
 import org.junit.jupiter.api.condition.OS;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 
 // @TestInstance(TestInstance.Lifecycle.PER_CLASS) // change default behavior to create a single instance of MathUtilTest for all test methods
@@ -15,6 +14,8 @@ import static org.junit.jupiter.api.Assumptions.assumeTrue;
 class MathUtilsTest { // unit manages the lifecycle of the class
 
     private MathUtils mathUtils;
+    private TestInfo testInfo;
+    private TestReporter testReporter;
 
     @BeforeAll // runs before the construction of the object of MathUtilsTest. So needs to be static
     public static void beforeAllInit() {
@@ -22,8 +23,13 @@ class MathUtilsTest { // unit manages the lifecycle of the class
     }
 
     @BeforeEach // this will run before each test method runs
-    public void init() {
+    public void init(TestInfo testInfo, TestReporter testReporter) { // Dependency Injection
         this.mathUtils = new MathUtils();
+        this.testInfo = testInfo; // contains metadata about tests
+        this.testReporter = testReporter; // contains metadata about tests
+        String testInfoMetaData = "Running " + testInfo.getDisplayName() + " with tags " + testInfo.getTags();
+        testReporter.publishEntry(testInfoMetaData);
+        // Meta-Data will be printed on Junit console before running each test
     }
 
     @AfterEach
@@ -70,7 +76,7 @@ class MathUtilsTest { // unit manages the lifecycle of the class
     public void testDivide() {
         // System.out.println(this);
         int first = 10, second = 0;
-        assumeTrue(second != 0); // offers programmatic control to run conditional tests
+        // assumeTrue(second != 0); // offers programmatic control to run conditional tests
         assertThrows(ArithmeticException.class, () -> mathUtils.divide(first, second), "Divide by zero must Throw an exception");
     }
 
@@ -93,12 +99,13 @@ class MathUtilsTest { // unit manages the lifecycle of the class
 
     @Test
     @DisplayName("Multiply Method")
+    @Tag("Math")
     public void testMultiply() {
         assertAll(
                 () -> assertEquals(4, mathUtils.multiply(2, 2)),
                 () -> assertEquals(0, mathUtils.multiply(2, 0)),
                 () -> assertEquals(2, mathUtils.multiply(2, 1)),
                 () -> assertEquals(-2, mathUtils.multiply(2, -1))
-         );  // test will fail if at least one assertEquals fail
+        );  // test will fail if at least one assertEquals fail
     }
 }
