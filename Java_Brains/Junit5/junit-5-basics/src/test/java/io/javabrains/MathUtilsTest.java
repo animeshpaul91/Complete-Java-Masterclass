@@ -72,10 +72,10 @@ class MathUtilsTest { // unit manages the lifecycle of the class
         assertThrows(ArithmeticException.class, () -> mathUtils.divide(first, second), "Divide by zero must Throw an exception");
     }
 
-    @Test
+    @RepeatedTest(3)
     @DisplayName("Testing compute circle area")
-    public void testComputeCircleArea() {
-        // System.out.println(this);
+    public void testComputeCircleArea(RepetitionInfo repetitionInfo) {
+        // System.out.println(repetitionInfo.getCurrentRepetition());
         double radius = 10;
         double expected = 314.1592653589793;
         double actual = mathUtils.computeCircleArea(radius);
