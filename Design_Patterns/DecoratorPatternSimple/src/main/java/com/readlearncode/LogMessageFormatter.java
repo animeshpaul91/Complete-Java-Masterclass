@@ -31,5 +31,4 @@ public abstract class LogMessageFormatter implements LogMessage {
         message = LocalDate.now().toString().concat(message);
         logMessage.setMessage(message);
     }
-
 }
