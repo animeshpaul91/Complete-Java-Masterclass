@@ -4,7 +4,7 @@ import com.readlearncode.Customer;
 import com.readlearncode.CustomerEvent;
 
 import javax.annotation.Priority;
-import javax.enterprise.event.Observes;
+import javax.enterprise.event.ObservesAsync;
 
 import static com.readlearncode.CustomerEvent.Type.ADD;
 import static com.readlearncode.CustomerEvent.Type.REMOVE;
@@ -15,13 +15,15 @@ import static com.readlearncode.CustomerEvent.Type.REMOVE;
  * @author Alex Theedom www.readlearncode.com
  * @version 1.0
  */
-public class AuthenticationService {
+public class CustomerService {
 
-    public void createAuthenticationCredentials(@Observes @Priority(100) @CustomerEvent(ADD) Customer customer){
-        // create authentication credentials
+    public void createCustomer(@ObservesAsync @Priority(10) @CustomerEvent(ADD) Customer customer) {
+        // priority no longer works with Asynchronous observe
+        // add new customer
     }
 
-    public void deleteAuthenticationCredentials(@Observes @CustomerEvent(REMOVE) Customer customer) {
-        // delete authentication credentials
+    public void deleteCustomer(@ObservesAsync @CustomerEvent(REMOVE) Customer customer) {
+        // delete customer
     }
+
 }

@@ -3,16 +3,12 @@ package com.readlearncode;
 
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
-import javax.enterprise.event.NotificationOptions;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
-
-import java.util.concurrent.CompletionStage;
-import java.util.concurrent.ForkJoinPool;
 
 import static com.readlearncode.CustomerEvent.Type.ADD;
 import static com.readlearncode.CustomerEvent.Type.REMOVE;
@@ -28,32 +24,25 @@ import static com.readlearncode.CustomerEvent.Type.REMOVE;
 public class CustomerEndpoint {
 
     @Inject
-    @CustomerEvent(ADD)
+    @CustomerEvent(ADD) // annotation defined in CustomerEvent Interface
     private Event<Customer> customerAddEvent;
 
     @Inject
-    @CustomerEvent(REMOVE)
+    @CustomerEvent(REMOVE) // annotation defined in CustomerEvent Interface
     private Event<Customer> customerRemoveEvent;
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void newCustomer(Customer customer) {
-        customerAddEvent.fireAsync(customer,
-                NotificationOptions.ofExecutor(new ForkJoinPool(10)));
+        customerAddEvent.fire(customer);
+        // all services (AuthenticationService, CustomerService & EmailServices) will be triggered because they are observers to this event.
+        // in a decoupled manner
     }
 
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)
     public void removeCustomer(Customer customer) {
-        CompletionStage<Customer> stage =
-                customerRemoveEvent.fireAsync(customer);
-
-        stage.handle((Customer event, Throwable ex) -> {
-            for (Throwable t : ex.getSuppressed()) {
-                // log exception
-            }
-            return event;
-        });
+        customerRemoveEvent.fire(customer);
     }
 
 }

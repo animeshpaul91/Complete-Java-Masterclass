@@ -4,7 +4,7 @@ import com.readlearncode.Customer;
 import com.readlearncode.CustomerEvent;
 
 import javax.annotation.Priority;
-import javax.enterprise.event.ObservesAsync;
+import javax.enterprise.event.Observes;
 
 import static com.readlearncode.CustomerEvent.Type.ADD;
 import static com.readlearncode.CustomerEvent.Type.REMOVE;
@@ -17,11 +17,12 @@ import static com.readlearncode.CustomerEvent.Type.REMOVE;
  */
 public class CustomerService {
 
-    public void createCustomer(@ObservesAsync @Priority(10) @CustomerEvent(ADD) Customer customer) {
+    public void createCustomer(@Observes @Priority(10) @CustomerEvent(ADD) Customer customer) {
+        // lower the priority more important is the service
         // add new customer
     }
 
-    public void deleteCustomer(@ObservesAsync @CustomerEvent(REMOVE) Customer customer) {
+    public void deleteCustomer(@Observes @CustomerEvent(REMOVE) Customer customer) {
         // delete customer
     }
 
