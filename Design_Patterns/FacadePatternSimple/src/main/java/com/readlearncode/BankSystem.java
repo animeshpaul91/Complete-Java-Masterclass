@@ -11,7 +11,8 @@ import javax.ejb.Stateless;
  * @author Alex Theedom www.readlearncode.com
  * @version 1.0
  */
-@Stateless
+@Stateless // this annotation is used to mark the Facade
+// you get a range of services with this annotation
 public class BankSystem {
 
     @EJB
