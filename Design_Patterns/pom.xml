@@ -11,24 +11,14 @@
     <url>www.readlearncode.com</url>
 
     <modules>
-        <module>master</module>
-        <module>02_03_start</module>
-        <module>02_03_end</module>
-        <module>02_04_start</module>
-        <module>02_04_end</module>
-        <module>02_05_start</module>
-        <module>02_05_end</module>
-        <module>02_07_start</module>
-        <module>02_07_end</module>
-        <module>02_10_start</module>
-        <module>02_10_end</module>
-        <module>02_11_start</module>
-        <module>02_11_end</module>
-        <module>02_12_start</module>
-        <module>02_12_end</module>
-        <module>02_14_start</module>
-        <module>02_14_end</module>
-        <module>07_01_start</module>
+        <module>DecoratorPatternSimple</module>
+        <module>FacadePatternSimple</module>
+        <module>ObserverPatternAsync</module>
+        <module>ObserverPatternQualifiers</module>
+        <module>ObserverPatternSimple</module>
+        <module>SingletonPatternAdvanced</module>
+        <module>SingletonPatternConcurrency</module>
+        <module>SingletonPatternSimple</module>
         <module>03_02_start</module>
         <module>03_02_end</module>
         <module>03_03_start</module>
