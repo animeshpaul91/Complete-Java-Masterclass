@@ -20,14 +20,14 @@ public class MessageResource {
     }
 
     @GET // This is a GET request and will resolve to /messages
-    @Produces(MediaType.APPLICATION_XML) // This is the return type to the HTTP request
+    @Produces(MediaType.APPLICATION_JSON) // This is the return type to the HTTP request
     public List<Message> getMessages() {
         return messageService.getAllMessages();
     }
 
     @GET
     @Path("/{messageId}")
-    @Produces(MediaType.APPLICATION_XML)
+    @Produces(MediaType.APPLICATION_JSON)
     public Message getMessageInstance(@PathParam("messageId") long messageId) {
         return messageService.getMessage(messageId);
     }
