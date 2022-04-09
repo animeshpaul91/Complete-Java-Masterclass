@@ -1,9 +1,6 @@
 package org.javabrains.jax.rs.messenger.resources;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import org.javabrains.jax.rs.messenger.model.Message;
 import org.javabrains.jax.rs.messenger.service.MessageService;
@@ -30,5 +27,12 @@ public class MessageResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Message getMessageInstance(@PathParam("messageId") long messageId) {
         return messageService.getMessage(messageId);
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Message addMessage(Message message) {
+        return messageService.addMessage(message);
     }
 }
