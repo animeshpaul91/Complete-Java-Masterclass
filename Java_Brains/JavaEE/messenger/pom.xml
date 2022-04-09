@@ -9,17 +9,24 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>messenger</name>
 
+    <properties>
+        <jersey.version>3.0.4</jersey.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <maven.compiler.version>11</maven.compiler.version>
+    </properties>
+
     <build>
         <finalName>messenger</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${maven.compiler.plugin.version}</version>
                 <inherited>true</inherited>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${maven.compiler.version}</source>
+                    <target>${maven.compiler.version}</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -55,8 +62,4 @@
         </dependency>
         -->
     </dependencies>
-    <properties>
-        <jersey.version>3.0.4</jersey.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 </project>
