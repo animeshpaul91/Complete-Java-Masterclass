@@ -14,6 +14,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <maven.compiler.version>11</maven.compiler.version>
+        <jakarta.xml.bind.version>3.0.0</jakarta.xml.bind.version>
+        <sun.xml.bind.version>3.0.0</sun.xml.bind.version>
+        <jersey.media.version>3.0.2</jersey.media.version>
     </properties>
 
     <build>
@@ -66,17 +69,17 @@
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
             <artifactId>jakarta.xml.bind-api</artifactId>
-            <version>3.0.0</version>
+            <version>${jakarta.xml.bind.version}</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-jaxb</artifactId>
-            <version>3.0.2</version>
+            <version>${jersey.media.version}</version>
         </dependency>
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
-            <version>3.0.0</version>
+            <version>${sun.xml.bind.version}</version>
             <scope>runtime</scope>
         </dependency>
     </dependencies>
