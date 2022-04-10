@@ -1,5 +1,6 @@
 package org.javabrains.jax.rs.messenger.resources;
 
+import jakarta.ws.rs.BeanParam;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
@@ -8,9 +9,9 @@ import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import org.javabrains.jax.rs.messenger.model.Message;
+import org.javabrains.jax.rs.messenger.resources.beans.MessageFilterBean;
 import org.javabrains.jax.rs.messenger.service.MessageService;
 
 import java.util.List;
@@ -27,11 +28,10 @@ public class MessageResource {
     }
 
     @GET // This is a GET request and will resolve to /messages
-    public List<Message> getMessages(@QueryParam("year") int year,
-                                     @QueryParam("start") int start,
-                                     @QueryParam("size") int size) {
+    public List<Message> getMessages(@BeanParam MessageFilterBean messageFilterBean) {
 
         // Even with URIs with query parameters, jersey will call the same controller method
+        int year = messageFilterBean.getYear(), start = messageFilterBean.getStart(), size = messageFilterBean.getSize();
         if (year > 0) return messageService.getAllMessagesForYear(year);
         if (start >= 0 && size > 0) return messageService.getAllMessagesPaginated(start, size);
         return messageService.getAllMessages();
