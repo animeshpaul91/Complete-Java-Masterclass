@@ -4,6 +4,7 @@ import org.javabrains.jax.rs.messenger.database.DatabaseClass;
 import org.javabrains.jax.rs.messenger.model.Message;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -31,8 +32,13 @@ public class MessageService {
     public Message addMessage(Message message) {
         long messageId = messages.size() + 1;
         message.setId(messageId);
+        setMessageTimestamp(message);
         messages.put(messageId, message);
         return message;
+    }
+
+    private void setMessageTimestamp(Message message) {
+        message.setCreated(new Date());
     }
 
     public Message updateMessage(Message message) {
