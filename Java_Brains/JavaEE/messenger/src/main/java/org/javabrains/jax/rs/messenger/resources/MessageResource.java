@@ -60,4 +60,9 @@ public class MessageResource {
     public void deleteMessage(@PathParam("messageId") long messageId) {
         messageService.deleteMessage(messageId);
     }
+
+    @Path("/{messageId}/comments") // messageId is used in the Subresource
+    public CommentResource getCommentResource() {
+        return new CommentResource(); // this returns an instance of the subresource
+    }
 }

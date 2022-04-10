@@ -1,8 +1,11 @@
 package org.javabrains.jax.rs.messenger.model;
 
 import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlTransient;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @XmlRootElement
 public class Message {
@@ -10,6 +13,7 @@ public class Message {
     private String message;
     private Date created;
     private String author;
+    private Map<Long, Comment> comments;
 
     public Message() { // used by Jackson
     }
@@ -19,6 +23,7 @@ public class Message {
         this.message = message;
         this.author = author;
         this.created = new Date();
+        this.comments = new HashMap<>();
     }
 
     public long getId() {
@@ -51,5 +56,15 @@ public class Message {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    @XmlTransient
+    // to ignore the comments when the message list is converted to JSON for /GET messages and /GET message ID
+    public Map<Long, Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Map<Long, Comment> comments) {
+        this.comments = comments;
     }
 }
