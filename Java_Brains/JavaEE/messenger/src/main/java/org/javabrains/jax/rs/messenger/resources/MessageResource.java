@@ -19,7 +19,13 @@ public class MessageResource {
     }
 
     @GET // This is a GET request and will resolve to /messages
-    public List<Message> getMessages() {
+    public List<Message> getMessages(@QueryParam("year") int year,
+                                     @QueryParam("start") int start,
+                                     @QueryParam("size") int size) {
+
+        // Even with URIs with query parameters, jersey will call the same controller method
+        if (year > 0) return messageService.getAllMessagesForYear(year);
+        if (start >= 0 && size > 0) return messageService.getAllMessagesPaginated(start, size);
         return messageService.getAllMessages();
     }
 

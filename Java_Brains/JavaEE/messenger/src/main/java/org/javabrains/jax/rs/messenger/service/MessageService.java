@@ -3,10 +3,8 @@ package org.javabrains.jax.rs.messenger.service;
 import org.javabrains.jax.rs.messenger.database.DatabaseClass;
 import org.javabrains.jax.rs.messenger.model.Message;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class MessageService {
     private static Map<Long, Message> messages;
@@ -23,6 +21,23 @@ public class MessageService {
 
     public List<Message> getAllMessages() {
         return new ArrayList<>(messages.values());
+    }
+
+    public List<Message> getAllMessagesForYear(int year) {
+        final Calendar calendar = Calendar.getInstance();
+        return messages.values()
+                .stream()
+                .filter(message -> {
+                    Date dateCreated = message.getCreated();
+                    calendar.setTime(dateCreated);
+                    return calendar.get(Calendar.YEAR) == year;
+                })
+                .collect(Collectors.toList());
+    }
+
+    public List<Message> getAllMessagesPaginated(int start, int size) {
+        List<Message> messagesList = new ArrayList<>(messages.values());
+        return messagesList.subList(start, start + size);
     }
 
     public Message getMessage(long id) {
