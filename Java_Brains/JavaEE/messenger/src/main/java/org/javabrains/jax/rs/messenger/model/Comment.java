@@ -2,6 +2,7 @@ package org.javabrains.jax.rs.messenger.model;
 
 import java.util.Date;
 
+// Comment is not annotated with a @XmlRootElement because it's existence is solely within Message
 public class Comment {
     private long id;
     private String Message;

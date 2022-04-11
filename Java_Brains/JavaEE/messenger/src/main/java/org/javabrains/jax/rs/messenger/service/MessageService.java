@@ -1,6 +1,7 @@
 package org.javabrains.jax.rs.messenger.service;
 
 import org.javabrains.jax.rs.messenger.database.DatabaseClass;
+import org.javabrains.jax.rs.messenger.exception.DataNotFoundException;
 import org.javabrains.jax.rs.messenger.model.Message;
 
 import java.util.ArrayList;
@@ -45,7 +46,11 @@ public class MessageService {
     }
 
     public Message getMessage(long id) {
-        return messages.get(id);
+        Message message = messages.get(id);
+        if (message == null) throw new DataNotFoundException("Message with ID: " + id + " not found");
+        // this gets bubbled up to MessageResource and then to JAX.RS which looks at all exception mapper using @Provided Annotation
+        // and finds a mapper with this type of exception
+        return message;
     }
 
     public Message addMessage(Message message) {
