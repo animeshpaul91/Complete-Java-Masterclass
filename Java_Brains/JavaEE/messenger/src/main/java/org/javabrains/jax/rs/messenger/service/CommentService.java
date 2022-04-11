@@ -1,6 +1,7 @@
 package org.javabrains.jax.rs.messenger.service;
 
 import org.javabrains.jax.rs.messenger.database.DatabaseClass;
+import org.javabrains.jax.rs.messenger.exception.WebApplicationExceptionUtil;
 import org.javabrains.jax.rs.messenger.model.Comment;
 import org.javabrains.jax.rs.messenger.model.Message;
 
@@ -21,12 +22,21 @@ public class CommentService {
     }
 
     private Map<Long, Comment> getCommentsForAMessage(long messageId) {
-        return messages.get(messageId).getComments();
+        Message message = messages.get(messageId);
+        if (message == null) {
+            // Jersey knows about this exception. so this does not need a Mapper. You can use this in your code at certain places
+            WebApplicationExceptionUtil.throwNotFoundException();
+        }
+        return message.getComments();
     }
 
     public Comment getComment(long messageId, long commentId) {
         Map<Long, Comment> comments = getCommentsForAMessage(messageId);
-        return comments.get(commentId);
+        Comment comment = comments.get(commentId);
+        if (comment == null) {
+            WebApplicationExceptionUtil.throwWebApplicationExceptionWithNotFoundStatus();
+        }
+        return comment;
     }
 
     public Comment addComment(long messageId, Comment comment) {
