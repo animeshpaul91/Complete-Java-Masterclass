@@ -9,11 +9,15 @@ import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.UriInfo;
 import org.javabrains.jax.rs.messenger.model.Message;
 import org.javabrains.jax.rs.messenger.resources.beans.MessageFilterBean;
 import org.javabrains.jax.rs.messenger.service.MessageService;
 
+import java.net.URI;
 import java.util.List;
 
 @Path("/messages") // All controller methods in this class will have this prefix
@@ -44,8 +48,17 @@ public class MessageResource {
     }
 
     @POST
-    public Message addMessage(Message message) {
-        return messageService.addMessage(message);
+    public Response addMessage(Message message, @Context UriInfo uriInfo) {
+        Message resultMessage = messageService.addMessage(message);
+        String newId = String.valueOf(resultMessage.getId());
+
+        URI messageCreationUri = uriInfo.getAbsolutePathBuilder()
+                .path(newId) // getAbsolutePathBuilder() will return a URI with - http://localhost:8080/messenger/webapi/messages
+                .build();
+
+        return Response.created(messageCreationUri) // does two things - sets status as 201 and adds the URI to the response
+                .entity(resultMessage)
+                .build();
     }
 
     @PUT
