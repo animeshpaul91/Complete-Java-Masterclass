@@ -15,8 +15,8 @@ import org.javabrains.jax.rs.messenger.service.CommentService;
 import java.util.List;
 
 @Path("/")
-@Consumes(MediaType.APPLICATION_JSON) // This represents the body of the request
-@Produces(MediaType.APPLICATION_JSON) // This is the return type to the HTTP req
+@Consumes(value = {MediaType.APPLICATION_JSON, MediaType.TEXT_XML}) // This represents the body of the request
+@Produces(value = {MediaType.APPLICATION_JSON, MediaType.TEXT_XML}) // This is the return type to the HTTP req
 public class CommentResource {
 
     private final CommentService commentService;

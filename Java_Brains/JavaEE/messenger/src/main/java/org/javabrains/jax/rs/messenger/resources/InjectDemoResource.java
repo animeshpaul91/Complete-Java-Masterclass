@@ -14,7 +14,7 @@ import jakarta.ws.rs.core.UriInfo;
 
 @Path("/injectdemo") // All controller methods in this class will have this prefix
 @Consumes(MediaType.TEXT_PLAIN) // This represents the body of the request
-@Produces(MediaType.TEXT_PLAIN) // This is the return type to the HTTP reque
+@Produces(value = {MediaType.APPLICATION_JSON, MediaType.TEXT_XML}) // This is the return type to the HTTP reque
 public class InjectDemoResource { // This class is just placed to demonstrate a few Param Annotations
 
     // Matrix Params - send from client using ; instead of ?

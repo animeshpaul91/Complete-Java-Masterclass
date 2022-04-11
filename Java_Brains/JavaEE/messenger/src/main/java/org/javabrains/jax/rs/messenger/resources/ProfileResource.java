@@ -15,8 +15,8 @@ import org.javabrains.jax.rs.messenger.service.ProfileService;
 import java.util.List;
 
 @Path("/profiles") // All controller methods in this class will have this prefix
-@Consumes(MediaType.APPLICATION_JSON) // This represents the body of the request
-@Produces(MediaType.APPLICATION_JSON) // This is the return type to the HTTP reque
+@Consumes(value = {MediaType.APPLICATION_JSON, MediaType.TEXT_XML}) // This represents the body of the request
+@Produces(value = {MediaType.APPLICATION_JSON, MediaType.TEXT_XML}) // This is the return type to the HTTP reque
 public class ProfileResource {
     private final ProfileService profileService;
 

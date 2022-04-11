@@ -21,8 +21,9 @@ import java.net.URI;
 import java.util.List;
 
 @Path("/messages") // All controller methods in this class will have this prefix
-@Consumes(MediaType.APPLICATION_JSON) // This represents the body of the request
-@Produces(MediaType.APPLICATION_JSON) // This is the return type to the HTTP request
+@Consumes(value = {MediaType.APPLICATION_JSON, MediaType.TEXT_XML}) // This represents the body of the request
+@Produces(value = {MediaType.APPLICATION_JSON, MediaType.TEXT_XML})
+// This is the return type to the HTTP request
 public class MessageResource {
 
     private final MessageService messageService;
