@@ -43,8 +43,39 @@ public class MessageResource {
 
     @GET
     @Path("/{messageId}")
-    public Message getMessageInstance(@PathParam("messageId") long messageId) {
-        return messageService.getMessage(messageId);
+    public Message getMessageInstance(@PathParam("messageId") long messageId, @Context UriInfo uriInfo) {
+        Message message = messageService.getMessage(messageId);
+        message.addLink(getUriForSelf(uriInfo, message), "self");
+        message.addLink(getUriForProfile(uriInfo, message), "profile");
+        message.addLink(getUriForComments(uriInfo, message), "comments");
+        return message;
+    }
+
+    private String getUriForSelf(UriInfo uriInfo, Message message) {
+        return uriInfo.getBaseUriBuilder()
+                .path(MessageResource.class)
+                .path(Long.toString(message.getId()))
+                .build()
+                .toString();
+    }
+
+    private String getUriForProfile(UriInfo uriInfo, Message message) {
+        return uriInfo.getBaseUriBuilder()
+                .path(ProfileResource.class)
+                .path(message.getAuthor())
+                .build()
+                .toString();
+    }
+
+    private String getUriForComments(UriInfo uriInfo, Message message) {
+        return uriInfo.getBaseUriBuilder()
+                .path(MessageResource.class) // appends "/messages"
+                .path(MessageResource.class, "getCommentResource") // appends {messageId}/comments
+                // the method refers to the method on line # 109 so that it follows the same uri pattern
+                .path(CommentResource.class) // appends "/"
+                .resolveTemplate("messageId", message.getId()) // resolves {messageId} with {message.getId()}
+                .build()
+                .toString();
     }
 
     @POST
@@ -74,6 +105,7 @@ public class MessageResource {
         messageService.deleteMessage(messageId);
     }
 
+    // works for both GET and POST
     @Path("/{messageId}/comments") // messageId is used in the Subresource
     public CommentResource getCommentResource() {
         return new CommentResource(); // this returns an instance of the subresource
