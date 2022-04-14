@@ -1,4 +1,4 @@
-package org.animesh.javabrains.rest;
+package org.animesh.javabrains.rest.resource;
 
 import jakarta.inject.Singleton;
 import jakarta.ws.rs.GET;

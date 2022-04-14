@@ -1,4 +1,4 @@
-package org.animesh.javabrains.rest;
+package org.animesh.javabrains.rest.resource;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
