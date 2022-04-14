@@ -8,6 +8,8 @@ import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 
 @Path("/{pathParam}/test")
+// @Singleton This annotation creates the instance of the class before the request is made hence this endpoint will cause the app to break
+// Without this, every new request creates an instance of this class
 public class MyResourcePathParam {
 
     // field injection
