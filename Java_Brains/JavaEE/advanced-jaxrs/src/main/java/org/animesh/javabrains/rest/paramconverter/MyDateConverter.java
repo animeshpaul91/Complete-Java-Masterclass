@@ -20,15 +20,15 @@ public class MyDateConverter<T> implements ParamConverter<T> {
         if (value.equalsIgnoreCase("yesterday"))
             requestedDate.add(Calendar.DATE, -1);
 
-        MyDate myDate = new MyDate(requestedDate.get(Calendar.DATE),
-                requestedDate.get(Calendar.MONTH),
-                requestedDate.get(Calendar.YEAR));
-
-        return rawType.cast(myDate);
+        MyDate myDate = new MyDate();
+        myDate.setDate(requestedDate.get(Calendar.DATE));
+        myDate.setMonth(requestedDate.get(Calendar.MONTH));
+        myDate.setYear(requestedDate.get(Calendar.YEAR));
+        return rawType.cast(myDate); // return type T
     }
 
     @Override
-    public String toString(T t) {
-        return null;
+    public String toString(T myBean) {
+        return myBean != null ? myBean.toString() : null;
     }
 }

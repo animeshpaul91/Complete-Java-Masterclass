@@ -1,16 +1,9 @@
 package org.animesh.javabrains.rest.model;
 
 public class MyDate {
-    private int date, month, year;
-
-    public MyDate() {
-    }
-
-    public MyDate(int date, int month, int year) {
-        this.date = date;
-        this.month = month;
-        this.year = year;
-    }
+    private int date;
+    private int month;
+    private int year;
 
     public int getDate() {
         return date;
@@ -34,12 +27,6 @@ public class MyDate {
 
     public void setYear(int year) {
         this.year = year;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        MyDate that = (MyDate) obj;
-        return this.date == that.date && this.month == that.month && this.year == that.year;
     }
 
     @Override
