@@ -5,6 +5,7 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import org.animesh.javabrains.rest.media.CustomMediaType;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -23,10 +24,20 @@ public class MyResource {
         return "It Works! This method was called: " + count + " times";
     }
 
-    @GET()
+    @GET
     @Path("/date")
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(value = {MediaType.TEXT_PLAIN, CustomMediaType.SHORT_DATE})
     public Date getDate() {
         return Calendar.getInstance().getTime();
     }
+
+    @GET
+    @Path("/shortdate")
+    @Produces(value = {MediaType.TEXT_PLAIN, CustomMediaType.SHORT_DATE})
+    // jersey determines what media type the client specified in the "accept" header of the request and accordingly converts the date
+    // using the appropriate MessageBodyWriter
+    public Date getShortDate() {
+        return Calendar.getInstance().getTime();
+    }
+
 }
