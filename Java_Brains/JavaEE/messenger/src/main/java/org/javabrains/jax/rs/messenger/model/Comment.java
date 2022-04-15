@@ -51,4 +51,14 @@ public class Comment {
     public void setAuthor(String author) {
         this.author = author;
     }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", Message='" + Message + '\'' +
+                ", created=" + created +
+                ", author='" + author + '\'' +
+                '}';
+    }
 }
