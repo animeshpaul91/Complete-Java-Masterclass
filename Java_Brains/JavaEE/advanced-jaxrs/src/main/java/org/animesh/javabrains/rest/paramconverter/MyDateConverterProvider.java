@@ -13,7 +13,7 @@ public class MyDateConverterProvider implements ParamConverterProvider {
     @Override
     public <T> ParamConverter<T> getConverter(Class<T> rawType, Type genericType, Annotation[] annotations) {
         if (rawType.getName().equals(MyDate.class.getName())) {
-            return new MyDateConverter<T>(rawType); // returns an instance of Param Converter
+            return new MyDateConverter<>(rawType); // returns an instance of Param Converter
         }
         return null;
     }
