@@ -1,4 +1,4 @@
-package io.javabrains.springsecurityjpa.resource;
+package io.javabrains.springsecurityjpa.resources;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
