@@ -10,4 +10,48 @@ A sticky session technique helps the load balancer remember the server per user 
 
 ### What is JWT?
 Whenever a client successfully authenticates to the server, the server sends a **signed** JSON payload/object of all the information with respect to the request (not just the token) back to the client. The client is in possession of the token and uses this for every subsequent requests. This JSON object is known as a **JSON Web Token (JWT)**. The responsibility of the server to maintain the state is fully offloaded to the client. 
-Session tokens are _reference tokens_. They refer to a state on the server. JWTs are _value tokens_. They contain the values (entire object). 
+Session tokens are _reference tokens_. They refer to a state on the server. JWTs are _value tokens_. They contain the values (entire object). **JWT is only used for authorization purposes, post authentication.**
+After a client receives a JWT from the server, in subsequent requests it can add the JWT in its header. The key as specified in JWT standard is `Authorization` and the value is `Bearer <JWT>`.
+The server decodes the header and payload and calculates the signature and matches with the signature that was sent in the request. If a match occurs, the authorization is granted. Else an error is raised.
+
+### Structure of JWT
+A JWT string typically is a long string containing two dots. These dots separate the string into 3 parts. 
+
+#### Parts to a JWT
+ * Header
+ * Payload
+ * Signature
+ 
+### Sample Encoded JWT
+Everything is Base64 encoded. 
+`eyJpZCI6IjIzMTMiLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsIm5hbWUiOiJBbmltZXNoIFBhdWwifQ.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.ZOTehx2muImN8MYktHc34yzjw_Mkm1GsygY3-UNiaFM`
+
+### Sample Decoded JWT
+#### Header
+```
+{
+    "alg": "HS256", (the algorithm used to sign and later verify the signature. This algorithm requires a secret key which only the server has)
+    "typ": "JWT" (potentially for other token types in the future)
+}
+```
+#### Payload
+The Base64 encoded string appears in the JWT between the two dots. 
+```
+{
+      "sub": "1234567890",
+      "name": "John Doe",
+      "iat": 1516239022
+}
+```
+#### Signature
+This is used to verify the authenticity of the token.
+```
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  
+my_signature
+
+)
+```
+
