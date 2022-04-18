@@ -56,4 +56,6 @@ my_signature
 ```
 
 ### What is OAuth?
-OAuth is an open standard authorization mechanism where services can authorize with each other on behalf of a principal, once the principal provides permission. This is often referred to as delegated access. It is important to note that OAuth is used for Authorization and not for Authentication. OAuth essentially regulates/governs service to service authorization (authorization between services). It has very good use cases for authorization between microservices. 
+OAuth is an open standard authorization mechanism where services can authorize with each other on behalf of a principal, once the principal provides permission. This is often referred to as delegated access. It is important to note that OAuth is used for Authorization and not for Authentication. OAuth essentially regulates/governs service to service authorization (authorization between services). It has very good use cases for authorization between microservices.
+
+![OAuthExample](OAuthExample.png)
