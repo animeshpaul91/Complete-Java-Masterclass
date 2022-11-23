@@ -18,7 +18,7 @@ public class FunctionMethodReferenceExample {
      * Instance::methodName
      */
 
-    private static final Function<String, String> toUpperCaseLambda = (s) -> s.toUpperCase();
+    private static final Function<String, String> toUpperCaseLambda = String::toUpperCase;
     private static final Function<String, String> toUpperCaseMethodReference = String::toUpperCase;
     private static final Consumer<Student> printName = Student::printName;
 
