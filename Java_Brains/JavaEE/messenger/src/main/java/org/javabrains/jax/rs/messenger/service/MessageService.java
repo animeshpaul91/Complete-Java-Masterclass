@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class MessageService {
@@ -20,8 +21,18 @@ public class MessageService {
         // Adding dummy messages for test
         Message m1 = new Message(1L, "Hello World!", "Animesh");
         Message m2 = new Message(2L, "Hello Jersey!", "Swagat");
+        Message m3 = new Message(3L, "Hello JAX RS!", "Praveen");
+
+        final var customerID1 = Optional.of("T0000000732");
+        m1.setCustomerSid(customerID1);
+
+        final var customerID2 = Optional.of("T0000000731");
+        m2.setCustomerSid(customerID2);
+
         messages.put(m1.getId(), m1);
         messages.put(m2.getId(), m2);
+        messages.put(m3.getId(), m3);
+
     }
 
     public List<Message> getAllMessages() {

@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @XmlRootElement
 public class Message {
@@ -17,6 +18,7 @@ public class Message {
     private String author;
     private Map<Long, Comment> comments;
     private List<Link> links;
+    private Optional<String> customerSid = Optional.empty();
 
     public Message() { // used by Jackson
     }
@@ -80,6 +82,14 @@ public class Message {
         this.links = links;
     }
 
+    public Optional<String> getCustomerSid() {
+        return customerSid;
+    }
+
+    public void setCustomerSid(Optional<String> customerSid) {
+        this.customerSid = customerSid;
+    }
+
     public void addLink(String url, String rel) {
         Link link = new Link();
         link.setUrl(url);
@@ -96,6 +106,7 @@ public class Message {
                 ", author='" + author + '\'' +
                 ", comments=" + comments +
                 ", links=" + links +
+                ", customerSid=" + customerSid +
                 '}';
     }
 }
