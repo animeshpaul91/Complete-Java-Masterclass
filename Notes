@@ -4,13 +4,22 @@ Max out HSA.
 
 
 Criteria to look for before investing in stocks - 
-1. Interest coverage ratio. (The higher the better. You want > 6 ideally) (See Summary tab on MorningStar)
+1. Interest coverage ratio = Operating Income / Interest Expense. (The higher the better. You want > 6 ideally) (See Summary tab on MorningStar)
 2. Debt to Assets ratio (The lower the better. You want < 0.75 ideally) (See Financials -> Balance Sheet tab on MorningStar)
+3. Debt Payback Time = Long-Term Debt / Free Cash Flow. 
+   To find Long-Term Debt, Go to Financials -> Balance sheet and expand to search for "Total Long Term Debt".
+   To find free cash flow, go to Financials -> Cash Flow, and see from the summary. Do not expand. 
+   As of  now, it's 0.99. This means it will take 0.99 ~ 1 year for Apple to pay off all it's debt. Try to keep this as reasonably less as possible.
 
-If the company passes steps 1 and 2 then - 
-3. Check EPS. The higher the better. (See Financials -> Income Statement tab on MorningStar)
-4. Most important profitability metric - ROIC (Expressed as a %): Return on Invested Capital. You want to look for > 10%. (See Operating Performance tab on MorningStar)
-5. PE Ratio.
+If the company passes steps 1, 2 & 3 then - 
+
+4. Check EPS. The higher the better. (See Financials -> Income Statement tab on MorningStar)
+5. Most important profitability metric - ROIC (Expressed as a %): Return on Invested Capital. You want to look for > 10%. (See Operating Performance tab on MorningStar)
+6. If all of the above tests pass, determine if the stock is rightly priced or how cheaply priced using the PE Ratio. 
+   PE Ratio = Stock Price / EPS (Metric # 4)
+   The lower it is, the cheaper it is. A good rule of thumb is PE ratio < 15. t helps to compare a stock’s PE ratio with its historical average, as well as with industry averages. The lower the PE Ratio, the more of a bargain you’re getting! A low PE Ratio indicates that the stock is cheap relative to the earnings that it generates.
+   On MorningStar, Go to the "Valuation" tab or just the summary page to see the "Price/Earnings" metric.
+
 
 
 Criteria to Look for in index funds: 
