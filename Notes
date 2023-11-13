@@ -47,7 +47,7 @@ VFINX
 
 My Asset Allocation:
 Equity covers Stocks, Index Funds & ETFs
-40% Domestic Equity [FSKAX, FXAIX, FSMDX, FZROX, FNCMX, FNILX, FSMAX, FZIPX]
+40% Domestic Equity [FSKAX - 10%, FXAIX - 10%, FSMDX - 10%, FZROX - 10%, FNCMX - 20%, FNILX - 10%, FSMAX - 5%, FZIPX - 5%]
 15% International Equity [FSPSX, FSGGX, FTIHX, FZILX]
 10% Emerging Market Equity [FPADX]
 10% U.S Treasuries [FUAMX, FUMBX, FNBGX, FXNAX]
@@ -55,13 +55,6 @@ Equity covers Stocks, Index Funds & ETFs
 15% Real Estate [FSRNX]
 
 Adhoc Investments: Target Date Funds - FIPFX, FDEWX, FDKLX.
-
-
-Asset allocation (per bucket)
-Domestic Equity: - 
-
-
-
 
 Roth IRA (Growth Focused Investments)
 1. Target date funds - contains 3-4 different index funds inside it (Fund of funds). Has a target retirement year. Embeds asset allocations.
