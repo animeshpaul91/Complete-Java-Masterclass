@@ -4,7 +4,7 @@ import java.time.Month;
 import java.time.Year;
 
 public class DaysInMonth {
-    public static int getDays(Month month, int year) {
+    public static int getDaysUsingOldSwitch(Month month, int year) {
         int noOfDays = 0;
         switch (month) {
             case SEPTEMBER:
@@ -25,5 +25,30 @@ public class DaysInMonth {
         }
         return noOfDays;
 
+    }
+
+    public static int getDaysUsingNewSwitch(Month month, int year) {
+        return switch (month) {
+            case SEPTEMBER, APRIL, JUNE, NOVEMBER -> 30;
+            // case FEBRUARY -> Year.isLeap(year) ? 29 : 28;
+            case FEBRUARY -> {
+                System.out.println("Checking if year = " + year + " is a leap year");
+                yield Year.isLeap(year) ? 29 : 28;
+            }
+            default -> 31;
+        };
+    }
+
+    public static int getDaysUsingExhaustiveSwitch(Month month, int year) {
+        return switch (month) {
+            case SEPTEMBER, APRIL, JUNE, NOVEMBER -> 30;
+            // case FEBRUARY -> Year.isLeap(year) ? 29 : 28;
+            case FEBRUARY -> {
+                System.out.println("Checking if year = " + year + " is a leap year");
+                yield Year.isLeap(year) ? 29 : 28;
+            }
+            case JANUARY, MARCH, MAY, JULY, AUGUST, OCTOBER, DECEMBER -> 31;
+            // enhanced switch replaces default if all cases are explicitly provided. Compiler does not complain
+        };
     }
 }
