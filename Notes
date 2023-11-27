@@ -24,8 +24,10 @@ If the company passes steps 1, 2 & 3 then -
 
 Criteria to Look for in index funds: 
 1. Expense Ratio < 0.2%
-2. Automatic dividend reinvestment. Invest in index funds that are mutual funds and not ETFs.
+2. Dividend Yield (Expressed as a %). And ability for automatic dividend reinvestment. Invest in index funds that are mutual funds and not ETFs.
 3. Transaction Fees (Usually free when you buy in-house funds).
+4. Capital Gains and C.G Tax - observed when assets within a fund are sold for a profit and that's shared among shareholders of the fund. Usually expressed in $x per share
+5. Turnover Rate - How often assets within the fund are bought and sold. Expressed as a %.
 
 Fidelity Funds:
 Large Cap: FSKAX, FSPSX, FXAIX
@@ -144,5 +146,9 @@ Implied Volatility
 Questions for Fidelity: 
 1. Does my plan track source of Funds or source balances separately?
 2. How long does in service rollover take? I'm planning to roll over to Roth IRA the same day the funds go inside in my after-tax 401k, without earning any gains on those contributions? I want to avoid doing a partial rollover.
-3. Can I rollover Traditional IRA to 401k? (Reverse Rollover)
+3. Mega backdoor Roth - Process a rollover. 
 
+ETFs:
+VTI
+VOO (85% overlap with VTI)
+VXUS 
