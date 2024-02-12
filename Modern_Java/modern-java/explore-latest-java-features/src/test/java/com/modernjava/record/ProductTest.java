@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class ProductTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(ProductTest.class);
+
     @Test
     void createProduct() {
         // given
@@ -65,5 +66,20 @@ class ProductTest {
         // when
         LOG.info(() -> "product = " + product);
         assertEquals("General", product.type());
+    }
+
+    @Test
+    void testEquality() {
+        // given
+        final var name = "IPhone";
+        final var cost = new BigDecimal("999.999");
+        final var type = "Electronics";
+
+        // when
+        final Product product1 = new Product(name, cost, type);
+        final Product product2 = new Product(name, cost, type.concat("1"));
+
+        // then
+        assertEquals(product1, product2);
     }
 }

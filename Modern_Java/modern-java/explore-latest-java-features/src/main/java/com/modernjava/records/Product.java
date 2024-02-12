@@ -1,6 +1,7 @@
 package com.modernjava.records;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public record Product(String name, BigDecimal cost, String type) {
 
@@ -19,5 +20,24 @@ public record Product(String name, BigDecimal cost, String type) {
 
     public Product(String name, BigDecimal cost) {
         this(name, cost, "General"); // this is required else it will not compile
+    }
+
+    // Record classes by default generate hashcode, equals, toString functions.
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Product product)) return false;
+
+        if (!name.equals(product.name)) return false;
+        return cost.equals(product.cost);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + cost.hashCode();
+        return result;
     }
 }
