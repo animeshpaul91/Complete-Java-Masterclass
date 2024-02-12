@@ -29,7 +29,7 @@ public class PatternMatchingExample {
     // pattern matching using switch
     public String patternMatchingUsingSwitch(Object o) {
         return switch(o) {
-            case String s -> "String of length:" + s.length();
+            case String s -> "String of length:" + s.length(); // this is how a binding variable is created
             case Integer i -> "Integer:" + i;
             case null, default -> "Not a String or Integer";
         };
