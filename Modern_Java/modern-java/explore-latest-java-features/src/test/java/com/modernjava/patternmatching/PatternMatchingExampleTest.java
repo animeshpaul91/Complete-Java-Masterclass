@@ -1,6 +1,5 @@
 package com.modernjava.patternmatching;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,15 +9,26 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PatternMatchingExampleTest {
-
-     PatternMatchingExample patternMatchingExample
+     private static final PatternMatchingExample patternMatchingExample
              = new PatternMatchingExample();
-
     @ParameterizedTest
     @MethodSource("input")
     void pattern(Object value, String expectedResult) {
+        final var output =  patternMatchingExample.pattern(value);
+        assertEquals(expectedResult, output);
+    }
 
-        var output =  patternMatchingExample.pattern(value);
+    @ParameterizedTest
+    @MethodSource("input")
+    void patternInstanceOf(Object value, String expectedResult) {
+        final var output =  patternMatchingExample.patternInstanceOf(value);
+        assertEquals(expectedResult, output);
+    }
+
+    @ParameterizedTest
+    @MethodSource("input")
+    void patternSwitch(Object value, String expectedResult) {
+        final var output =  patternMatchingExample.patternMatchingUsingSwitch(value);
         assertEquals(expectedResult, output);
     }
 

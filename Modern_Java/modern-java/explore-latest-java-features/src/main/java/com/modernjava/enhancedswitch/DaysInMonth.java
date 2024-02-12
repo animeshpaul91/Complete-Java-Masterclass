@@ -28,7 +28,7 @@ public class DaysInMonth {
     }
 
     public static int getDaysUsingNewSwitch(Month month, int year) {
-        return switch (month) {
+        return switch (month) { // enhanced switch is an expression
             case SEPTEMBER, APRIL, JUNE, NOVEMBER -> 30;
             // case FEBRUARY -> Year.isLeap(year) ? 29 : 28;
             case FEBRUARY -> {
@@ -40,7 +40,7 @@ public class DaysInMonth {
     }
 
     public static int getDaysUsingExhaustiveSwitch(Month month, int year) {
-        return switch (month) {
+        return switch (month) { // enhanced switch is an expression
             case SEPTEMBER, APRIL, JUNE, NOVEMBER -> 30;
             // case FEBRUARY -> Year.isLeap(year) ? 29 : 28;
             case FEBRUARY -> {
