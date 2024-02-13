@@ -7,14 +7,14 @@ public class CheckoutService {
 
     private final PaymentService paymentService;
 
-    public CheckoutService(PaymentService paymentService) {
+    public CheckoutService(final PaymentService paymentService) {
         this.paymentService = paymentService;
     }
 
-    public CheckOutStatus checkoutOrder(OrderDetails orderDetails){
+    public CheckOutStatus checkoutOrder(final OrderDetails orderDetails) {
+        final var paymentResponse = paymentService.makePayment(orderDetails);
 
-        var paymentResponse = paymentService.makePaymentv2(orderDetails);
-        if(paymentResponse.equals(PaymentResponse.SUCCESS)){
+        if (paymentResponse.equals(PaymentResponse.SUCCESS)) {
             return CheckOutStatus.SUCCESS;
         }
         return CheckOutStatus.FAILURE;
