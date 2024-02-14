@@ -9,5 +9,5 @@ public record Movie(
         Integer year,
         LocalDate release_date
 
-        ) {
+) {
 }
