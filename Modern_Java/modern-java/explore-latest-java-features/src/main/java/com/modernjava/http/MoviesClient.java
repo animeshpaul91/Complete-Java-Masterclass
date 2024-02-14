@@ -1,5 +1,7 @@
 package com.modernjava.http;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -10,6 +12,8 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
+import java.util.List;
+import java.util.concurrent.CompletionStage;
 
 public class MoviesClient {
     private static final HttpClient client = HttpClient.newBuilder()
@@ -31,6 +35,35 @@ public class MoviesClient {
         } catch (final IOException | InterruptedException e) {
             System.err.println(e);
             return null;
+        }
+    }
+
+    public CompletionStage<Movie> getMovieByIdAsync() {
+        final var httpRequest = requestBuilder(MOVIE_BY_ID_URL);
+        final var responseFuture = client.sendAsync(httpRequest, HttpResponse.BodyHandlers.ofString());
+
+        return responseFuture.thenApply(httpResponse -> {
+            System.out.println("Status Code: " + httpResponse.statusCode());
+            try {
+                return objectMapper.readValue(httpResponse.body(), Movie.class);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+
+    public List<Movie> getAllMovies() {
+        final var httpRequest = requestBuilder(ALL_MOVIES_URL);
+        try {
+            final var response = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            final var body = response.body();
+            System.out.println("Status Code: " + response.statusCode());
+            System.out.println("Response Body is: " + body);
+            return objectMapper.readValue(body, new TypeReference<>() {
+            });
+        } catch (final IOException | InterruptedException e) {
+            System.err.println(e);
+            throw new RuntimeException(e);
         }
     }
 
