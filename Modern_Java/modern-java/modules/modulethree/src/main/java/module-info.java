@@ -1,4 +1,4 @@
-//module modulethree {
-//    requires moduletwo;
-//
-//}
+module modulethree {
+    requires moduletwo;
+
+}
