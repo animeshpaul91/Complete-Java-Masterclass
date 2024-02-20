@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 class MoviesClientTest {
@@ -133,5 +134,32 @@ class MoviesClientTest {
         // when
         final String expectedMessage = "Please pass all input fields";
         assertThrows(MovieErrorResponse.class, () -> moviesClient.createMovie(movie), expectedMessage);
+    }
+
+    @Test
+    void testUpdateWithValidMovie() {
+        // given
+        final Integer movieId = 3;
+        final String cast = "abc";
+        final Movie movie = new Movie();
+        movie.setCast(cast);
+
+        // when
+        final var updatedMovie = moviesClient.updateMovie(movieId, movie);
+
+        // then
+        assertTrue(updatedMovie.getCast().contains(cast));
+    }
+
+    @Test
+    void testUpdateWithInvalidMovie() {
+        // given
+        final Integer movieId = 100;
+        final String cast = "abc";
+        final Movie movie = new Movie();
+        movie.setCast(cast);
+
+        // when and then
+        assertThrows(MovieErrorResponse.class, () -> moviesClient.updateMovie(movieId, movie));
     }
 }

@@ -14,6 +14,7 @@ import static com.learnwiremock.constants.MoviesAppConstants.GET_ALL_MOVIES_V1;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_MOVIE_BY_ID;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_MOVIE_BY_NAME;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_MOVIE_BY_YEAR;
+import static com.learnwiremock.constants.MoviesAppConstants.UPDATE_MOVIE;
 
 @Slf4j
 public class MoviesClient {
@@ -108,6 +109,23 @@ public class MoviesClient {
             log.error("Exception when attempting to create movie", throwable);
             throw new MovieErrorResponse(throwable);
         }
+    }
 
+    public Movie updateMovie(final Integer movieId, final Movie movie) {
+        try {
+            return webClient.put()
+                    .uri(UPDATE_MOVIE, movieId)
+                    .syncBody(movie)
+                    .retrieve()
+                    .bodyToMono(Movie.class)
+                    .block();
+        }
+        catch (final WebClientResponseException ex) {
+            log.error("WebClientResponseException when attempting to update movie | Status Code {} | Message {}", ex.getStatusCode(), ex.getResponseBodyAsString());
+            throw new MovieErrorResponse(ex.getStatusText(), ex);
+        } catch (final Throwable throwable) {
+            log.error("Exception when attempting to update movie", throwable);
+            throw new MovieErrorResponse(throwable);
+        }
     }
 }
