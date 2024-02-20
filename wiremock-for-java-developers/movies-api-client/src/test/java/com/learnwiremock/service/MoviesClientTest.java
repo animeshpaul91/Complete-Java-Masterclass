@@ -60,4 +60,28 @@ class MoviesClientTest {
         // when and then
         assertThrows(MovieErrorResponse.class, () -> moviesClient.retrieveMovieById(movieId));
     }
+
+    @Test
+    void testGetMovieByNameValidMovie() {
+        // given
+        final String movieName = "Avengers";
+
+        // when
+        final var moviesList = moviesClient.retrieveMovieByName(movieName);
+        System.out.println(moviesList);
+
+        // then
+        assertFalse(moviesList.isEmpty());
+        assertEquals(4, moviesList.size());
+    }
+
+    @Test
+    void testGetMovieByNameInvalidMovie() {
+        // given
+        final String movieName = "bogus";
+
+        // when and then
+        assertThrows(MovieErrorResponse.class, () -> moviesClient.retrieveMovieByName(movieName));
+    }
+
 }
