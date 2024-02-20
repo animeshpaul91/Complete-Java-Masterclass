@@ -113,17 +113,14 @@ class MoviesClientTest {
     @Test
     void testCreateMovie() {
         // given
-        final Movie movie = new Movie();
-        movie.setName("Schindler's List");
-        movie.setCast("Liam Neeson, Ben Kingsley");
-        movie.setYear(1993);
-        movie.setRelease_date(LocalDate.of(1993, Month.DECEMBER, 15));
+        final LocalDate releaseDate = LocalDate.of(1993, Month.DECEMBER, 15);
+        final Movie movie = new Movie(null, "Schindler's List", "Liam Neeson, Ben Kingsley", 1993, releaseDate);
 
         // when
         final var createdMovie = moviesClient.createMovie(movie);
         System.out.println(createdMovie);
 
         // then
-        // assertNotNull(createdMovie.getMovieId());
+         assertNotNull(createdMovie.getMovie_id());
     }
 }

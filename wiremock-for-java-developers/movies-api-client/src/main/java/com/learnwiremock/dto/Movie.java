@@ -16,7 +16,7 @@ import java.time.LocalDate;
 public class Movie {
     private Long movie_id;
     private String name;
-    private Integer year;
     private String cast;
+    private Integer year;
     private LocalDate release_date;
 }
