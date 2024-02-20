@@ -9,6 +9,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
+import static com.learnwiremock.constants.MoviesAppConstants.CREATE_MOVIE;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_ALL_MOVIES_V1;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_MOVIE_BY_ID;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_MOVIE_BY_NAME;
@@ -31,11 +32,11 @@ public class MoviesClient {
                 .block();
     }
 
-    public Movie retrieveMovieById(int movieId) {
+    public Movie retrieveMovieById(final Integer movieId) {
         try {
             return webClient.get()
                     .uri(GET_MOVIE_BY_ID, movieId)
-                    .retrieve()
+                    .retrieve() // makes the invocation of the endpoint
                     .bodyToMono(Movie.class)
                     .block();
         } catch (final WebClientResponseException ex) {
@@ -89,5 +90,24 @@ public class MoviesClient {
             log.error("Exception when attempting to retrieve movie by year {}", movieYear, throwable);
             throw new MovieErrorResponse(throwable);
         }
+    }
+
+    public Movie createMovie(final Movie movie) {
+        try {
+            return webClient.post()
+                    .uri(CREATE_MOVIE)
+                    .syncBody(movie)
+                    .retrieve()
+                    .bodyToMono(Movie.class)
+                    .block();
+        }
+        catch (final WebClientResponseException ex) {
+            log.error("WebClientResponseException when attempting to create movie | Status Code {} | Message {}", ex.getStatusCode(), ex.getResponseBodyAsString());
+            throw new MovieErrorResponse(ex.getStatusText(), ex);
+        } catch (final Throwable throwable) {
+            log.error("Exception when attempting to create movie", throwable);
+            throw new MovieErrorResponse(throwable);
+        }
+
     }
 }

@@ -1,6 +1,7 @@
 package com.learnwiremock.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,10 +12,11 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Builder
 public class Movie {
-    private String cast;
-    private long movieId;
+    private Long movie_id;
     private String name;
-    private LocalDate releaseDate;
-    private int year;
+    private Integer year;
+    private String cast;
+    private LocalDate release_date;
 }

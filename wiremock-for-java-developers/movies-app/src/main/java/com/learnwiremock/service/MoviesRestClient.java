@@ -7,10 +7,13 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
 
-import static com.learnwiremock.constants.MovieAppConstants.*;
+import static com.learnwiremock.constants.MovieAppConstants.ADD_MOVIE_V1;
+import static com.learnwiremock.constants.MovieAppConstants.GET_ALL_MOVIES_V1;
+import static com.learnwiremock.constants.MovieAppConstants.MOVIE_BY_ID_PATH_PARAM_V1;
+import static com.learnwiremock.constants.MovieAppConstants.MOVIE_BY_NAME_QUERY_PARAM_V1;
+import static com.learnwiremock.constants.MovieAppConstants.MOVIE_BY_YEAR_QUERY_PARAM_V1;
 
 @Slf4j
 public class MoviesRestClient {
