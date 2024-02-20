@@ -111,7 +111,7 @@ class MoviesClientTest {
     }
 
     @Test
-    void testCreateMovie() {
+    void testCreateMovieValidMovie() {
         // given
         final LocalDate releaseDate = LocalDate.of(1993, Month.DECEMBER, 15);
         final Movie movie = new Movie(null, "Schindler's List", "Liam Neeson, Ben Kingsley", 1993, releaseDate);
@@ -122,5 +122,16 @@ class MoviesClientTest {
 
         // then
          assertNotNull(createdMovie.getMovie_id());
+    }
+
+    @Test
+    void testCreateMovieBadMovie() {
+        // given
+        final LocalDate releaseDate = LocalDate.of(1993, Month.DECEMBER, 15);
+        final Movie movie = new Movie(null, null, "Liam Neeson, Ben Kingsley", 1993, releaseDate);
+
+        // when
+        final String expectedMessage = "Please pass all input fields";
+        assertThrows(MovieErrorResponse.class, () -> moviesClient.createMovie(movie), expectedMessage);
     }
 }
