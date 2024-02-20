@@ -84,4 +84,26 @@ class MoviesClientTest {
         assertThrows(MovieErrorResponse.class, () -> moviesClient.retrieveMovieByName(movieName));
     }
 
+    @Test
+    void testGetMovieByYearValidMovie() {
+        // given
+        final int movieYear = 2012;
+
+        // when
+        final var moviesList = moviesClient.retrieveMovieByYear(movieYear);
+        System.out.println(moviesList);
+
+        // then
+        assertFalse(moviesList.isEmpty());
+        assertEquals(2, moviesList.size());
+    }
+
+    @Test
+    void testGetMovieByYearInvalidMovie() {
+        // given
+        final int movieYear = 0;
+
+        // when and then
+        assertThrows(MovieErrorResponse.class, () -> moviesClient.retrieveMovieByYear(movieYear));
+    }
 }
