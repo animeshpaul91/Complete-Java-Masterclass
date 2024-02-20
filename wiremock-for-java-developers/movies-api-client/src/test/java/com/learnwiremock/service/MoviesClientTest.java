@@ -122,7 +122,7 @@ class MoviesClientTest {
         System.out.println(createdMovie);
 
         // then
-         assertNotNull(createdMovie.getMovie_id());
+        assertNotNull(createdMovie.getMovie_id());
     }
 
     @Test
@@ -161,5 +161,29 @@ class MoviesClientTest {
 
         // when and then
         assertThrows(MovieErrorResponse.class, () -> moviesClient.updateMovie(movieId, movie));
+    }
+
+    @Test
+    void testDeleteValidMovie() {
+        // given
+        // first create movie
+        final LocalDate releaseDate = LocalDate.of(1993, Month.DECEMBER, 15);
+        final Movie movie = new Movie(null, "New Movie to be deleted", "Liam Neeson, Ben Kingsley", 1993, releaseDate);
+        final var createdMovie = moviesClient.createMovie(movie);
+
+        // when
+        // then delete
+        final String expectedMessage = "Movie Deleted Successfully";
+        final String actualMessage = moviesClient.deleteMovie(createdMovie.getMovie_id().intValue());
+        assertEquals(expectedMessage, actualMessage);
+    }
+
+    @Test
+    public void testDeleteInvalidMovie() {
+        // given
+        final Integer movieId = 100;
+
+        // when and then
+        assertThrows(MovieErrorResponse.class, () -> moviesClient.deleteMovie(movieId));
     }
 }
