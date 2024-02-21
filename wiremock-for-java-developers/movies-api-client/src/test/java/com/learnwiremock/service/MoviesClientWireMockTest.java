@@ -24,7 +24,9 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.anyUrl;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
+import static com.learnwiremock.constants.MoviesAppConstants.GET_ALL_MOVIES_V1;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -61,6 +63,23 @@ class MoviesClientWireMockTest {
     void testRetrieveAllMovies() {
         // given
         stubFor(get(anyUrl())
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("all-movies.json")));
+
+        // when
+        final var moviesList = moviesClient.retrieveAllMovies();
+        System.out.println(moviesList);
+
+        // then
+        assertFalse(moviesList.isEmpty());
+    }
+
+    @Test
+    void testRetrieveAllMoviesMatchesURLPattern() {
+        // given
+        stubFor(get(urlPathEqualTo(GET_ALL_MOVIES_V1))
                 .willReturn(aResponse()
                         .withStatus(HttpStatus.OK.value())
                         .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
