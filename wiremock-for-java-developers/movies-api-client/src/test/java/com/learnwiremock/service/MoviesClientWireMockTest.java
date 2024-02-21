@@ -1,15 +1,30 @@
 package com.learnwiremock.service;
 
+import com.github.jenspiegsa.wiremockextension.ConfigureWireMock;
+import com.github.jenspiegsa.wiremockextension.InjectServer;
+import com.github.jenspiegsa.wiremockextension.WireMockExtension;
+import com.github.tomakehurst.wiremock.WireMockServer;
+import com.github.tomakehurst.wiremock.common.ConsoleNotifier;
+import com.github.tomakehurst.wiremock.core.Options;
 import com.learnwiremock.dto.Movie;
 import com.learnwiremock.exceptions.MovieErrorResponse;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.time.LocalDate;
 import java.time.Month;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.anyUrl;
+import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -17,11 +32,23 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-class MoviesClientTest {
+@ExtendWith(WireMockExtension.class)
+class MoviesClientWireMockTest {
+
     private MoviesClient moviesClient;
+
+    @InjectServer
+    private WireMockServer wireMockServer;
+
+    @ConfigureWireMock
+    private final Options options = wireMockConfig()
+            .port(8088)
+            .notifier(new ConsoleNotifier(true));
+
     @BeforeEach
     void setUp() {
-        final String baseUrl = "http://localhost:8081";
+        int port = wireMockServer.port();
+        final String baseUrl = String.format("http://localhost:%s", port);
         WebClient webClient = WebClient.create(baseUrl);
         moviesClient = new MoviesClient(webClient);
     }
@@ -32,6 +59,13 @@ class MoviesClientTest {
 
     @Test
     void testRetrieveAllMovies() {
+        // given
+        stubFor(get(anyUrl())
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("all-movies.json")));
+
         // when
         final var moviesList = moviesClient.retrieveAllMovies();
         System.out.println(moviesList);
