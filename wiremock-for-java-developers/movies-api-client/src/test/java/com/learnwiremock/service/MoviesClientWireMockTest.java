@@ -6,6 +6,7 @@ import com.github.jenspiegsa.wiremockextension.WireMockExtension;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.common.ConsoleNotifier;
 import com.github.tomakehurst.wiremock.core.Options;
+import com.github.tomakehurst.wiremock.extension.responsetemplating.ResponseTemplateTransformer;
 import com.learnwiremock.dto.Movie;
 import com.learnwiremock.exceptions.MovieErrorResponse;
 import org.junit.jupiter.api.AfterEach;
@@ -46,7 +47,8 @@ class MoviesClientWireMockTest {
     @ConfigureWireMock
     private final Options options = wireMockConfig()
             .port(8088)
-            .notifier(new ConsoleNotifier(true));
+            .notifier(new ConsoleNotifier(true))
+            .extensions(new ResponseTemplateTransformer(true));
 
     @BeforeEach
     void setUp() {
@@ -111,6 +113,25 @@ class MoviesClientWireMockTest {
         // then
         assertNotNull(movie);
         assertNotNull(movie.getMovie_id());
+    }
+
+    @Test
+    void testGetMovieByIdValidMovieResponseTemplating() {
+        // given
+        stubFor(get(urlMatching("/movieservice/v1/movie/[0-9]"))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("movie-template.json")));
+
+        // when
+        final Integer movieId = 7;
+        final var movie = moviesClient.retrieveMovieById(movieId);
+        System.out.println(movie);
+
+        // then
+        assertNotNull(movie);
+        assertEquals(movieId, movie.getMovie_id().intValue());
     }
 
     @Test
