@@ -23,12 +23,15 @@ import java.time.Month;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.anyUrl;
+import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_ALL_MOVIES_V1;
+import static com.learnwiremock.constants.MoviesAppConstants.GET_MOVIE_BY_NAME;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -138,6 +141,11 @@ class MoviesClientWireMockTest {
     void testGetMovieByIdInvalidMovie() {
         // given
         final Integer movieId = 100;
+        stubFor(get(urlMatching("/movieservice/v1/movie/[0-9]+"))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.NOT_FOUND.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("movie-404.json")));
 
         // when and then
         assertThrows(MovieErrorResponse.class, () -> moviesClient.retrieveMovieById(movieId));
@@ -147,6 +155,52 @@ class MoviesClientWireMockTest {
     void testGetMovieByNameValidMovie() {
         // given
         final String movieName = "Avengers";
+        final String urlPattern = GET_MOVIE_BY_NAME + "?movie_name=" + movieName;
+        stubFor(get(urlEqualTo(urlPattern))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("avengers.json")));
+
+        // when
+        final var moviesList = moviesClient.retrieveMovieByName(movieName);
+        System.out.println(moviesList);
+
+        // then
+        assertFalse(moviesList.isEmpty());
+        assertEquals(4, moviesList.size());
+    }
+
+    @Test
+    void testGetMovieByNameValidMovieApproach2() {
+        // given
+        final String movieName = "Avengers";
+        stubFor(get(urlPathEqualTo(GET_MOVIE_BY_NAME))
+                .withQueryParam("movie_name", equalTo(movieName))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("avengers.json")));
+
+        // when
+        final var moviesList = moviesClient.retrieveMovieByName(movieName);
+        System.out.println(moviesList);
+
+        // then
+        assertFalse(moviesList.isEmpty());
+        assertEquals(4, moviesList.size());
+    }
+
+    @Test
+    void testGetMovieByNameValidMovieResponseTemplating() {
+        // given
+        final String movieName = "Avengers";
+        final String urlPattern = GET_MOVIE_BY_NAME + "?movie_name=" + movieName;
+        stubFor(get(urlEqualTo(urlPattern))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("movie-by-name.json")));
 
         // when
         final var moviesList = moviesClient.retrieveMovieByName(movieName);
@@ -161,6 +215,12 @@ class MoviesClientWireMockTest {
     void testGetMovieByNameInvalidMovie() {
         // given
         final String movieName = "bogus";
+        final String urlPattern = GET_MOVIE_BY_NAME + "?movie_name=" + movieName;
+        stubFor(get(urlEqualTo(urlPattern))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.NOT_FOUND.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("movie-404.json")));
 
         // when and then
         assertThrows(MovieErrorResponse.class, () -> moviesClient.retrieveMovieByName(movieName));
