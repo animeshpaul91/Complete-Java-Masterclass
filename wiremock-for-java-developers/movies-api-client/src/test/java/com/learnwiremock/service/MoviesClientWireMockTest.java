@@ -32,6 +32,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_ALL_MOVIES_V1;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_MOVIE_BY_NAME;
+import static com.learnwiremock.constants.MoviesAppConstants.GET_MOVIE_BY_YEAR;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -230,6 +231,12 @@ class MoviesClientWireMockTest {
     void testGetMovieByYearValidMovie() {
         // given
         final int movieYear = 2012;
+        final String urlPattern = GET_MOVIE_BY_YEAR + "?year=" + movieYear;
+        stubFor(get(urlEqualTo(urlPattern))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("movie-by-year.json")));
 
         // when
         final var moviesList = moviesClient.retrieveMovieByYear(movieYear);
@@ -244,6 +251,12 @@ class MoviesClientWireMockTest {
     void testGetMovieByYearInvalidMovie() {
         // given
         final int movieYear = 0;
+        final String urlPattern = GET_MOVIE_BY_YEAR + "?year=" + movieYear;
+        stubFor(get(urlEqualTo(urlPattern))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.NOT_FOUND.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("movie-by-year-404.json")));
 
         // when and then
         assertThrows(MovieErrorResponse.class, () -> moviesClient.retrieveMovieByYear(movieYear));
