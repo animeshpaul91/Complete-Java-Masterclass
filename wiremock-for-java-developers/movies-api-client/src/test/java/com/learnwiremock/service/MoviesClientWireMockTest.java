@@ -24,6 +24,7 @@ import java.time.Month;
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.anyUrl;
 import static com.github.tomakehurst.wiremock.client.WireMock.containing;
+import static com.github.tomakehurst.wiremock.client.WireMock.delete;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.matchingJsonPath;
@@ -376,21 +377,45 @@ class MoviesClientWireMockTest {
     void testDeleteValidMovie() {
         // given
         // first create movie
+        final var movieName = "New Movie to be deleted";
+
+        // stub for createMovie
+        stubFor(post(urlEqualTo(CREATE_MOVIE))
+                .withRequestBody(matchingJsonPath("$.name", equalTo(movieName)))
+                .withRequestBody(matchingJsonPath("$.cast", containing("Ben")))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("create-movie-template.json")));
+
         final LocalDate releaseDate = LocalDate.of(1993, Month.DECEMBER, 15);
-        final Movie movie = new Movie(null, "New Movie to be deleted", "Liam Neeson, Ben Kingsley", 1993, releaseDate);
+        final Movie movie = new Movie(null, movieName, "Liam Neeson, Ben Kingsley", 1993, releaseDate);
         final var createdMovie = moviesClient.createMovie(movie);
 
+        // stub for deleteMovie
+        final String expectedErrorMessage = "Movie Deleted Successfully";
+        stubFor(delete(urlMatching("/movieservice/v1/movie/[0-9]+"))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBody(expectedErrorMessage)));
+
         // when
-        // then delete
-        final String expectedMessage = "Movie Deleted Successfully";
         final String actualMessage = moviesClient.deleteMovie(createdMovie.getMovie_id().intValue());
-        assertEquals(expectedMessage, actualMessage);
+        // then
+        assertEquals(expectedErrorMessage, actualMessage);
     }
 
     @Test
     public void testDeleteInvalidMovie() {
         // given
         final Integer movieId = 100;
+        final String expectedErrorMessage = "Movie not found";
+        stubFor(delete(urlMatching("/movieservice/v1/movie/[0-9]+"))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.NOT_FOUND.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBody(expectedErrorMessage)));
 
         // when and then
         assertThrows(MovieErrorResponse.class, () -> moviesClient.deleteMovie(movieId));
