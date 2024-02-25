@@ -23,13 +23,17 @@ import java.time.Month;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.anyUrl;
+import static com.github.tomakehurst.wiremock.client.WireMock.containing;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.matchingJsonPath;
+import static com.github.tomakehurst.wiremock.client.WireMock.post;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
+import static com.learnwiremock.constants.MoviesAppConstants.CREATE_MOVIE;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_ALL_MOVIES_V1;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_MOVIE_BY_NAME;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_MOVIE_BY_YEAR;
@@ -265,10 +269,19 @@ class MoviesClientWireMockTest {
     @Test
     void testCreateMovieValidMovie() {
         // given
+        final String movieName = "Schindler's List";
+        final String movieCast = "Liam Neeson, Ben Kingsley";
+        stubFor(post(urlEqualTo(CREATE_MOVIE))
+                .withRequestBody(matchingJsonPath("$.name", equalTo(movieName)))
+                .withRequestBody(matchingJsonPath("$.cast", containing("Ben")))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("create-movie.json")));
         final LocalDate releaseDate = LocalDate.of(1993, Month.DECEMBER, 15);
-        final Movie movie = new Movie(null, "Schindler's List", "Liam Neeson, Ben Kingsley", 1993, releaseDate);
 
         // when
+        final Movie movie = new Movie(null, movieName, movieCast, 1993, releaseDate);
         final var createdMovie = moviesClient.createMovie(movie);
         System.out.println(createdMovie);
 
