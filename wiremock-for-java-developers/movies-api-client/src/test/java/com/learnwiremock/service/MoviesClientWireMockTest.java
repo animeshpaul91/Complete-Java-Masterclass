@@ -28,10 +28,12 @@ import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.matchingJsonPath;
 import static com.github.tomakehurst.wiremock.client.WireMock.post;
+import static com.github.tomakehurst.wiremock.client.WireMock.put;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathMatching;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 import static com.learnwiremock.constants.MoviesAppConstants.CREATE_MOVIE;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_ALL_MOVIES_V1;
@@ -315,6 +317,13 @@ class MoviesClientWireMockTest {
     @Test
     void testCreateMovieBadMovie() {
         // given
+        stubFor(post(urlEqualTo(CREATE_MOVIE))
+                .withRequestBody(matchingJsonPath("$.cast", containing("Ben")))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.BAD_REQUEST.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("movie-400-invalid.json")));
+
         final LocalDate releaseDate = LocalDate.of(1993, Month.DECEMBER, 15);
         final Movie movie = new Movie(null, null, "Liam Neeson, Ben Kingsley", 1993, releaseDate);
 
@@ -331,6 +340,12 @@ class MoviesClientWireMockTest {
         final Movie movie = new Movie();
         movie.setCast(cast);
 
+        stubFor(put(urlPathMatching("/movieservice/v1/movie/[0-9]+"))
+                .withRequestBody(matchingJsonPath("$.cast", equalTo(cast)))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("update-movie-template.json")));
         // when
         final var updatedMovie = moviesClient.updateMovie(movieId, movie);
 
@@ -345,6 +360,13 @@ class MoviesClientWireMockTest {
         final String cast = "abc";
         final Movie movie = new Movie();
         movie.setCast(cast);
+
+        stubFor(put(urlPathMatching("/movieservice/v1/movie/[0-9]+"))
+                .withRequestBody(matchingJsonPath("$.cast", equalTo(cast)))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.NOT_FOUND.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("movie-404.json")));
 
         // when and then
         assertThrows(MovieErrorResponse.class, () -> moviesClient.updateMovie(movieId, movie));
