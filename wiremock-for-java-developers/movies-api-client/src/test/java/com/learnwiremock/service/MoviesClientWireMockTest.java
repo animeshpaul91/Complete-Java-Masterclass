@@ -290,6 +290,29 @@ class MoviesClientWireMockTest {
     }
 
     @Test
+    void testCreateMovieValidMovieResponseTemplating() {
+        // given
+        final String movieName = "Schindler's List";
+        final String movieCast = "Liam Neeson, Ben Kingsley";
+        stubFor(post(urlEqualTo(CREATE_MOVIE))
+                .withRequestBody(matchingJsonPath("$.name", equalTo(movieName)))
+                .withRequestBody(matchingJsonPath("$.cast", containing("Ben")))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("create-movie-template.json")));
+        final LocalDate releaseDate = LocalDate.of(1993, Month.DECEMBER, 15);
+
+        // when
+        final Movie movie = new Movie(null, movieName, movieCast, 1993, releaseDate);
+        final var createdMovie = moviesClient.createMovie(movie);
+        System.out.println(createdMovie);
+
+        // then
+        assertNotNull(createdMovie.getMovie_id());
+    }
+
+    @Test
     void testCreateMovieBadMovie() {
         // given
         final LocalDate releaseDate = LocalDate.of(1993, Month.DECEMBER, 15);
