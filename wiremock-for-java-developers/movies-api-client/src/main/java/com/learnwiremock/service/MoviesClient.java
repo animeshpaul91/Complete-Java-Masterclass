@@ -27,12 +27,20 @@ public class MoviesClient {
     }
 
     public List<Movie> retrieveAllMovies() {
-        return webClient.get()
-                .uri(GET_ALL_MOVIES_V1)
-                .retrieve()
-                .bodyToFlux(Movie.class)
-                .collectList()
-                .block();
+        try {
+            return webClient.get()
+                    .uri(GET_ALL_MOVIES_V1)
+                    .retrieve()
+                    .bodyToFlux(Movie.class)
+                    .collectList()
+                    .block();
+        } catch (final WebClientResponseException ex) {
+            log.error("WebClientResponseException when attempting to retrieve list of movies | Status Code {} | Message {}", ex.getStatusCode(), ex.getResponseBodyAsString());
+            throw new MovieErrorResponse(ex.getStatusText(), ex);
+        } catch (final Throwable throwable) {
+            log.error("Exception when attempting to retrieve list of movies", throwable);
+            throw new MovieErrorResponse(throwable);
+        }
     }
 
     public Movie retrieveMovieById(final Integer movieId) {
