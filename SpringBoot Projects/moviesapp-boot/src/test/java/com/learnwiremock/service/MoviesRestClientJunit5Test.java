@@ -97,7 +97,7 @@ class MoviesRestClientJunit5Test {
         assertEquals("Batman Begins", movie.getName());
 
     }
-    
+
     @Test
     public void retrieveMovieById_notFound() {
         //given
