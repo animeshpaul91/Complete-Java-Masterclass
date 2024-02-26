@@ -22,6 +22,7 @@ import java.time.LocalDate;
 import java.time.Month;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.any;
 import static com.github.tomakehurst.wiremock.client.WireMock.anyUrl;
 import static com.github.tomakehurst.wiremock.client.WireMock.containing;
 import static com.github.tomakehurst.wiremock.client.WireMock.delete;
@@ -68,10 +69,15 @@ class MoviesClientWireMockTest {
 
     @BeforeEach
     void setUp() {
-        int port = wireMockServer.port();
-        final String baseUrl = String.format("http://localhost:%s", port);
+        int wiremockPort = wireMockServer.port();
+        final String baseUrl = String.format("http://localhost:%s", wiremockPort);
         WebClient webClient = WebClient.create(baseUrl);
         moviesClient = new MoviesClient(webClient);
+
+        // reverse proxy configuration
+        int appPort = 8081;
+        final String appBaseUrl = String.format("http://localhost:%s", appPort);
+        stubFor(any(anyUrl()).willReturn(aResponse().proxiedFrom(appBaseUrl)));
     }
 
     @AfterEach
@@ -478,5 +484,43 @@ class MoviesClientWireMockTest {
 
         // when and then
         assertThrows(MovieErrorResponse.class, () -> moviesClient.deleteMovieByName(movieName));
+    }
+
+    @Test
+    void testDeleteValidMovieByNameSelectiveProxying() {
+        final String originalMovie = "New Movie to be deleted";
+        final String movieName = originalMovie.replaceAll("\\s+", "");
+
+        // Remove this stub to redirect request to actual service for selective proxying
+        stubFor(post(urlEqualTo(CREATE_MOVIE))
+                .withRequestBody(matchingJsonPath("$.name", equalTo(movieName)))
+                .withRequestBody(matchingJsonPath("$.cast", containing("Ben")))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("create-movie-template.json")));
+
+        final LocalDate releaseDate = LocalDate.of(1993, Month.DECEMBER, 15);
+        final Movie movie = new Movie(null, movieName, "Liam Neeson, Ben Kingsley", 1993, releaseDate);
+        moviesClient.createMovie(movie);
+
+        // stub for deleteMovie
+        final String expectedErrorMessage = "Movie Deleted Successfully";
+        stubFor(delete(urlPathEqualTo(DELETE_MOVIE_BY_NAME))
+                .withQueryParam("movie_name", equalTo(movieName))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBody(expectedErrorMessage)));
+
+        // when
+        final String actualMessage = moviesClient.deleteMovieByName(movieName);
+        // then
+        assertEquals(expectedErrorMessage, actualMessage);
+        verify(exactly(1), postRequestedFor(urlPathEqualTo(CREATE_MOVIE))
+                .withRequestBody(matchingJsonPath("$.name", equalTo(movieName)))
+                .withRequestBody(matchingJsonPath("$.cast", containing("Ben"))));
+        verify(exactly(1), deleteRequestedFor(urlPathEqualTo(DELETE_MOVIE_BY_NAME))
+                .withQueryParam("movie_name", equalTo(movieName)));
     }
 }
