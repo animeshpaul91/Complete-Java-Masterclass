@@ -1,6 +1,5 @@
 package com.learnwiremock.service;
 
-import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.client.WireMock;
 import com.github.tomakehurst.wiremock.common.ConsoleNotifier;
 import com.github.tomakehurst.wiremock.core.Options;
@@ -16,24 +15,38 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 import java.time.LocalDate;
 import java.util.List;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.any;
+import static com.github.tomakehurst.wiremock.client.WireMock.anyUrl;
+import static com.github.tomakehurst.wiremock.client.WireMock.containing;
+import static com.github.tomakehurst.wiremock.client.WireMock.delete;
+import static com.github.tomakehurst.wiremock.client.WireMock.deleteRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.exactly;
+import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.matchingJsonPath;
+import static com.github.tomakehurst.wiremock.client.WireMock.post;
+import static com.github.tomakehurst.wiremock.client.WireMock.postRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.put;
+import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathMatching;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
-import static com.learnwiremock.constants.MoviesAppConstants.*;
+import static com.learnwiremock.constants.MoviesAppConstants.ADD_MOVIE_V1;
+import static com.learnwiremock.constants.MoviesAppConstants.MOVIE_BY_NAME_QUERY_PARAM_V1;
+import static com.learnwiremock.constants.MoviesAppConstants.MOVIE_BY_YEAR_QUERY_PARAM_V1;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class MoviesRestClientTest {
 
-    MoviesRestClient moviesRestClient;
-    WebClient webClient;
-
-
+    private MoviesRestClient moviesRestClient;
 
     Options options = wireMockConfig().
             port(8088)
@@ -41,6 +54,7 @@ public class MoviesRestClientTest {
             .extensions(new ResponseTemplateTransformer(true));
 
     @Rule
+    // this is equivalent of the Wiremock server configuration in Junit 5
     public WireMockRule wireMockRule = new WireMockRule(options);
 
     @Before
@@ -48,7 +62,7 @@ public class MoviesRestClientTest {
         int port = wireMockRule.port();
         String baseUrl = String.format("http://localhost:%s/", port);
         System.out.println("baseUrl : " + baseUrl);
-        webClient = WebClient.create(baseUrl);
+        WebClient webClient = WebClient.create(baseUrl);
         moviesRestClient = new MoviesRestClient(webClient);
 
         stubFor(any(anyUrl()).willReturn(aResponse().proxiedFrom("http://localhost:8081")));
@@ -176,7 +190,7 @@ public class MoviesRestClientTest {
                 .willReturn(WireMock.aResponse()
                         .withStatus(HttpStatus.OK.value())
                         .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                        .withBodyFile("movie-byName-template.json")));
+                        .withBodyFile("movie-by-name-template.json")));
 
 
         //when
@@ -440,6 +454,16 @@ public class MoviesRestClientTest {
     public void deleteMovieByName_selectiveproxying() {
         //given
         Movie movie = new Movie(null, "Toys Story 5", "Tom Hanks, Tim Allen", 2019, LocalDate.of(2019, 06, 20));
+
+        // comment out this stub for selective proxying
+        stubFor(post(urlPathEqualTo(ADD_MOVIE_V1))
+                .withRequestBody(matchingJsonPath(("$.name"),equalTo("Toys Story 5")))
+                .withRequestBody(matchingJsonPath(("$.cast"), containing("Tom")))
+                .willReturn(WireMock.aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("add-movie-template.json")));
+
         Movie addedMovie = moviesRestClient.addMovie(movie);
 
         String expectedErrorMessage = "Movie Deleted Successfully";
@@ -450,12 +474,8 @@ public class MoviesRestClientTest {
 
         //when
         String responseMessage = moviesRestClient.deleteMovieByName(addedMovie.getName());
-
         //then
         assertEquals(expectedErrorMessage, responseMessage);
-
         verify(exactly(1),deleteRequestedFor(urlEqualTo(MOVIE_BY_NAME_QUERY_PARAM_V1+"?movie_name=Toys%20Story%205")));
-
     }
 }
-
