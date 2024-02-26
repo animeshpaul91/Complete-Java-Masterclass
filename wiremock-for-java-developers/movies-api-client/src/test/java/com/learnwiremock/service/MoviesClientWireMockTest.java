@@ -463,4 +463,20 @@ class MoviesClientWireMockTest {
         verify(exactly(1), deleteRequestedFor(urlPathEqualTo(DELETE_MOVIE_BY_NAME))
                 .withQueryParam("movie_name", equalTo(movieName)));
     }
+
+    @Test
+    void testDeleteInvalidMovieByName() {
+        // given
+        final String movieName = "bogusMovie";
+        final String expectedErrorMessage = "Movie not found";
+        stubFor(delete(urlPathEqualTo(DELETE_MOVIE_BY_NAME))
+                .withQueryParam("movie_name", equalTo(movieName))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.NOT_FOUND.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBody(expectedErrorMessage)));
+
+        // when and then
+        assertThrows(MovieErrorResponse.class, () -> moviesClient.deleteMovieByName(movieName));
+    }
 }
