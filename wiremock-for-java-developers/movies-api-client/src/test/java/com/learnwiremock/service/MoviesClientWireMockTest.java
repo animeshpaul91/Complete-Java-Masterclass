@@ -25,18 +25,23 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.anyUrl;
 import static com.github.tomakehurst.wiremock.client.WireMock.containing;
 import static com.github.tomakehurst.wiremock.client.WireMock.delete;
+import static com.github.tomakehurst.wiremock.client.WireMock.deleteRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.exactly;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.matchingJsonPath;
 import static com.github.tomakehurst.wiremock.client.WireMock.post;
+import static com.github.tomakehurst.wiremock.client.WireMock.postRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.put;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathMatching;
+import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 import static com.learnwiremock.constants.MoviesAppConstants.CREATE_MOVIE;
+import static com.learnwiremock.constants.MoviesAppConstants.DELETE_MOVIE_BY_NAME;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_ALL_MOVIES_V1;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_MOVIE_BY_NAME;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_MOVIE_BY_YEAR;
@@ -407,7 +412,7 @@ class MoviesClientWireMockTest {
     }
 
     @Test
-    public void testDeleteInvalidMovie() {
+    void testDeleteInvalidMovie() {
         // given
         final Integer movieId = 100;
         final String expectedErrorMessage = "Movie not found";
@@ -419,5 +424,43 @@ class MoviesClientWireMockTest {
 
         // when and then
         assertThrows(MovieErrorResponse.class, () -> moviesClient.deleteMovie(movieId));
+    }
+
+    @Test
+    void testDeleteValidMovieByName() {
+        final String originalMovie = "New Movie to be deleted";
+        final String movieName = originalMovie.replaceAll("\\s+", "");
+
+        // stub for createMovie
+        stubFor(post(urlEqualTo(CREATE_MOVIE))
+                .withRequestBody(matchingJsonPath("$.name", equalTo(movieName)))
+                .withRequestBody(matchingJsonPath("$.cast", containing("Ben")))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBodyFile("create-movie-template.json")));
+
+        final LocalDate releaseDate = LocalDate.of(1993, Month.DECEMBER, 15);
+        final Movie movie = new Movie(null, movieName, "Liam Neeson, Ben Kingsley", 1993, releaseDate);
+        moviesClient.createMovie(movie);
+
+        // stub for deleteMovie
+        final String expectedErrorMessage = "Movie Deleted Successfully";
+        stubFor(delete(urlPathEqualTo(DELETE_MOVIE_BY_NAME))
+                .withQueryParam("movie_name", equalTo(movieName))
+                .willReturn(aResponse()
+                        .withStatus(HttpStatus.OK.value())
+                        .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                        .withBody(expectedErrorMessage)));
+
+        // when
+        final String actualMessage = moviesClient.deleteMovieByName(movieName);
+        // then
+        assertEquals(expectedErrorMessage, actualMessage);
+        verify(exactly(1), postRequestedFor(urlPathEqualTo(CREATE_MOVIE))
+                .withRequestBody(matchingJsonPath("$.name", equalTo(movieName)))
+                .withRequestBody(matchingJsonPath("$.cast", containing("Ben"))));
+        verify(exactly(1), deleteRequestedFor(urlPathEqualTo(DELETE_MOVIE_BY_NAME))
+                .withQueryParam("movie_name", equalTo(movieName)));
     }
 }

@@ -11,6 +11,7 @@ import java.util.List;
 
 import static com.learnwiremock.constants.MoviesAppConstants.CREATE_MOVIE;
 import static com.learnwiremock.constants.MoviesAppConstants.DELETE_MOVIE;
+import static com.learnwiremock.constants.MoviesAppConstants.DELETE_MOVIE_BY_NAME;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_ALL_MOVIES_V1;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_MOVIE_BY_ID;
 import static com.learnwiremock.constants.MoviesAppConstants.GET_MOVIE_BY_NAME;
@@ -102,8 +103,7 @@ public class MoviesClient {
                     .retrieve()
                     .bodyToMono(Movie.class)
                     .block();
-        }
-        catch (final WebClientResponseException ex) {
+        } catch (final WebClientResponseException ex) {
             log.error("WebClientResponseException when attempting to create movie | Status Code {} | Message {}", ex.getStatusCode(), ex.getResponseBodyAsString());
             throw new MovieErrorResponse(ex.getStatusText(), ex);
         } catch (final Throwable throwable) {
@@ -120,8 +120,7 @@ public class MoviesClient {
                     .retrieve()
                     .bodyToMono(Movie.class)
                     .block();
-        }
-        catch (final WebClientResponseException ex) {
+        } catch (final WebClientResponseException ex) {
             log.error("WebClientResponseException when attempting to update movie | Status Code {} | Message {}", ex.getStatusCode(), ex.getResponseBodyAsString());
             throw new MovieErrorResponse(ex.getStatusText(), ex);
         } catch (final Throwable throwable) {
@@ -137,13 +136,34 @@ public class MoviesClient {
                     .retrieve()
                     .bodyToMono(String.class)
                     .block();
-        }
-        catch (final WebClientResponseException ex) {
+        } catch (final WebClientResponseException ex) {
             log.error("WebClientResponseException when attempting to delete movie | Status Code {} | Message {}", ex.getStatusCode(), ex.getResponseBodyAsString());
             throw new MovieErrorResponse(ex.getStatusText(), ex);
         } catch (final Throwable throwable) {
             log.error("Exception when attempting to delete movie", throwable);
             throw new MovieErrorResponse(throwable);
         }
+    }
+
+    public String deleteMovieByName(final String movieName) {
+        final String deleteMovieByNameUri = UriComponentsBuilder.fromUriString(DELETE_MOVIE_BY_NAME)
+                .queryParam("movie_name", movieName)
+                .buildAndExpand()
+                .toUriString();
+
+        try {
+            webClient.delete()
+                    .uri(deleteMovieByNameUri)
+                    .retrieve()
+                    .bodyToMono(Void.class)
+                    .block();
+        } catch (final WebClientResponseException ex) {
+            log.error("WebClientResponseException when attempting to delete movie | Status Code {} | Message {}", ex.getStatusCode(), ex.getResponseBodyAsString());
+            throw new MovieErrorResponse(ex.getStatusText(), ex);
+        } catch (final Throwable throwable) {
+            log.error("Exception when attempting to delete movie", throwable);
+            throw new MovieErrorResponse(throwable);
+        }
+        return "Movie Deleted Successfully";
     }
 }
