@@ -56,7 +56,7 @@ public class MoviesRestClient {
             log.error("WebClientResponseException in retrieveMovieById. Status code is {} and the message is {} ", ex.getRawStatusCode(), ex.getResponseBodyAsString());
             throw new MovieErrorResponse(ex.getStatusText(), ex);
         } catch (Exception ex) {
-            log.error("Exception in retrieveMovieById and the message is {} ", ex);
+            log.error("Exception in retrieveMovieById and the message is ", ex);
             throw new MovieErrorResponse(ex);
         }
     }
@@ -79,7 +79,7 @@ public class MoviesRestClient {
             log.error("WebClientResponseException in retrieveMoviebyName. Status code is {} and the message is {} ", ex.getRawStatusCode(), ex.getResponseBodyAsString());
             throw new MovieErrorResponse(ex.getStatusText(), ex);
         } catch (Exception ex) {
-            log.error("Exception in retrieveMoviebyName and the message is {} ", ex);
+            log.error("Exception in retrieveMoviebyName and the message is ", ex);
             throw new MovieErrorResponse(ex);
         }
 
@@ -103,7 +103,7 @@ public class MoviesRestClient {
             log.error("WebClientResponseException in retrieveMoviebyYear. Status code is {} and the message is {} ", ex.getRawStatusCode(), ex.getResponseBodyAsString());
             throw new MovieErrorResponse(ex.getStatusText(), ex);
         } catch (Exception ex) {
-            log.error("Exception in retrieveMoviebyYear and the message is", ex);
+            log.error("Exception in retrieveMoviebyYear and the message is ", ex);
             throw new MovieErrorResponse(ex);
         }
 
@@ -122,7 +122,7 @@ public class MoviesRestClient {
             log.error("WebClientResponseException in addMovie. Status code is {} and the message is {} ", ex.getRawStatusCode(), ex.getResponseBodyAsString());
             throw new MovieErrorResponse(ex.getStatusText(), ex);
         } catch (Exception ex) {
-            log.error("Exception in addMovie and the message is", ex);
+            log.error("Exception in addMovie and the message is ", ex);
             throw new MovieErrorResponse(ex);
         }
 
@@ -140,7 +140,7 @@ public class MoviesRestClient {
             log.error("WebClientResponseException in updateMovie. Status code is {} and the message is {} ", ex.getRawStatusCode(), ex.getResponseBodyAsString());
             throw new MovieErrorResponse(ex.getStatusText(), ex);
         } catch (Exception ex) {
-            log.error("Exception in updateMovie and the message is", ex);
+            log.error("Exception in updateMovie and the message is ", ex);
             throw new MovieErrorResponse(ex);
         }
 
@@ -158,7 +158,7 @@ public class MoviesRestClient {
             log.error("WebClientResponseException in deleteMovie. Status code is {} and the message is {} ", ex.getRawStatusCode(), ex.getResponseBodyAsString());
             throw new MovieErrorResponse(ex.getStatusText(), ex);
         } catch (Exception ex) {
-            log.error("Exception in deleteMovie and the message is", ex);
+            log.error("Exception in deleteMovie and the message is ", ex);
             throw new MovieErrorResponse(ex);
         }
     }
@@ -180,7 +180,7 @@ public class MoviesRestClient {
             log.error("WebClientResponseException in deleteMovie. Status code is {} and the message is {} ", ex.getRawStatusCode(), ex.getResponseBodyAsString());
             throw new MovieErrorResponse(ex.getStatusText(), ex);
         } catch (Exception ex) {
-            log.error("Exception in deleteMovie and the message is", ex);
+            log.error("Exception in deleteMovie and the message is ", ex);
             throw new MovieErrorResponse(ex);
         }
 
