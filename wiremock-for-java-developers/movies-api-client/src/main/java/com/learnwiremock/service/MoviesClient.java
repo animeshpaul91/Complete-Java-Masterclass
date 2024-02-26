@@ -38,7 +38,7 @@ public class MoviesClient {
             log.error("WebClientResponseException when attempting to retrieve list of movies | Status Code {} | Message {}", ex.getStatusCode(), ex.getResponseBodyAsString());
             throw new MovieErrorResponse(ex.getStatusText(), ex);
         } catch (final Throwable throwable) {
-            log.error("Exception when attempting to retrieve list of movies", throwable);
+            log.error("Exception when attempting to retrieve list of movies | Message {}", throwable.getMessage(), throwable);
             throw new MovieErrorResponse(throwable);
         }
     }
