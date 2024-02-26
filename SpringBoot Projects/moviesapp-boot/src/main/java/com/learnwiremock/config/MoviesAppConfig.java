@@ -14,7 +14,7 @@ import reactor.netty.tcp.TcpClient;
 @Configuration
 public class MoviesAppConfig {
 
-    @Value("${movies-app.baseUrl")
+    @Value("${movies-app.baseUrl}")
     private String baseUrl;
 
     @Bean
