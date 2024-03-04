@@ -157,3 +157,7 @@ VXUS
 Nippon India index
 HDFC Sensex index
 Tata BSE Sensex Index
+
+git config --global user.signingkey ~/.ssh/id_rsa.pub
+
+Start with Lecture 14
