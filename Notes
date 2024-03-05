@@ -157,16 +157,3 @@ VXUS
 Nippon India index
 HDFC Sensex index
 Tata BSE Sensex Index
-
-
-git config --global gpg.format ssh
-
-git config --global user.signingkey ~/.ssh/id_rsa.pub
-
-git config --global commit.gpgsign true
-
-git config --global gpg.ssh.allowedSignersFile ~/.ssh/allowed_signers
-
-echo "$(git config --get user.email) namespaces=\"git\" $(cat ~/.ssh/id_rsa.pub)" > ~/.ssh/allowed_signers
-
-git log --show-signature
