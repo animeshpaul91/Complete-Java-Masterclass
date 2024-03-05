@@ -1,3 +1,12 @@
+Microservices Level-2 Notes:
+
+Fault Tolerance - Given a fault, what tolerance your system has for a fault. Degree of handling failures to minimize impact.
+Resilience - How many faults can a system tolerate before it's brought down to it's knees. How much can a system bounce back? Is there a mechanism by which a system corrects itself (eg. after an outage). 
+
+
+
+GIT Sign Commits: 
+
 git config --global gpg.format ssh
 
 git config --global user.signingkey ~/.ssh/id_rsa.pub
@@ -11,3 +20,34 @@ echo "$(git config --get user.email) namespaces=\"git\" $(cat ~/.ssh/id_rsa.pub)
 cat ~/.ssh/id_rsa.pub
 
 git log --show-signature
+
+GIT Shortcuts:
+
+git config --global alias.ac "commit -am"
+
+then simply use git ac "<commit message>"
+
+git stash save <any reference name>
+
+eg. git stash cool_stuff
+
+git log --graph --oneline --decorate
+
+Search docs on git bisect
+
+Squash to main: 
+
+git rebase main --interactive
+
+
+When making commits
+
+git commit --fixup
+
+git commit --squash
+
+Then 
+
+git rebase -i --autosquash
+
+git clean -df // to get rid of untracked files/changes
