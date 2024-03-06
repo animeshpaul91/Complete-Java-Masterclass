@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # The Ticket ID prefix you want to include to your commit messages.
-prefix="DLS-"
+prefix="AIONCORE-"
 
 # Gets the commit message received as parameter and the current branch name.
 commitMsg=$1
@@ -42,3 +42,14 @@ else
   echo "😐️ The current branch name does not contain the ticket ID '$ticketID'. Ignoring..."
   exit 0
 fi
+
+
+#!/bin/bash
+FILE=$1
+MESSAGE=$(cat $FILE)
+TICKET=[$(git rev-parse --abbrev-ref HEAD | grep -Eo '^(\w+/)?(\w+[-_])?[0-9]+' | grep -Eo '(\w+[-])?[0-9]+' | tr "[:lower:]" "[:upper:]")]
+if [[ $TICKET == "[]" || "$MESSAGE" == "$TICKET"* ]];then
+  exit 0;
+fi
+
+echo "$TICKET $MESSAGE" > $FILE
