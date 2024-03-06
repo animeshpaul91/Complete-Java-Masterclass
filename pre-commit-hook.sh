@@ -7,3 +7,4 @@ if [[ $TICKET == "[]" || "$MESSAGE" == "$TICKET"* ]];then
 fi
 
 echo "$TICKET $MESSAGE" > $FILE
+
