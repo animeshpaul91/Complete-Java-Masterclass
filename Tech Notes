@@ -37,10 +37,11 @@ Circuit is tripped. But you still get requests for which you need to call the fa
 * Return a "default" fallback response. Better than ^^.
 * Save previous responses to cache and use that when possible. Best option.
 
-
-
-
-
+The Bulkhead Pattern:
+* Have separate threadpools for every downstream service.
+* Have separate limits for max_threads for each of those threadpools.
+* Hystrix configuration has two levels of wait - threads in the active threadpool waiting for a response from a faulty service AND a waiting queue for threads waiting to get a place in the active threadpool.
+* For a thread that does not make it to the waiting queue, this will be circuitbroken. 
 
 
 GIT Sign Commits: 
