@@ -44,6 +44,13 @@ The Bulkhead Pattern:
 * For a thread that does not make it to the waiting queue, this will be circuitbroken. 
 
 
+Microservices Configuration Best Practices:
+
+Specificity           |  Changing  | Choice
+Microservice Specific | No | Property Files
+Microservice Specific | Yes | Config Server
+
+
 GIT Sign Commits: 
 
 git config --global gpg.format ssh
@@ -97,3 +104,19 @@ git clean -df // to get rid of untracked files/changes
 3. Blockchain.
 4. Edge Computing.
 5. AR and VR.
+
+
+5 Things I wish I knew before starting a career in Tech.
+
+1. Soft Skills - Communication, Negotiation, Advocating for yourself.
+2. T-shaped skillsets - Knowing a little bit about everything (breadth) v/s knowing few things very very well (depth).
+3. Take care of your body.
+4. Act like a professional. Commit to becoming really good at your craft. Continually upskilling. 
+5. Figure out what you want to do in the long run and drive your career towards that goal.
+
+Framework to learn almost anything new:
+1. Imitate the best until you're getting consistent results.
+2. Learn to make finer and finer distinctions until you can clearly see why each one works in different situations.
+3. Learn to assign higher or lower value to different mindsets, behaviors, and results.
+4. Create variations on the best of those ideas, get more experience.
+5. Innovate.
