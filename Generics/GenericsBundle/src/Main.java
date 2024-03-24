@@ -6,7 +6,6 @@ import models.GenericMap;
 import models.GenericMethods;
 import models.GenericPrinter;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Main {
