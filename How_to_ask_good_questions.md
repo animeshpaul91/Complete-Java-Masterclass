@@ -77,3 +77,38 @@ Learning to ask good questions is a powerful skill that improves learning, commu
 **Remember:** The ability to ask great questions is like a muscle. The more you use it, the stronger it gets. Start with curiosity, build from context, and let your questions evolve with your thinking.
 
 ---
+
+
+# Must Read Books
+
+## Critical Thinking (in this order)
+* Thinking fast and slow - Daniel Kahneman
+* How to read a book - Charles Van Doren and Mortimer J. Adler
+* Range - David Epstein
+* A Rulebook for Arguments - Anthony Weston
+
+
+## Understanding the way the world works
+* Amusing ourselves to Death
+* Brave New World
+* The crowd By Gustave Le Bon
+* Simulacra and Simulation
+* 1984 by George Orwell
+* The Prince by Niccolo Machiavelli
+* Siddharta
+* As a man thinketh - James Allen
+* The War of Art - Steven Pressfield
+* The Manipulated man - Esther Vilar
+* Wild at Heart - John Eldredge
+
+
+## Self Improvement
+* Essentialism - Greg McKeown
+* Lying - Sam Harris
+* The Precipice: Existential Risk and the Future of Humanity - Toby Ord
+* Lost Connections: Uncovering the Real causes of Depression - Johann Hari
+* Endurance: Shackleton's Incredible Voyage - Alfred Lansing
+* Why we sleep - Matthew Walker
+* Models: Attract Women Through Honesty - Mark Manson
+* Influence: The Psychology of Persuasion
+* The Stoic Challenge: A Philosopher's Guide to Becoming Tougher, Calmer, and More Resilient
