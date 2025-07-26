@@ -8,7 +8,7 @@
 - **Follow a skincare routine** including cleansing and UV protection lotion.
 - **Maintain a sensible diet** — cut junk food, alcohol, smoking/vaping; reduce sugars, greasy/fried foods; focus on eating right. Eat good food. Have a solid diet comprising all constituents of food.
 - **Read Books** - Read books and think critically and dispassionately. Question everything.
-- **Make good money** Make "good" money. Build real skills that are in demand to get to this goal. Money offers you with the freedom to do what you want with the time that you have. 
+- **Make good money** - Make "good" money. Build real skills that are in demand to get to this goal. Money offers you with the freedom to do what you want with the time that you have. 
 - **Practice kindness and confidence** — help others and yourself: give genuine compliments (even to yourself), define meaningful life goals; empathy and self-belief create a subtle but powerful “glow up".
 - **Yoga and Meditation** - Practice pranayam and yoga.
 
