@@ -82,3 +82,9 @@ With consistent practice, you'll start to see changes in how you approach proble
 2. **There is no point of talent without hard work.** Lazy people (even though talented) do not achieve success. As you rise higher in life and achieve more, you will find that every compatriot of yours is talented. What makes a difference at that point is sheer hard work.
 3. **Be a lifelong learner.** Learning should never stop. Learn anything, even stuff that is not directly related to your area of work. Read more.
 4. **Invest a certain amount of your money in Gold.** It will never lose it's value.
+
+
+## Key traits of Smart/Successful people:
+* Listen more than you speak.
+* Question everything. Why things work the way they work? Ask questions. Seek the truth. Get into the depth of things
+* Do not arrive into conclusions quick. Have data/evidence back your decisions and claims. Take your time to draw conclusions.
