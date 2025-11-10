@@ -11,7 +11,8 @@
 - **Make good money** - Make "good" money. Build real skills that are in demand to get to this goal. Money offers you with the freedom to do what you want with the time that you have. 
 - **Practice kindness and confidence** — help others and yourself: give genuine compliments (even to yourself), define meaningful life goals; empathy and self-belief create a subtle but powerful “glow up".
 - **Yoga and Meditation** - Practice pranayam and yoga.
-
+- **Movies**: Watch a diverse array of movies. See things from the perspective of other's lenses.
+- **Travel**: Travel the world. Widen your horizons. Learn about other countries and people.
 
 ### Build Authentic Masculinity
 - Be soft spoken. Don’t talk a lot. Instead, let your actions speak. Actions always speak louder than words. Don’t be aggressive or pushy. Know what is right and wrong. 
