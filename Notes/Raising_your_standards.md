@@ -62,3 +62,9 @@
 38. Say `Yes` early, more often when you're young. Say `No` later, more often as you get older.
 39. Sleep is a superpower.
 40. Love wins. It's the most powerful force in the universe.
+
+
+### Ways to build real skills and be great at what you do:
+- Get things done ASAP. Do not procrastinate.
+- Learn and practice consistently. Practice, practice and practice. Master one thing and become really really good at it.
+- Read regularly and consistently.
