@@ -23,3 +23,10 @@
 ## Industry Value Note
 
 Software Engineers bring a hell lot more monetary value to the table for any company they are working for than the amount of money they are compensated with. This disparity (monetary value - compensation) is the highest for SWEs. More than even doctors and lawyers.
+
+
+## Next big skills in Demand:
+1. Fundamental concepts of System Design.
+2. Fluency in Coding.
+3. Fluency in LLM concepts.
+4. To add to your resume: Add an AWS Certification.
