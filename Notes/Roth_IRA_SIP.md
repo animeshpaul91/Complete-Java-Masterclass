@@ -11,3 +11,12 @@
 | REIT                 | Vanguard Real Estate Index        | ETF  | VNQ    | 2%                 | 110 USD             |
 | Gold                 | iShares Gold Trust  			   | ETF  | IAU    | 5%                 | 275 USD             |
 | **Total**            | —                                 | —    | **—**  | **100%**           | **5,500 USD**       |
+
+727065
+
+## 401k Details for 2026
+
+Total Employee Contributions (Salary Deferred + Roth 401k) Limit: 24,500 USD.
+Total Contributions (Employer + Employee): 72,000 USD.
+Total Employer Match Limit: 4315 USD
+Total After Tax Contribution Limit: 72000 - 24500 - 4315 = 43,185 USD.
