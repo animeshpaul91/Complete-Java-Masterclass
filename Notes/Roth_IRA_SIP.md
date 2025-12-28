@@ -12,11 +12,9 @@
 | Gold                 | iShares Gold Trust  			   | ETF  | IAU    | 5%                 | $275                |
 | **Total**            | —                                 | —    | **—**  | **100%**           | **$5,500**          |
 
-727065
+## 401k Details for 2026 (727065)
 
-## 401k Details for 2026
-
-Total Employee Contributions (Salary Deferred + Roth 401k) Limit: $24,500.
-Total Contributions (Employer + Employee): $72,000.
-Total Employer Match Limit: $4,315
-Total After Tax Contribution Limit: 72000 - 24500 - 4315 = $43,185.
+* Total Employee Contributions (Salary Deferred + Roth 401k) Limit: $24,500.
+* Total Contributions (Employer + Employee): $72,000.
+* Total Employer Match Limit: $4,315
+* Total After Tax Contribution Limit: 72000 - 24500 - 4315 = $43,185.
