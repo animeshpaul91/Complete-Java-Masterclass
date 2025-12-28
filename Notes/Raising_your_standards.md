@@ -68,3 +68,9 @@
 - Get things done ASAP. Do not procrastinate.
 - Learn and practice consistently. Practice, practice and practice. Master one thing and become really really good at it.
 - Read regularly and consistently.
+
+### Resolutions for 2026:
+- Hit the Gym. Get Fitter.
+- Read. Just read more.
+- Develop music as a real hobby.
+- Upskill.
