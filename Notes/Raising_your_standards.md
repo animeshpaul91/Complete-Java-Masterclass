@@ -71,6 +71,6 @@
 
 ### Resolutions for 2026:
 - Hit the Gym. Get Fitter.
-- Read. Just read more.
+- Quit Social Media and spend this time to Read. Just read more.
 - Develop music as a real hobby.
 - Upskill.
