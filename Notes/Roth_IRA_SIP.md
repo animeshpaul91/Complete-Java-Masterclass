@@ -1,4 +1,4 @@
-## Asset Allocation
+## Asset Allocation (Roth IRA)
 
 | Role                 | Fund                              | Expense Ratio | Type | Ticker | % of $5,500/month  | Dollar Amount/Month |
 |----------------------|-----------------------------------|---------------|------|--------|--------------------|---------------------|
@@ -12,6 +12,15 @@
 | Gold                 | iShares Gold Trust                | 0.25%         | ETF  | IAU    | 5%                 | $275                |
 | **Total**            | —                                 | —             | —    | **—**  | **100%**           | **$5,500**          |
 
+
+## Asset Allocation (Individual Brokerage)
+
+| Principal (USD) | Role                 | Fund                               | Asset Type | Ticker | % of Principal | SIP per month |
+| --------------- | -------------------- | ---------------------------------- | ---------- | ------ | -------------- | ------------- |
+| 400             | Core U.S. Equity     | Vanguard S&P 500 ETF               | ETF        | VOO    | 70             | 280           |
+| 400             | International Equity | Vanguard Total International Stock | ETF        | VXUS   | 20             | 80            |
+| 400             | Dividend-Growth Tilt | Vanguard High Dividend Yield ETF   | ETF        | VYM    | 10             | 40            |
+| 400             | Total                | Total                              | Total      | Total  | 100            | 400           |
 
 ## 401k Details for 2026 (727065)
 
