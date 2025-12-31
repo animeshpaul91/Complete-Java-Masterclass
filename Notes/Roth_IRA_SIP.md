@@ -1,26 +1,27 @@
 ## Asset Allocation (Roth IRA)
 
-| Role                 | Fund                              | Expense Ratio | Type | Ticker | % of $5,500/month  | Dollar Amount/Month |
-|----------------------|-----------------------------------|---------------|------|--------|--------------------|---------------------|
-| Core U.S. Equity     | Vanguard S&P 500 ETF              | 0.03%         | ETF  | VOO    | 30%                | $1,650              |
-| Core U.S. Equity     | Vanguard Total Stock Market ETF   | 0.03%         | ETF  | VTI    | 25%                | $1,375              |
-| Defense Tilt         | iShares U.S. Aerospace & Defense  | 0.38%         | ETF  | ITA    | 10%                | $550                |
-| Tech Tilt            | Vanguard Information Technology   | 0.10%         | ETF  | VGT    | 10%                | $550                |
-| Dividend-Growth Tilt | Vanguard Dividend Appreciation    | 0.06%         | ETF  | VIG    | 15%                | $825                |
-| International Equity | Vanguard Total International Stock| 0.07%         | ETF  | VXUS   | 3%                 | $165                |
-| REIT                 | Vanguard Real Estate Index        | 0.13%         | ETF  | VNQ    | 2%                 | $110                |
-| Gold                 | iShares Gold Trust                | 0.25%         | ETF  | IAU    | 5%                 | $275                |
-| **Total**            | —                                 | —             | —    | **—**  | **100%**           | **$5,500**          |
+| Principal (USD) | Sector               | Fund                                   | Asset Type | Ticker | % of Principal | SIP per month |
+|-----------------|----------------------|----------------------------------------|------------|--------|----------------|---------------|
+| 5,500           | Core U.S. Equity     | Vanguard S&P 500 ETF                   | ETF Equity | VOO    | 30             | 1,650         |
+| 5,500           | Core U.S. Equity     | Vanguard Total Stock Market ETF        | ETF Equity | VTI    | 20             | 1,100         |
+| 5,500           | Core U.S. Bonds      | Vanguard Total Bond Market ETF         | ETF Bonds  | BND    | 15             | 825           |
+| 5,500           | Tech Equity Tilt     | Vanguard Information Technology ETF    | ETF Equity | VGT    | 10             | 550           |
+| 5,500           | Dividend Equity Tilt | Vanguard Dividend Appreciation ETF     | ETF Equity | VIG    | 5              | 275           |
+| 5,500           | International Equity | Vanguard Total International Stock     | ETF Equity | VXUS   | 15             | 825           |
+| 5,500           | U.S Real Estate      | Vanguard Real Estate Index Fund ETF    | ETF Equity | VNQ    | 2              | 110           |
+| 5,500           | Gold                 | Franklin Responsibly Sourced Gold ETF  | ETF Equity | IAU    | 3              | 165           |
+| 5,500           | Total                | Total                                  | Total      | Total  | 100            | 5,500         |
 
 
 ## Asset Allocation (Individual Brokerage)
 
-| Principal (USD) | Role                 | Fund                               | Asset Type | Ticker | % of Principal | SIP per month |
-| --------------- | -------------------- | ---------------------------------- | ---------- | ------ | -------------- | ------------- |
-| 400             | Core U.S. Equity     | Vanguard S&P 500 ETF               | ETF        | VOO    | 70             | 280           |
-| 400             | International Equity | Vanguard Total International Stock | ETF        | VXUS   | 20             | 80            |
-| 400             | Dividend-Growth Tilt | Vanguard High Dividend Yield ETF   | ETF        | VYM    | 10             | 40            |
-| 400             | Total                | Total                              | Total      | Total  | 100            | 400           |
+| Principal (USD) | Sector               | Fund                                   | Asset Type | Ticker | % of Principal | SIP per month |
+|-----------------|----------------------|----------------------------------------|------------|--------|----------------|---------------|
+| 400             | Core U.S. Equity     | Vanguard S&P 500 ETF                   | ETF Equity | VOO    | 60             | 240           |
+| 400             | International Equity | Vanguard Total International Stock     | ETF Equity | VXUS   | 15             | 60            |
+| 400             | Dividend Equity Tilt | Vanguard High Dividend Yield ETF       | ETF Equity | VYM    | 10             | 40            |
+| 400             | Core U.S. Bonds      | Vanguard Total Bond Market ETF         | ETF Bonds  | BND    | 15             | 60            |
+| 400             | Total                | Total                                  | Total      | Total  | 100            | 400           |
 
 ## 401k Details for 2026 (727065)
 
