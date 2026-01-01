@@ -1,0 +1,1 @@
+I have downloaded subtitles for all episides. There are 12 episodes and each has a subtitle. Carefully rename the files of the subtitles and name it exactly as the episode file. The only difference has to be the file format. For example Pilot.mkv will have a subtitle named Pilot.srt.

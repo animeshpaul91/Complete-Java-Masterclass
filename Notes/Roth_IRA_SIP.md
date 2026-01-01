@@ -17,11 +17,11 @@
 
 | Principal (USD) | Sector               | Fund                                   | Asset Type | Ticker | % of Principal | SIP per month |
 |-----------------|----------------------|----------------------------------------|------------|--------|----------------|---------------|
-| 400             | Core U.S. Equity     | Vanguard S&P 500 ETF                   | ETF Equity | VOO    | 60             | 240           |
-| 400             | International Equity | Vanguard Total International Stock     | ETF Equity | VXUS   | 15             | 60            |
-| 400             | Dividend Equity Tilt | Vanguard High Dividend Yield ETF       | ETF Equity | VYM    | 10             | 40            |
-| 400             | Core U.S. Bonds      | Vanguard Total Bond Market ETF         | ETF Bonds  | BND    | 15             | 60            |
-| 400             | Total                | Total                                  | Total      | Total  | 100            | 400           |
+| 1000            | Core U.S. Equity     | Vanguard S&P 500 ETF                   | ETF Equity | VOO    | 60             | 600           |
+| 1000            | International Equity | Vanguard Total International Stock     | ETF Equity | VXUS   | 15             | 150           |
+| 1000            | Dividend Equity Tilt | Vanguard High Dividend Yield ETF       | ETF Equity | VYM    | 10             | 100           |
+| 1000            | Core U.S. Bonds      | Vanguard Total Bond Market ETF         | ETF Bonds  | BND    | 15             | 150           |
+| 1000            | Total                | Total                                  | Total      | Total  | 100            | 1000          |
 
 ## 401k Details for 2026 (727065)
 
