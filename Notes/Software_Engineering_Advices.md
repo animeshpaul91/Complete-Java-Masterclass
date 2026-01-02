@@ -24,9 +24,15 @@
 
 Software Engineers bring a hell lot more monetary value to the table for any company they are working for than the amount of money they are compensated with. This disparity (monetary value - compensation) is the highest for SWEs. More than even doctors and lawyers.
 
-
 ## Next big skills in Demand:
 1. Fundamental concepts of System Design.
 2. Fluency in Coding.
 3. Fluency in LLM concepts.
 4. To add to your resume: Add an AWS Certification.
+
+## Upskilling advices for being a solud Distributed Systems Software Engineer:
+1. Keep revisting core concepts. They age slowest. Read `Designing Data-Intensive Applications` and `The System Design Primer (GitHub)`.
+2. Read 1-2 (Uber, Netflix, Stripe, Cloudflare) engineering blogs per week. Read AWS / GCP / Azure architecture blogs. Take your learning and build/improve one small thing. Iterate.
+3. Try working on side projects that build small services with real constraints.
+4. Read Incident Post Mortems.
+5. Be opinionated but falsifiable.
