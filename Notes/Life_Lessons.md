@@ -9,3 +9,5 @@
 - **Quality over quantity**: Default to quality; cut corners only when it truly does not matter.
 - **Choose your circle**: Two trustworthy friends beat twenty acquaintances; you become who you spend time with.
 - **Hold your spine**: Say yes only when you mean it; people-pleasing and bootlicking kill respect.
+- **Time is yours**: Employment is a contract for `servitude`; Every worker is an expendable asset. Value your time.
+- **Own your life**: Never surrender your future to any entity that could replace you tomorrow.
