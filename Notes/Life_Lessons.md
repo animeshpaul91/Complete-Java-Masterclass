@@ -1,10 +1,11 @@
-# Self Learnt Life Lessons
-## This is a ledger of the wisdom that I have learnt in my life. This is a growing list
+# Self-Learnt Life Lessons
+## A growing ledger of wisdom from experiences, books, and conversations
 
-- Real Change happens slowly. Progress is gradual. Take tiny baby-steps towards your goals and iterate. Never try to rush with making progress.
-- Good habits when done consistently compound over time. Create `systems` for yourself that power you to accomplish your goals.
-- Comparison is the thief of Joy.
-- Stop trusting social media. It is a silent killer. If possible, quit it.
-- `Motivation` starts the fire. A `system` keeps it burning.
-- Quality transcends Quantity. Try to almost `never` compromise with quality.
-- It is better to have 2 trustworthy friends than having 20. Choose your company wisely. You become the person you hang out with.
+- **Change is slow**: Progress is gradual; take tiny steps and iterate—rushing rarely lasts.
+- **Habits compound**: Consistent good habits build momentum; design `systems` that make the right choice easy.
+- **Comparison drains joy**: Measure yourself against your yesterday, not someone else's highlight reel.
+- **Guard your inputs**: Social media can be a silent killer; limit or quit it when possible.
+- **Motivation sparks, systems sustain**: Let `motivation` light the fire and your `system` keep it burning.
+- **Quality over quantity**: Default to quality; cut corners only when it truly does not matter.
+- **Choose your circle**: Two trustworthy friends beat twenty acquaintances; you become who you spend time with.
+- **Hold your spine**: Say yes only when you mean it; people-pleasing and bootlicking kill respect.
