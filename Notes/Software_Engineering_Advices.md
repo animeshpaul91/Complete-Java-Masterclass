@@ -36,3 +36,13 @@ Software Engineers bring a hell lot more monetary value to the table for any com
 3. Try working on side projects that build small services with real constraints.
 4. Read Incident Post Mortems.
 5. Be opinionated but falsifiable.
+
+
+## What can we do as Software Engineers to protect ourselves from a potential burst of the AI bubble (coping strategies):
+1. Double down on Core Engineering & Problem Solving Skills.
+2. Learn AI Tools and incorporate into your workflow.
+3. Grow T-shaped skills.
+
+### Outside of work:
+1. Beef up your Emergency Fund (2 years).
+2. Reduce your living expenses. Hard times call for hard measures.
