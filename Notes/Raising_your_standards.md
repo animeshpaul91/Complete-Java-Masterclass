@@ -1,7 +1,13 @@
+### Resolutions for 2026:
+- Smash the Gym. Get Fitter.
+- Read. Spend less time on your Phone.
+- Develop music as a real hobby. If time permits, add photography too.
+- Upskill.
+
 ### Raise your standards. First Principles
 - **Find a haircut and style** that complements your head shape.
 - **Shave regularly** (for men).
-- **Wear clothes** that fit well and match your personal style/preferences.
+- **Wear clothes and smell good** Wear clothes that fit well and match your personal style/preferences. Be fragrant. Smell good.
 - **Stay hydrated daily** — use a 40 oz+ insulated tumbler and sip a warm cup of green tea once the day. Helps with a glowing skin.
 - **Maintain a consistent sleep schedule**, minimize disruptions, and prioritize sleep quality.
 - **Exercise regularly** — combine strength training, weight lifting with cardio intense enough to raise your heart rate.
@@ -68,9 +74,3 @@
 - Get things done ASAP. Do not procrastinate.
 - Learn and practice consistently. Practice, practice and practice. Master one thing and become really really good at it.
 - Read regularly and consistently.
-
-### Resolutions for 2026:
-- Smash the Gym. Get Fitter.
-- Read. Spend less time on your Phone.
-- Develop music as a real hobby. If time permits, add photography too.
-- Upskill.
