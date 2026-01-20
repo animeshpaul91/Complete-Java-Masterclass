@@ -70,7 +70,7 @@
 - Read regularly and consistently.
 
 ### Resolutions for 2026:
-- Hit the Gym. Get Fitter.
-- Quit Social Media and spend this time to Read. Just read more.
-- Develop music as a real hobby.
+- Smash the Gym. Get Fitter.
+- Read. Spend less time on your Phone.
+- Develop music as a real hobby. If time permits, add photography too.
 - Upskill.
