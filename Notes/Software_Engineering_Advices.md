@@ -43,6 +43,14 @@ Software Engineers bring a hell lot more monetary value to the table for any com
 2. Learn AI Tools and incorporate into your workflow.
 3. Grow T-shaped skills.
 
+## Coping Strategies during mass layoffs:
+1. Build your reputation at work: As someone who can be depended on to get the job done (and done well). Face your work with enthusiasm and treat everything as something to find a solution for rather than focusing on problems. Create positive relationships with everyone. Strategically speaking up, sharing accomplishments. Let everyone know your value.
+2. Learn new in-demand skills: Be a lifelone learner. Invest your time in learning in-demand skills because it allows you to remain relevant for longer. It helps you parachute to newer roles.
+3. Seek Critical-Path Projects: Get on projects that are directly making your company money. Such projects are least likely to be impacted by mass layoffs.
+4. Network: Talk to people outside your immediate team, product line or business unit. Network with people outside your company through meetups, hackathons, career events, conferences.
+5. Be versatile: Proactively take on different roles within your team and across your company. This allows your ability to transition into a different role(s) just in case your current role gets eliminated. 
+
+
 ### Outside of work:
 1. Beef up your Emergency Fund (2 years).
 2. Reduce your living expenses. Hard times call for hard measures.
