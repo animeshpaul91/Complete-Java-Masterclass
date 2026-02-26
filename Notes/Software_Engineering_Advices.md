@@ -54,3 +54,13 @@ Software Engineers bring a hell lot more monetary value to the table for any com
 ### Outside of work:
 1. Beef up your Emergency Fund (2 years).
 2. Reduce your living expenses. Hard times call for hard measures.
+
+
+### In-Demand Skills:
+1. Engineering and Implementation (Hard Skills): Building and Customizing A.I Systems.
+2. Embrace A.I at work to get things done quickly and efficiently.
+3. Leadership & Team Management: Mentoring and Developing Talent.
+4. Clear, Effective Communication (Most Important Soft Skill): Keeping stakeholders informed; Public Speaking, Story Telling, Managing Relations.
+5. Finding your Skills: Think Impact, Not Titles; Take courses & workshops; Take on new Projects or Work Functions.
+6. Tell stories around your skills. Have anecdotal evidance or context behind your skills.
+
