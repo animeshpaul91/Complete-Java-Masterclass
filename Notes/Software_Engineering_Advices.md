@@ -1,7 +1,6 @@
 # Software Engineering Advices
 
 ## Tips on Becoming a Great Software Engineer
-
 1. **Pay attention to small details.**
 2. **Focus on the fundamentals** which means, learn how and why things work in general and under the hood. This makes you a better engineer, exercises your mind in an analytical way, makes it easier for you to make connections and figure things out.
 3. **Don't tie your identity to certain technology or practice.** Don't say I am a Python developer or a Kotlin developer, instead identify yourself as a developer and learn which tools exist, learn the tools that can benefit you and use the tools that are best for the job.
@@ -14,14 +13,12 @@
 10. **Aim higher.** A lot of people underestimate themselves and just don't try things that they could've succeeded at. You should experiment, try things, apply for jobs. Because you can and you should do it.
 
 ## Importance of Soft Skills
-
 1. **Be a GREAT communicator.** What is Communication? --> It is the ability to convey a thought/idea in a manner to make other people can understand it.
 2. **Be a GREAT advocate for yourself.** MARKET yourself. Convince that you are DIFFERENT from the crowd and how you STAND OUT.
 3. **You are a CREATOR.** Always continue to be one.
 4. **Ask WHY before HOW.**
 
 ## Industry Value Note
-
 Software Engineers bring a hell lot more monetary value to the table for any company they are working for than the amount of money they are compensated with. This disparity (monetary value - compensation) is the highest for SWEs. More than even doctors and lawyers.
 
 ## Next big skills in Demand:
@@ -30,7 +27,7 @@ Software Engineers bring a hell lot more monetary value to the table for any com
 3. Fluency in LLM concepts.
 4. To add to your resume: Add an AWS Certification.
 
-## Upskilling advices for being a solud Distributed Systems Software Engineer:
+## Upskilling advices for being a solid Distributed Systems Software Engineer:
 1. Keep revisting core concepts. They age slowest. Read `Designing Data-Intensive Applications` and `The System Design Primer (GitHub)`.
 2. Read 1-2 (Uber, Netflix, Stripe, Cloudflare) engineering blogs per week. Read AWS / GCP / Azure architecture blogs. Take your learning and build/improve one small thing. Iterate.
 3. Try working on side projects that build small services with real constraints.
@@ -38,10 +35,19 @@ Software Engineers bring a hell lot more monetary value to the table for any com
 5. Be opinionated but falsifiable.
 
 
+### Key strategies to career growth:
+1. Proactively seek out responsibility. Volunteer for hard projects and problems.
+2. Find mentors.
+3. Get into System Design. Build core engineering and architectural skills.
+
+
 ## What can we do as Software Engineers to protect ourselves from a potential burst of the AI bubble (coping strategies):
 1. Double down on Core Engineering & Problem Solving Skills.
 2. Learn AI Tools and incorporate into your workflow.
-3. Grow T-shaped skills.
+3. Grow T-shaped skills (eg. broaden skills to frontend, data engineering in addition to backend).
+4. Develop Domain Expertise.
+5. Learn the art of story-telling.
+
 
 ## Coping Strategies during mass layoffs:
 1. Build your reputation at work: As someone who can be depended on to get the job done (and done well). Face your work with enthusiasm and treat everything as something to find a solution for rather than focusing on problems. Create positive relationships with everyone. Strategically speaking up, sharing accomplishments. Let everyone know your value.
@@ -64,3 +70,15 @@ Software Engineers bring a hell lot more monetary value to the table for any com
 5. Finding your Skills: Think Impact, Not Titles; Take courses & workshops; Take on new Projects or Work Functions.
 6. Tell stories around your skills. Have anecdotal evidance or context behind your skills.
 
+
+### 10 Brutal Lessons in a White Collar Job:
+1. Main good Rapport/Relation with your Manager.
+2. Don't fall in love with any Company. Instead, invest in building skills and experiences. Ask yourself: What have I done in the last 3 years that is still relevant in the market?
+3. Silent performers get sidelined. Visibility is important. Both Internal (within your company) and external (outside your company).
+4. Networking is absolutely imporant. Network is your net worth. You need to have people who know you, what work you have done and what value your bring to the table.
+5. Manage your finances wisely. Don't fall into the trap of show off business.
+6. Skills get outdated sooner than you think.
+7. There's no alternate to good health.
+8. Age bias is real.
+9. Watch out for Junior people with same skills & expertise as you.
+10. Your career safety net is outside your job. Your network, side income, own personal branc and proof of impact of your skills and experiences is your safety net.
