@@ -11,3 +11,12 @@
 - **Hold your spine**: Say yes only when you mean it; people-pleasing and bootlicking kill respect.
 - **Time is yours**: Employment is a contract for `servitude`; Every worker is an expendable asset. Value your time.
 - **Own your life**: Never surrender your future to any entity that could replace you tomorrow.
+
+
+## Life's coping stategies to help parents help their kids succeed:
+- Provide your kids with encouragement and support. Share the joy of being their parents. 
+- Teach your kids frugality. Teach how dangerous or harmful consumerism is and can be. 
+- Teach that one can be happy without spending too much money. Teach how one can be self sufficient in terms of managing their tasks, opportunities, activities, responsibilities.
+- Teach financial literacy, budgeting.
+- Consider modeling healthy relationships. 
+- As parents, you can demonstrate that in functional relationships, virtues like partience, kindness, respect and shared values are more important/enduring than superficial qualities lime status, bling, money, short term attractiveness.
