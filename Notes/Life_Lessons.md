@@ -18,5 +18,5 @@
 - Teach your kids frugality. Teach how dangerous or harmful consumerism is and can be. 
 - Teach that one can be happy without spending too much money. Teach how one can be self sufficient in terms of managing their tasks, opportunities, activities, responsibilities.
 - Teach financial literacy, budgeting.
-- Consider modeling healthy relationships. 
+- Consider modeling healthy relationships. Show as parents how man and women must behave with each other - like respect, patience, kindness.
 - As parents, you can demonstrate that in functional relationships, virtues like partience, kindness, respect and shared values are more important/enduring than superficial qualities lime status, bling, money, short term attractiveness.
