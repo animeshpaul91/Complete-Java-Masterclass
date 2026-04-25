@@ -85,3 +85,47 @@ Software Engineers bring a hell lot more monetary value to the table for any com
 8. Age bias is real.
 9. Watch out for Junior people with same skills & expertise as you.
 10. Your career safety net is outside your job. Your network, side income, own personal branc and proof of impact of your skills and experiences is your safety net.
+
+
+### Learnings from an Experienced Software Engineer
+
+- Communication is a Superpower
+  - Be confident
+  - Be a team player
+  - Show leadership and ownership
+
+- Technology WILL keep changing
+  - Be adaptable and agile
+  - Always keep learning
+  - Build strong fundamentals
+  - Get involved in product & business
+  - Ask yourself: What value/outcome is my work bringing?
+
+- Job switching is a skill
+  - Be strategic about when to switch
+  - These decisions shape your career growth and direction
+  - Don’t switch too often
+  - Don’t stay too long (> 8 years)
+
+- Hard work alone is not enough
+  - Show your work
+  - Chase visibility
+  - Earn trust
+  - Undercommit and overdeliver
+
+- First salary != last salary
+  - Work toward your future self
+  - Think like you’re already at the next level (L+1)
+  - Strive to be the best
+  - Be visible within your organization
+
+- Consistency > Motivation
+  - Consistency is undervalued
+  - Stay consistent
+  - Be slow and steady
+
+- Take responsibility for your career
+  - Avoid the blame game
+  - Take accountability
+  - Practice self-criticism and self-awareness
+
