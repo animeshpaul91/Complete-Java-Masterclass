@@ -14,6 +14,8 @@
 
 # 🧭 Seattle 4-Day Itinerary (Photography-Focused)
 
+---
+
 # 🌆 DAY 1 — Downtown + Ferry + Skyline (Transit)
 **Theme: Iconic Seattle + waterfront + city views**
 
@@ -66,6 +68,8 @@
   - Beach + train bridge + coastal textures
 
 ## Evening
+- Ballard Locks (Hiram M. Chittenden Locks)  
+  - Boats + water movement + mechanical structures
 - Return to:
   - Discovery Park OR Lincoln Park  
   - Golden hour coastline photography
@@ -87,10 +91,6 @@
 - Gas Works Park  
   - Lake Union skyline + industrial structures  
   - Golden hour reflections
-
-## Evening
-- Ballard Locks (Hiram M. Chittenden Locks)  
-  - Boats + water movement + mechanical structures
 
 ## Optional Finish
 - Return downtown  
