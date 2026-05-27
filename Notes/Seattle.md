@@ -43,12 +43,12 @@
   - Forest trails + reflections + Japanese garden
 
 ## Midday
-- Volunteer Park  
-  - Conservatory + water tower views + city framing
-
-## Afternoon
 - Seward Park  
   - Lake Washington shoreline + forest loop walk
+
+## Afternoon
+- Volunteer Park  
+  - Conservatory + water tower views + city framing
 
 ## Optional Sunset
 - Lincoln Park  
@@ -64,12 +64,14 @@
   - Lighthouse trail + forest + cliff views
 
 ## Midday
+- Ballard Locks (Hiram M. Chittenden Locks)  
+  - Boats + water movement + mechanical structures
+
+## Afternoon
 - Carkeek Park  
   - Beach + train bridge + coastal textures
 
-## Evening
-- Ballard Locks (Hiram M. Chittenden Locks)  
-  - Boats + water movement + mechanical structures
+## Evening (Golden Hour)
 - Return to:
   - Discovery Park OR Lincoln Park  
   - Golden hour coastline photography
@@ -92,6 +94,6 @@
   - Lake Union skyline + industrial structures  
   - Golden hour reflections
 
-## Optional Finish
+## Evening (Optional)
 - Return downtown  
-  - Waterfront or Sky View Observatory (night re-shoot)
+  - Waterfront OR Sky View Observatory (night re-shoot)
