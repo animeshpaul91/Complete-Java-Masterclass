@@ -74,3 +74,12 @@
 - Get things done ASAP. Do not procrastinate.
 - Learn and practice consistently. Practice, practice and practice. Master one thing and become really really good at it.
 - Read regularly and consistently.
+
+
+## Dating Tips:
+1. Channel all your extrovert friends when talking to her. Ask the questions you want answers to.
+2. Be frank about what you want from life. Ask her to do the same. Be honest about what you think you’ll be okay with and what you’re not. (Past bfs / relationships / sexual history / being friends with exes /other quirks / fetishes /habits). I know it’s gonna feel like the hardest thing to bring it up, but just put it out there. You’ll thank yourself later.
+3. If possible try and date for a few weeks if not months. I know it kinda will sound impossible, but try travelling with this person. A short trip? Get separate rooms if need be. But spend time alone.
+4. Looks will fade, but if you think its important to you, know that people will expect the same or more in return. Don’t agree to marry someone who you think is “ugly” per your standards even if you like them as a person. They deserve to feel physically attractive also and they might find someone who will.
+5. Be clean, non-smelly, fairly well put together and well groomed at the very least.
+
