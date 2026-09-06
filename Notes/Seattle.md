@@ -42,10 +42,6 @@
 - Washington Park Arboretum  
   - Forest trails + reflections + Japanese garden
 
-## Midday
-- Seward Park  
-  - Lake Washington shoreline + forest loop walk
-
 ## Afternoon
 - Volunteer Park  
   - Conservatory + water tower views + city framing
