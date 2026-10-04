@@ -32,3 +32,13 @@ Here's your snap back to reality. Pick one thing you've been "planning" and do a
 - On relationships, the most uncomfortable truth I learned is that people treat you roughly how you train them to treat you. If you're always available, never voice a need, and bend over backward to avoid conflict, you're not being kind, you're just handing them the blueprint to walk all over you. Setting a boundary feels like aggression at first, but it's the only way to find out who actually respects you versus who just enjoys your compliance.
 
 - Money is stupidly simple but nobody wants to hear it. Spend less than you earn, invest the difference in a broad index fund, and then shut up about it for twenty years. the hard part isn't the math, it's killing the little dopamine hits you get from buying things to fill a void that stuff can't fill anyway. I doodle circuit boards for fun and the most satisfying feeling is finishing a design after three scrapped attempts, way better than any impulse purchase I've ever made.
+
+
+## Life is short. Things that you should stop doing ASAP:
+- Stop comparing yourself and your lives to others. There is no ceiling for this comparison. There will always be someone who's richer, more successful and ahead of you. Instead, compare yourself with your past self. That's a much better way of measuring success in your life.
+- Stop spending time with people who drain you. Choose your relationships wisely. At some point, accept that people will NOT change. Incompatible relationships should naturally be allowed to fade away.
+- Stop playing the BLAME GAME. Accept that there are several things beyond your control and things will NOT always go your way. Stop `BLAMING and COMPLAINING`.
+- Stop staying just because it's familiar. In other words, `EMBRACE CHANGE`. Quitting and changing direction in life is recognizing that your time and energy may be better spent in doing something else. `Familiar isn't the same as Good`.
+- For the love of God, don't let your possessions own you. Beware of over consumerism.
+- Information is everywhere. Stay away from social media. Learn a skill, practice it, apply it. Applied knowledge with execution is Lethal Power.
+- We all have finite amount of time in our lives. An average person lives 4000 weeks. Time is the most prized asset. Figure out what matters to you. Spend time wisely. Ask yourself - "Am I spending my time on what matters?" This time will pass and won't return.
