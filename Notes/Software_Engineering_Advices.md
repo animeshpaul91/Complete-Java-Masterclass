@@ -129,3 +129,9 @@ Software Engineers bring a hell lot more monetary value to the table for any com
   - Take accountability
   - Practice self-criticism and self-awareness
 
+
+### Skills that you need to double down in the AI Era
+- Business Context and Customer Problem (The Flow Starts from here). What is the customer problem and how your solution solves it.
+- System/Domain Design and Data Architecture. How you build a scalable system. How data flows? What are the risks/Trade offs?
+- Agentic Workflows. How LLMs fundamentally work? How it harnesses tools and data? Not just prompt.
+
