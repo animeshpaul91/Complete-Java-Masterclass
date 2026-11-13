@@ -42,3 +42,16 @@ Here's your snap back to reality. Pick one thing you've been "planning" and do a
 - For the love of God, don't let your possessions own you. Beware of over consumerism.
 - Information is everywhere. Stay away from social media. Learn a skill, practice it, apply it. Applied knowledge with execution is Lethal Power.
 - We all have finite amount of time in our lives. An average person lives 4000 weeks. Time is the most prized asset. Figure out what matters to you. Spend time wisely. Ask yourself - "Am I spending my time on what matters?" This time will pass and won't return.
+
+
+## Life Lessons from a 40 Year Old:
+* Your 30s are not the time to play it safe. Take risks before you convince yourself it's too late.
+* Having no friends is better than keeping the wrong people around.
+* Sleep, exercise, and health matter more than almost anything else.
+* How you communicate and position yourself can matter as much as how hard you work.
+* Age doesn't automatically make someone wise. Respect is earned, not given.
+* Choose a partner whose values and vision for life align with yours.
+* Confidence comes from keeping promises to yourself.
+* Sometimes walking away from something you've invested years in is the smartest decision you'll make.
+* Start investing early. Time is your biggest advantage.
+* Don't spend your life trying to meet other people's expectations. You only get one.
