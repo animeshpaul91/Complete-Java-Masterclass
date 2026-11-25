@@ -18,3 +18,17 @@ It is important to recognize the quality you value. You do not pursue a standard
 ## A System is what stops you renegotiating the standard everyday.
 
 ### A Goal gives direction; A Standard protects quality; A System removes the daily argument.
+
+
+### Where to raise your standards? Factors that govern the dependency stack of standards
+1. You must very carefully and very deliberately choose where to demand excellence from yourself.
+2. You must separate your responsibility for conduct from your attachment for results.
+
+
+### Where to NOT raise your standards?
+You have a finite budget of willpower, attention and self-monitoring. Raising your standards everywhere will cause you to raise them NOWHERE.
+How do you deal with it? **Asymmetry is the art.**
+1. You need to aim to have ferociously (non-negotiably) high standards in two or three domains (at most). These are areas which should survive the disappearance of public recognition. The desire should come from within.   
+2. You need to aim to have adequate standards everywhere else on purpose.
+
+Chosen mediocrity is strategy. Unchosen mediocrity is decay. Adequacy never covers: honesty, respect for others, basic care, a promise someone relies on you for.
