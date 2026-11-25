@@ -112,3 +112,25 @@ Learning to ask good questions is a powerful skill that improves learning, commu
 * Models: Attract Women Through Honesty - Mark Manson
 * Influence: The Psychology of Persuasion
 * The Stoic Challenge: A Philosopher's Guide to Becoming Tougher, Calmer, and More Resilient
+
+
+## Must Read Books from Podcasts
+1.  Evolutionary Psychology
+2.  Slow Sex
+3.  How to Do the Work
+4.  The Myth of Normal
+5.  Scattered Minds
+6.  The Body Keeps the Score
+7.  The Cost of Being a Man
+8.  Men Are from Mars, Women Are from Venus
+9.  The Art of War
+10. The Inner Game of Tennis
+11. Sisu
+12. Grit
+13. Mastery
+14. The 48 Laws of Power
+15. The Art of Seduction
+16. The Laws of Human Nature
+17. The Almanack of Naval Ravikant
+18. Factfulness
+19. The Back of the Napkin
