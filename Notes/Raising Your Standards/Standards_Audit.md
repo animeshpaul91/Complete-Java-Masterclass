@@ -37,3 +37,21 @@ I give myself permission to watch less TV and spend less time on social media so
 ## Make room for exercise
 
 I will schedule workouts on at least five days each week, alongside my daily focus on one chosen domain.
+
+# The Standards Audit — Step 4
+
+## Write my declarations
+
+### Software Engineering
+
+1. **Quality:** I am a lifelong learner who steadily develops my engineering knowledge and judgment.
+2. **Conduct:** On days I choose Software Engineering, I study or practise one focused topic and record what I learned, however small.
+3. **Reason:** I value understanding how things work and becoming an engineer who can solve problems well, even when nobody notices my progress.
+
+### Music and Guitar Practice
+
+1. **Quality:** I am a patient, dedicated musician who steadily develops my understanding of music and my ability to play guitar and sing.
+2. **Conduct:** On days I choose Music, I practise one specific skill or song passage with focused attention, even if I make only a small improvement.
+3. **Reason:** Music brings me joy and gives me a way to express myself. I want to play songs and sing with ease, whether I am playing for myself or for others.
+
+
