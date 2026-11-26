@@ -17,11 +17,11 @@
 
 ## Choose two or three domains
 
-| Domain                    | The reason                                                                                                                                                                                                                                       |
-|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Software Engineering      | I want to be a lifelong learner who keeps deepening my understanding and sharpening my engineering skills. I value the ability to solve problems well and adapt as technology changes, even when nobody notices my progress.                     |
-| Music and Guitar Practice | I want to deepen my understanding of music and develop the skill to play guitar and sing with ease. Playing and learning songs brings me joy, and music is a hobby I love and feel deeply connected to, whether I play for myself or for others. |
-| Photography               | I aspire to become a professional photographer. I want to build a strong understanding of the fundamentals through consistent study and practice, applying what I learn from online courses to steadily improve my photography.                  |
+| Domain                    | The reason                                                                                                                                                                                                                                                        |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Software Engineering      | I want to be a lifelong learner who keeps deepening my understanding and sharpening my engineering skills. I value the ability to solve problems well and adapt as technology changes, even when nobody notices my progress.                                      |
+| Music and Guitar Practice | I want to deepen my understanding of music and develop the skill to play guitar and sing with ease. Playing and learning songs brings me joy, and music is a hobby I love and feel deeply connected to, whether I play for myself or for others.                  |
+| Photography               | I aspire to become a professional photographer. I want to build a strong understanding of the fundamentals through consistent study and practice, applying what I learn from online courses to steadily improve my photography even if nobody os noticing me now. |
 
 
 
