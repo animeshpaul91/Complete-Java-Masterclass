@@ -17,12 +17,23 @@
 
 ## Choose two or three domains
 
+I will choose one of these domains to focus on each day. I do not expect myself to practise all three every day.
+
 | Domain                    | The reason                                                                                                                                                                                                                                                        |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Software Engineering      | I want to be a lifelong learner who keeps deepening my understanding and sharpening my engineering skills. I value the ability to solve problems well and adapt as technology changes, even when nobody notices my progress.                                      |
 | Music and Guitar Practice | I want to deepen my understanding of music and develop the skill to play guitar and sing with ease. Playing and learning songs brings me joy, and music is a hobby I love and feel deeply connected to, whether I play for myself or for others.                  |
 | Photography               | I aspire to become a professional photographer. I want to build a strong understanding of the fundamentals through consistent study and practice, applying what I learn from online courses to steadily improve my photography even if nobody os noticing me now. |
 
+# The Standards Audit — Step 3
 
+## Choose where adequate is enough
 
+I give myself permission to watch less TV and spend less time on social media so I can make more time for my chosen domains.
 
+- The time released from watching less TV now goes to focused learning or practice in my chosen domain for the day.
+- The time released from doomscrolling now goes to focused learning or practice in my chosen domain for the day.
+
+## Make room for exercise
+
+I will schedule workouts on at least five days each week, alongside my daily focus on one chosen domain.
