@@ -21,7 +21,7 @@ It is important to recognize the quality you value. You do not pursue a standard
 
 
 ### Where to raise your standards? Factors that govern the dependency stack of standards
-1. You must very carefully and very deliberately choose where to demand excellence from yourself.
+1. You must very carefully and very deliberately choose where to demand excellence from yourself. Where you bear and want to uphold your identity.
 2. You must separate your responsibility for conduct from your attachment for results.
 
 
@@ -32,3 +32,8 @@ How do you deal with it? **Asymmetry is the art.**
 2. You need to aim to have adequate standards everywhere else on purpose.
 
 Chosen mediocrity is strategy. Unchosen mediocrity is decay. Adequacy never covers: honesty, respect for others, basic care, a promise someone relies on you for.
+One of the most important standard that you can raise is the standard for what DESERVES your efforts and not what DOES NOT deserve your efforts.
+
+## Perfectionism
+Perfectionism is not standards that are too high. It is standard misallocated in time. For instance, the shipping standard applied at the drafting stage.
+Every standard should have a floor and a ceiling. They are the lower and upper limits to putting effort 
