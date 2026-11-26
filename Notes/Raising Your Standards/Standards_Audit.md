@@ -82,5 +82,3 @@ I will schedule workouts on at least five days each week, alongside my daily foc
 ### One adjustment for next week
 
 [Write one specific adjustment that will help me follow through.]
-
-
