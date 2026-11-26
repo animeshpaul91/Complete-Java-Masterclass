@@ -54,4 +54,33 @@ I will schedule workouts on at least five days each week, alongside my daily foc
 2. **Conduct:** On days I choose Music, I practise one specific skill or song passage with focused attention, even if I make only a small improvement.
 3. **Reason:** Music brings me joy and gives me a way to express myself. I want to play songs and sing with ease, whether I am playing for myself or for others.
 
+# The Standards Audit — Step 5
+
+## Weekly review
+
+**Week reviewed:** [Start date] to [End date]
+
+**Review date:** [Date]
+
+### What I followed through on
+
+[Describe how I followed through on my daily chosen domain and my declarations.]
+
+### Where I fell short and what happened
+
+[Describe any missed commitments and the circumstances.]
+
+### What breaking the declaration meant to me
+
+[Did it feel like missing a target or acting against something I believe in? What does this tell me about my commitment?]
+
+### Exercise and time tradeoffs
+
+- **Workout days:** [Number] out of 7. **Did I meet my minimum of five days?** [Yes / No]
+- **Time freed from TV and scrolling:** [What I reduced and how I used that time.]
+
+### One adjustment for next week
+
+[Write one specific adjustment that will help me follow through.]
+
 
